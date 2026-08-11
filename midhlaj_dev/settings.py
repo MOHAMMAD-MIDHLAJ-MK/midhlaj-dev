@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-h_4r*x5cx%kxtg@3j*eb29qsn-1s82&+2ljmb%12btdt+5r^0g
 DEBUG = True
 
 ALLOWED_HOSTS = [
-     ["midhlajmk.pythonanywhere.com"]
+     "midhlajmk.pythonanywhere.com",
 ]
 
 
@@ -122,8 +122,9 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles",
+    BASE_DIR / "static",
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "/media/"
 
-MEDIA_ROOT = BASE_DIR / "staticfiles"
+MEDIA_ROOT = BASE_DIR / "media"
