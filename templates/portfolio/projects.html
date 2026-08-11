@@ -1,30 +1,66 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
 Projects | Midhlaj Dev
 {% endblock %}
 
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/projects.css' %}">
 {% endblock %}
 
+
 {% block content %}
+<!-- =====================================================
+     TOP ACTION
+====================================================== -->
+
+<div class="projects-top-action">
+
+    {% if user.is_authenticated %}
+
+    <a href="{% url 'add_project' %}" class="add-project-btn">
+
+        <span class="add-project-icon">
+            <i class="bi bi-plus-lg"></i>
+        </span>
+
+        <span class="add-project-text">
+            Add Project
+        </span>
+
+    </a>
+
+    {% endif %}
+
+</div>
+
+
+
 
 <div class="projects-page">
 
-    <!-- =====================================================
-         TOP ACTION
-    ====================================================== -->
+  <!-- =====================================================
+     TOP ACTION
+====================================================== -->
 
-    {% if user.is_authenticated %}
-    <div class="projects-top-action">
-        <a href="{% url 'add_project' %}" class="add-project-btn">
+<div class="projects-top-action">
+
+    <a
+        href="{% url 'add_project' %}"
+        class="add-project-btn"
+    >
+        <span class="add-project-icon">
             <i class="bi bi-plus-lg"></i>
-            <span>Add Project</span>
-        </a>
-    </div>
-    {% endif %}
+        </span>
+
+        <span class="add-project-text">
+            Add Project
+        </span>
+    </a>
+
+</div>
 
 
     <!-- =====================================================
@@ -43,15 +79,18 @@ Projects | Midhlaj Dev
                     <span></span>
                 </div>
 
+
                 <h1 class="projects-title">
                     My <span>Projects</span>
                 </h1>
+
 
                 <p class="projects-description">
                     A collection of projects I've built while learning,
                     experimenting and developing my skills in Python,
                     Django and modern web technologies.
                 </p>
+
 
                 <div class="projects-meta">
 
@@ -60,14 +99,18 @@ Projects | Midhlaj Dev
                         <span>Projects</span>
                     </div>
 
+
                     <div class="meta-divider"></div>
+
 
                     <div class="meta-item">
                         <strong>Python</strong>
                         <span>Backend</span>
                     </div>
 
+
                     <div class="meta-divider"></div>
+
 
                     <div class="meta-item">
                         <strong>Django</strong>
@@ -83,6 +126,7 @@ Projects | Midhlaj Dev
     </section>
 
 
+
     <!-- =====================================================
          PROJECT SECTION
     ====================================================== -->
@@ -92,71 +136,88 @@ Projects | Midhlaj Dev
         <div class="projects-container">
 
 
-            <!-- FILTER -->
+            <!-- =================================================
+                 FILTER
+            ================================================== -->
 
             <div class="project-filter-wrapper">
 
                 <div class="project-filter">
+
 
                     <button
                         type="button"
                         class="project-filter-btn active"
                         data-filter="all"
                     >
+                        <i class="bi bi-grid"></i>
                         All
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="django"
                     >
+                        <i class="bi bi-lightning-charge"></i>
                         Django
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="full stack"
                     >
+                        <i class="bi bi-layers"></i>
                         Full Stack
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="frontend"
                     >
+                        <i class="bi bi-window"></i>
                         Frontend
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="backend"
                     >
+                        <i class="bi bi-server"></i>
                         Backend
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="web application"
                     >
+                        <i class="bi bi-globe2"></i>
                         Web Application
                     </button>
+
 
                     <button
                         type="button"
                         class="project-filter-btn"
                         data-filter="other"
                     >
+                        <i class="bi bi-three-dots"></i>
                         Other
                     </button>
 
                 </div>
 
             </div>
+
 
 
             <!-- =================================================
@@ -175,9 +236,13 @@ Projects | Midhlaj Dev
                     data-category="{{ project.category|lower }}"
                 >
 
-                    <!-- IMAGE -->
+
+                    <!-- =================================================
+                         IMAGE
+                    ================================================== -->
 
                     <div class="project-image-wrapper">
+
 
                         {% if project.cover_image %}
 
@@ -188,6 +253,7 @@ Projects | Midhlaj Dev
                             loading="lazy"
                         >
 
+
                         {% elif project.image %}
 
                         <img
@@ -196,6 +262,7 @@ Projects | Midhlaj Dev
                             class="project-image"
                             loading="lazy"
                         >
+
 
                         {% else %}
 
@@ -212,23 +279,37 @@ Projects | Midhlaj Dev
                         {% endif %}
 
 
+
                         <!-- CATEGORY -->
 
                         {% if project.category %}
+
                         <span class="project-category">
+
+                            <i class="bi bi-folder2"></i>
+
                             {{ project.get_category_display }}
+
                         </span>
+
                         {% endif %}
+
 
 
                         <!-- FEATURED -->
 
                         {% if project.featured %}
+
                         <span class="featured-badge">
+
                             <i class="bi bi-star-fill"></i>
+
                             Featured
+
                         </span>
+
                         {% endif %}
+
 
 
                         <!-- VIEW -->
@@ -240,7 +321,9 @@ Projects | Midhlaj Dev
                                 class="image-action"
                                 aria-label="View {{ project.title }}"
                             >
+
                                 <i class="bi bi-arrow-up-right"></i>
+
                             </a>
 
                         </div>
@@ -248,42 +331,64 @@ Projects | Midhlaj Dev
                     </div>
 
 
-                    <!-- CONTENT -->
+
+                    <!-- =================================================
+                         CONTENT
+                    ================================================== -->
 
                     <div class="project-card-content">
 
+
                         <span class="project-number">
+
                             PROJECT
+
                             {% if forloop.counter < 10 %}
+
                                 0{{ forloop.counter }}
+
                             {% else %}
+
                                 {{ forloop.counter }}
+
                             {% endif %}
+
                         </span>
 
 
+
                         <h2 class="project-title">
+
                             {{ project.title }}
+
                         </h2>
+
 
 
                         {% if project.description %}
 
                         <p class="project-description">
+
                             {{ project.description|truncatewords:25 }}
+
                         </p>
 
                         {% else %}
 
                         <p class="project-description">
+
                             Explore this project and discover
                             the technologies and features used.
+
                         </p>
 
                         {% endif %}
 
 
-                        <!-- TECHNOLOGIES -->
+
+                        <!-- =================================================
+                             TECHNOLOGIES
+                        ================================================== -->
 
                         {% if project.technology_list %}
 
@@ -302,20 +407,29 @@ Projects | Midhlaj Dev
                         {% endif %}
 
 
-                        <!-- CARD FOOTER -->
+
+                        <!-- =================================================
+                             FOOTER
+                        ================================================== -->
 
                         <div class="project-card-footer">
+
 
                             <a
                                 href="{% url 'project_detail' project.slug %}"
                                 class="project-details-link"
                             >
+
                                 View Details
+
                                 <i class="bi bi-arrow-right"></i>
+
                             </a>
 
 
+
                             <div class="project-links">
+
 
                                 {% if project.github_url %}
 
@@ -326,10 +440,13 @@ Projects | Midhlaj Dev
                                     class="project-icon-link"
                                     title="GitHub"
                                 >
+
                                     <i class="bi bi-github"></i>
+
                                 </a>
 
                                 {% endif %}
+
 
 
                                 {% if project.live_url %}
@@ -341,7 +458,9 @@ Projects | Midhlaj Dev
                                     class="project-icon-link"
                                     title="Live Demo"
                                 >
+
                                     <i class="bi bi-box-arrow-up-right"></i>
+
                                 </a>
 
                                 {% endif %}
@@ -351,35 +470,50 @@ Projects | Midhlaj Dev
                         </div>
 
 
+
                         <!-- =================================================
                              EDIT / DELETE
                         ================================================== -->
 
                         {% if user.is_authenticated %}
-                        {% if project.owner == user %}
 
-                        <div class="project-admin-actions">
+                            {% if project.owner == user %}
 
-                            <a
-                                href="{% url 'edit_project' project.slug %}"
-                                class="admin-action edit-action"
-                            >
-                                <i class="bi bi-pencil-square"></i>
-                                <span>Edit</span>
-                            </a>
+                            <div class="project-admin-actions">
 
 
-                            <a
-                                href="{% url 'delete_project' project.slug %}"
-                                class="admin-action delete-action"
-                            >
-                                <i class="bi bi-trash3"></i>
-                                <span>Delete</span>
-                            </a>
+                                <a
+                                    href="{% url 'edit_project' project.slug %}"
+                                    class="admin-action edit-action"
+                                >
 
-                        </div>
+                                    <i class="bi bi-pencil-square"></i>
 
-                        {% endif %}
+                                    <span>
+                                        Edit
+                                    </span>
+
+                                </a>
+
+
+
+                                <a
+                                    href="{% url 'delete_project' project.slug %}"
+                                    class="admin-action delete-action"
+                                >
+
+                                    <i class="bi bi-trash3"></i>
+
+                                    <span>
+                                        Delete
+                                    </span>
+
+                                </a>
+
+                            </div>
+
+                            {% endif %}
+
                         {% endif %}
 
                     </div>
@@ -389,25 +523,40 @@ Projects | Midhlaj Dev
 
                 {% empty %}
 
-                <!-- EMPTY -->
+
+                <!-- =================================================
+                     EMPTY
+                ================================================== -->
 
                 <div class="projects-empty">
 
                     <div class="empty-icon">
+
                         <i class="bi bi-folder2-open"></i>
+
                     </div>
+
 
                     <h2>
                         No Projects Yet
                     </h2>
 
+
                     <p>
+
                         {% if user.is_authenticated %}
+
                             You haven't added any projects yet.
+
                         {% else %}
+
                             Projects will appear here once they are added.
+
                         {% endif %}
+
                     </p>
+
+
 
                     {% if user.is_authenticated %}
 
@@ -415,8 +564,11 @@ Projects | Midhlaj Dev
                         href="{% url 'add_project' %}"
                         class="empty-admin-btn"
                     >
+
                         <i class="bi bi-plus-lg"></i>
+
                         Add Your First Project
+
                     </a>
 
                     {% endif %}
@@ -428,7 +580,10 @@ Projects | Midhlaj Dev
             </div>
 
 
-            <!-- FILTER EMPTY -->
+
+            <!-- =================================================
+                 FILTER EMPTY
+            ================================================== -->
 
             <div
                 id="noFilterResults"
@@ -437,12 +592,16 @@ Projects | Midhlaj Dev
             >
 
                 <div class="empty-icon">
+
                     <i class="bi bi-search"></i>
+
                 </div>
+
 
                 <h3>
                     No projects found
                 </h3>
+
 
                 <p>
                     Try selecting another category.
@@ -453,6 +612,7 @@ Projects | Midhlaj Dev
         </div>
 
     </section>
+
 
 
     <!-- =====================================================
@@ -467,36 +627,53 @@ Projects | Midhlaj Dev
 
                 <div class="cta-content">
 
+
                     <span class="cta-label">
                         HAVE AN IDEA?
                     </span>
 
+
                     <h2>
+
                         Let's build something
                         <span>amazing.</span>
+
                     </h2>
 
+
                     <p>
+
                         I'm always interested in working on
                         new ideas, projects and opportunities.
+
                     </p>
 
+
                     <div class="cta-buttons">
+
 
                         <a
                             href="{% url 'contact' %}"
                             class="projects-primary-btn"
                         >
+
                             <i class="bi bi-send-fill"></i>
+
                             Contact Me
+
                         </a>
+
+
 
                         <a
                             href="{% url 'about' %}"
                             class="projects-secondary-btn"
                         >
+
                             About Me
+
                             <i class="bi bi-arrow-right"></i>
+
                         </a>
 
                     </div>
@@ -514,86 +691,141 @@ Projects | Midhlaj Dev
 {% endblock %}
 
 
+
 {% block extra_js %}
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const buttons = document.querySelectorAll(
-        ".project-filter-btn"
-    );
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const items = document.querySelectorAll(
-        ".project-item"
-    );
-
-    const noResults = document.getElementById(
-        "noFilterResults"
-    );
+        const buttons =
+            document.querySelectorAll(
+                ".project-filter-btn"
+            );
 
 
-    buttons.forEach(button => {
-
-        button.addEventListener("click", function () {
-
-            buttons.forEach(btn => {
-                btn.classList.remove("active");
-            });
-
-            this.classList.add("active");
+        const items =
+            document.querySelectorAll(
+                ".project-item"
+            );
 
 
-            const filter = this
-                .getAttribute("data-filter")
-                .toLowerCase();
-
-            let visibleCount = 0;
-
-
-            items.forEach(item => {
-
-                const category =
-                    item.getAttribute("data-category")
-                    .toLowerCase();
+        const noResults =
+            document.getElementById(
+                "noFilterResults"
+            );
 
 
-                if (
-                    filter === "all" ||
-                    category.includes(filter)
-                ) {
+        buttons.forEach(
+            function (button) {
 
-                    item.classList.remove(
-                        "project-hidden"
-                    );
-
-                    visibleCount++;
-
-                } else {
-
-                    item.classList.add(
-                        "project-hidden"
-                    );
-
-                }
-
-            });
+                button.addEventListener(
+                    "click",
+                    function () {
 
 
-            if (visibleCount === 0) {
+                        /* =========================
+                           ACTIVE BUTTON
+                        ========================= */
 
-                noResults.style.display = "block";
+                        buttons.forEach(
+                            function (btn) {
 
-            } else {
+                                btn.classList.remove(
+                                    "active"
+                                );
 
-                noResults.style.display = "none";
+                            }
+                        );
+
+
+                        this.classList.add(
+                            "active"
+                        );
+
+
+                        /* =========================
+                           FILTER
+                        ========================= */
+
+                        const filter =
+                            this
+                                .getAttribute(
+                                    "data-filter"
+                                )
+                                .toLowerCase();
+
+
+                        let visibleCount = 0;
+
+
+                        items.forEach(
+                            function (item) {
+
+                                const category =
+                                    (
+                                        item.getAttribute(
+                                            "data-category"
+                                        ) || ""
+                                    ).toLowerCase();
+
+
+                                if (
+                                    filter === "all" ||
+                                    category.includes(filter)
+                                ) {
+
+                                    item.classList.remove(
+                                        "project-hidden"
+                                    );
+
+                                    visibleCount++;
+
+                                }
+
+                                else {
+
+                                    item.classList.add(
+                                        "project-hidden"
+                                    );
+
+                                }
+
+                            }
+                        );
+
+
+                        /* =========================
+                           EMPTY RESULT
+                        ========================= */
+
+                        if (
+                            visibleCount === 0
+                        ) {
+
+                            noResults.style.display =
+                                "block";
+
+                        }
+
+                        else {
+
+                            noResults.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
 
             }
+        );
 
-        });
+    }
+);
 
-    });
-
-});
 </script>
 
 {% endblock %}

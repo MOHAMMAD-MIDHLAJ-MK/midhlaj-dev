@@ -12,6 +12,10 @@ from .forms import ProjectForm, ProjectContentFormSet
 
 def home(request):
 
+    # -----------------------------------------------------
+    # FEATURED PROJECTS
+    # -----------------------------------------------------
+
     featured_projects = (
         Project.objects
         .filter(
@@ -21,11 +25,25 @@ def home(request):
         .order_by("-created_at")[:3]
     )
 
+    # -----------------------------------------------------
+    # RECENT PROJECTS
+    # -----------------------------------------------------
+
+    recent_projects = (
+        Project.objects
+        .filter(
+            recent=True,
+            is_active=True
+        )
+        .order_by("-created_at")[:6]
+    )
+
     return render(
         request,
         "portfolio/home.html",
         {
             "featured_projects": featured_projects,
+            "recent_projects": recent_projects,
         }
     )
 
@@ -65,6 +83,7 @@ def projects(request):
         .filter(
             is_active=True
         )
+        .select_related("owner")
         .order_by("-created_at")
     )
 
@@ -91,22 +110,16 @@ def project_detail(request, slug):
 
     contents = (
         project.contents
-        .filter(is_active=True)
+        .filter(
+            is_active=True
+        )
         .order_by(
             "order",
             "created_at"
         )
     )
 
-    technologies = []
-
-    if project.technologies:
-
-        technologies = [
-            tech.strip()
-            for tech in project.technologies.split(",")
-            if tech.strip()
-        ]
+    technologies = project.technology_list
 
     return render(
         request,
@@ -144,6 +157,10 @@ def add_project(request):
             and content_formset.is_valid()
         ):
 
+            # ---------------------------------------------
+            # SAVE PROJECT
+            # ---------------------------------------------
+
             project = project_form.save(
                 commit=False
             )
@@ -151,6 +168,10 @@ def add_project(request):
             project.owner = request.user
 
             project.save()
+
+            # ---------------------------------------------
+            # SAVE GALLERY CONTENT
+            # ---------------------------------------------
 
             content_formset.instance = project
 
@@ -196,14 +217,12 @@ def edit_project(request, slug):
         slug=slug
     )
 
-    # -----------------------------------------
+    # -----------------------------------------------------
     # OWNER CHECK
-    # -----------------------------------------
+    # -----------------------------------------------------
 
-    if (
-        project.owner
-        and project.owner != request.user
-    ):
+    if project.owner and project.owner != request.user:
+
         messages.error(
             request,
             "You are not allowed to edit this project."
@@ -214,9 +233,9 @@ def edit_project(request, slug):
             slug=project.slug
         )
 
-    # -----------------------------------------
+    # -----------------------------------------------------
     # POST
-    # -----------------------------------------
+    # -----------------------------------------------------
 
     if request.method == "POST":
 
@@ -226,7 +245,17 @@ def edit_project(request, slug):
             instance=project
         )
 
-        if form.is_valid():
+        content_formset = ProjectContentFormSet(
+            request.POST,
+            request.FILES,
+            instance=project,
+            prefix="contents"
+        )
+
+        if (
+            form.is_valid()
+            and content_formset.is_valid()
+        ):
 
             project = form.save(
                 commit=False
@@ -236,6 +265,10 @@ def edit_project(request, slug):
                 project.owner = request.user
 
             project.save()
+
+            content_formset.instance = project
+
+            content_formset.save()
 
             messages.success(
                 request,
@@ -247,14 +280,19 @@ def edit_project(request, slug):
                 slug=project.slug
             )
 
-    # -----------------------------------------
+    # -----------------------------------------------------
     # GET
-    # -----------------------------------------
+    # -----------------------------------------------------
 
     else:
 
         form = ProjectForm(
             instance=project
+        )
+
+        content_formset = ProjectContentFormSet(
+            instance=project,
+            prefix="contents"
         )
 
     return render(
@@ -263,6 +301,7 @@ def edit_project(request, slug):
         {
             "form": form,
             "project": project,
+            "content_formset": content_formset,
         }
     )
 
@@ -279,14 +318,12 @@ def delete_project(request, slug):
         slug=slug
     )
 
-    # -----------------------------------------
+    # -----------------------------------------------------
     # OWNER CHECK
-    # -----------------------------------------
+    # -----------------------------------------------------
 
-    if (
-        project.owner
-        and project.owner != request.user
-    ):
+    if project.owner and project.owner != request.user:
+
         messages.error(
             request,
             "You are not allowed to delete this project."
@@ -297,9 +334,9 @@ def delete_project(request, slug):
             slug=project.slug
         )
 
-    # -----------------------------------------
+    # -----------------------------------------------------
     # DELETE
-    # -----------------------------------------
+    # -----------------------------------------------------
 
     if request.method == "POST":
 

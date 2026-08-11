@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
      "midhlajmk.pythonanywhere.com",
-]
+] 
 
 
 # Application definition

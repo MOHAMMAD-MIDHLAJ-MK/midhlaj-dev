@@ -6,7 +6,10 @@ Home | Midhlaj Dev
 {% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<link rel="stylesheet"
+      href="{% static 'css/home.css' %}">
+
 {% endblock %}
 
 
@@ -16,8 +19,8 @@ Home | Midhlaj Dev
 
 
     <!-- =====================================================
-         HERO SECTION
-    ===================================================== -->
+         HERO
+         ===================================================== -->
 
     <section class="hero">
 
@@ -31,7 +34,7 @@ Home | Midhlaj Dev
                 <div class="hero-content">
 
                     <span class="hero-greeting">
-                        Hello, I'm 👋
+                        Hi, I'm 👋
                     </span>
 
                     <h1 class="hero-name">
@@ -44,89 +47,72 @@ Home | Midhlaj Dev
 
                     <p class="hero-description">
 
-                        I build modern, responsive and user-friendly
-                        web applications with Python, Django and
-                        modern frontend technologies. I focus on
-                        clean code, practical solutions and premium
-                        user experiences.
+                        I build modern, responsive and
+                        user-friendly web applications
+                        using Python, Django and modern
+                        web technologies.
 
                     </p>
 
 
-                    <!-- HERO BUTTONS -->
-               <!-- =====================================================
-                      HERO BUTTONS
-                ===================================================== -->
+                    <!-- BUTTONS -->
 
-             <div class="hero-buttons">
+                    <div class="hero-buttons">
 
-               <!-- DOWNLOAD RESUME -->
-                <a
-                href="{% static 'resume/MOHAMMAD-MIDHLAJ-MK_resume.pdf' %}"
-                class="home-btn resume-btn"
-                 download
-                >
-                <i class="bi bi-download"></i>
-                  <span>Download Resume</span>
-                </a>
+                        <a
+                            href="{% static 'resume/midhlaj_resume.pdf' %}"
+                            class="home-btn resume-btn"
+                            download
+                        >
 
+                            <i class="bi bi-download"></i>
+
+                            Download Resume
+
+                        </a>
 
 
-                 <!-- VIEW PROJECTS -->
-                 <a
-                  href="{% url 'projects' %}"
-                   class="home-btn contact-btn"
-                   >
-                 <i class="bi bi-folder2-open"></i>
-                 <span>View Projects</span>
-                 </a>
+                        <a
+                            href="{% url 'contact' %}"
+                            class="home-btn contact-btn"
+                        >
 
-                 </div>
-                 <div class="hero-buttons">
-                   <!-- VIEW RESUME HTML -->
-                  <a
-                  href="{% url 'resume' %}"
-                  class="home-btn view-resume-btn"
-                   >
-                   <i class="bi bi-file-earmark-person"></i>
-                  <span>View Resume</span>
-                  </a>
-                  </div>
-                    <!-- SOCIAL LINKS -->
+                            <i class="bi bi-person"></i>
+
+                            Contact Me
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- SOCIAL -->
 
                     <div class="hero-social">
 
                         <a
-                            href="https://github.com/MOHAMMAD-MIDHLAJ-MK"
-                            title="GitHub"
+                            href="#"
                             aria-label="GitHub"
                         >
                             <i class="bi bi-github"></i>
                         </a>
 
-
                         <a
-                            href="https://www.linkedin.com/in/midhlaj-mk-9b5a89426"
-                            title="LinkedIn"
+                            href="#"
                             aria-label="LinkedIn"
                         >
                             <i class="bi bi-linkedin"></i>
                         </a>
 
-
-                        <a href="https://wa.me/9605734765"
-                         target="_blank"
-                          rel="noopener noreferrer"
-                         aria-label="WhatsApp">
-
-                        <i class="bi bi-whatsapp"></i>
-
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            <i class="bi bi-instagram"></i>
                         </a>
 
-
                         <a
-                            href="midhlajmk765@gmail.com"
-                            title="Email"
+                            href="mailto:yourmail@gmail.com"
                             aria-label="Email"
                         >
                             <i class="bi bi-envelope"></i>
@@ -147,7 +133,7 @@ Home | Midhlaj Dev
 
                     <img
                         src="{% static 'images/profile/profile.png' %}"
-                        alt="Midhlaj Python Full Stack Developer"
+                        alt="Midhlaj - Python Full Stack Developer"
                         class="hero-profile"
                     >
 
@@ -156,13 +142,15 @@ Home | Midhlaj Dev
             </div>
 
 
-            <!-- FEATURE BAR -->
+            <!-- =================================================
+                 FEATURE BAR
+                 ================================================= -->
 
             <div class="feature-bar">
 
                 <div class="feature">
 
-                    <i class="bi bi-code-slash"></i>
+                    <i class="bi bi-stars"></i>
 
                     <span>
                         Clean Code
@@ -173,7 +161,7 @@ Home | Midhlaj Dev
 
                 <div class="feature">
 
-                    <i class="bi bi-palette"></i>
+                    <i class="bi bi-shield-check"></i>
 
                     <span>
                         Modern Design
@@ -184,7 +172,7 @@ Home | Midhlaj Dev
 
                 <div class="feature">
 
-                    <i class="bi bi-phone"></i>
+                    <i class="bi bi-display"></i>
 
                     <span>
                         Responsive
@@ -206,7 +194,7 @@ Home | Midhlaj Dev
 
                 <div class="feature">
 
-                    <i class="bi bi-shield-check"></i>
+                    <i class="bi bi-exclamation-triangle"></i>
 
                     <span>
                         Best Practices
@@ -223,111 +211,16 @@ Home | Midhlaj Dev
 
 
     <!-- =====================================================
-         INTRO / ABOUT SHORT SECTION
-    ===================================================== -->
-
-    <section class="home-section">
-
-        <div class="section-top">
-
-            <div>
-
-                <h2>
-                    Turning Ideas Into Digital Experiences
-                </h2>
-
-                <p class="section-description">
-
-                    A developer focused on building useful,
-                    reliable and visually polished web applications.
-
-                </p>
-
-            </div>
-
-            <a
-                href="{% url 'about' %}"
-                class="view-all"
-            >
-                About Me →
-            </a>
-
-        </div>
-
-
-        <div class="about-preview">
-
-            <div class="about-preview-content">
-
-                <span class="section-label">
-                    ABOUT ME
-                </span>
-
-                <h2>
-                    Building With Code & Creativity
-                </h2>
-
-                <p>
-
-                    I'm currently pursuing BCA and developing my
-                    skills as a Python Full Stack Developer. I enjoy
-                    transforming ideas into responsive websites,
-                    backend applications and practical software
-                    solutions.
-
-                </p>
-
-
-                <p>
-
-                    My approach combines clean development,
-                    modern UI design and a strong focus on creating
-                    simple experiences for users.
-
-                </p>
-
-
-                <a
-                    href="{% url 'about' %}"
-                    class="home-btn resume-btn about-btn"
-                >
-
-                    Explore About Me
-
-                    <i class="bi bi-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
          WHAT I DO
-    ===================================================== -->
+         ===================================================== -->
 
     <section class="home-section">
 
         <div class="section-top">
 
-            <div>
-
-                <h2>
-                    What I Do
-                </h2>
-
-                <p class="section-description">
-
-                    From backend development to responsive
-                    interfaces, I build complete web solutions.
-
-                </p>
-
-            </div>
+            <h2>
+                What I Do
+            </h2>
 
         </div>
 
@@ -335,7 +228,7 @@ Home | Midhlaj Dev
         <div class="service-grid">
 
 
-            <!-- SERVICE 1 -->
+            <!-- SERVICE 01 -->
 
             <div class="service-card">
 
@@ -350,23 +243,14 @@ Home | Midhlaj Dev
                 </h3>
 
                 <p>
-
-                    Developing reliable Python applications
-                    with clean and maintainable code.
-
+                    Building powerful backend
+                    applications with Python.
                 </p>
-
-                <a
-                    href="{% url 'skills' %}"
-                    class="service-link"
-                >
-                    Explore Skill →
-                </a>
 
             </div>
 
 
-            <!-- SERVICE 2 -->
+            <!-- SERVICE 02 -->
 
             <div class="service-card">
 
@@ -381,23 +265,14 @@ Home | Midhlaj Dev
                 </h3>
 
                 <p>
-
-                    Building secure, scalable and
-                    database-driven Django applications.
-
+                    Creating secure and scalable
+                    Django web applications.
                 </p>
-
-                <a
-                    href="{% url 'projects' %}"
-                    class="service-link"
-                >
-                    View Projects →
-                </a>
 
             </div>
 
 
-            <!-- SERVICE 3 -->
+            <!-- SERVICE 03 -->
 
             <div class="service-card">
 
@@ -412,23 +287,14 @@ Home | Midhlaj Dev
                 </h3>
 
                 <p>
-
-                    Creating responsive interfaces with
-                    HTML, CSS, JavaScript and Bootstrap.
-
+                    Responsive and interactive
+                    user interfaces.
                 </p>
-
-                <a
-                    href="{% url 'skills' %}"
-                    class="service-link"
-                >
-                    Technologies →
-                </a>
 
             </div>
 
 
-            <!-- SERVICE 4 -->
+            <!-- SERVICE 04 -->
 
             <div class="service-card">
 
@@ -439,24 +305,16 @@ Home | Midhlaj Dev
                 </div>
 
                 <h3>
-                    Database Development
+                    Database Design
                 </h3>
 
                 <p>
-
-                    Designing structured and efficient
-                    database solutions using MySQL.
-
+                    Designing efficient databases
+                    with MySQL.
                 </p>
 
-                <a
-                    href="{% url 'skills' %}"
-                    class="service-link"
-                >
-                    View Skills →
-                </a>
-
             </div>
+
 
         </div>
 
@@ -466,33 +324,21 @@ Home | Midhlaj Dev
 
     <!-- =====================================================
          TECHNOLOGIES
-    ===================================================== -->
+         ===================================================== -->
 
     <section class="home-section">
 
         <div class="section-top">
 
-            <div>
-
-                <h2>
-                    Technologies I Use
-                </h2>
-
-                <p class="section-description">
-
-                    A growing technology stack focused on
-                    full-stack web development.
-
-                </p>
-
-            </div>
-
+            <h2>
+                Technologies I Use
+            </h2>
 
             <a
                 href="{% url 'skills' %}"
                 class="view-all"
             >
-                View All Skills →
+                View All →
             </a>
 
         </div>
@@ -520,8 +366,12 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon django-icon">
-                    dj
+                <div class="tech-icon">
+
+                    <strong style="color:#00d9d0;">
+                        dj
+                    </strong>
+
                 </div>
 
                 <span>
@@ -535,7 +385,10 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon html-icon">
+                <div
+                    class="tech-icon"
+                    style="color:#ff6534;"
+                >
 
                     <i class="bi bi-filetype-html"></i>
 
@@ -552,7 +405,10 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon css-icon">
+                <div
+                    class="tech-icon"
+                    style="color:#2196f3;"
+                >
 
                     <i class="bi bi-filetype-css"></i>
 
@@ -569,7 +425,10 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon js-icon">
+                <div
+                    class="tech-icon"
+                    style="color:#ffd600;"
+                >
 
                     <i class="bi bi-filetype-js"></i>
 
@@ -582,43 +441,14 @@ Home | Midhlaj Dev
             </div>
 
 
-            <!-- JQUERY -->
-
-            <div class="tech-card">
-
-                <div class="tech-icon jquery-icon">
-                    jq
-                </div>
-
-                <span>
-                    jQuery
-                </span>
-
-            </div>
-
-
-            <!-- BOOTSTRAP -->
-
-            <div class="tech-card">
-
-                <div class="tech-icon bootstrap-icon">
-
-                    <i class="bi bi-bootstrap"></i>
-
-                </div>
-
-                <span>
-                    Bootstrap
-                </span>
-
-            </div>
-
-
             <!-- MYSQL -->
 
             <div class="tech-card">
 
-                <div class="tech-icon mysql-icon">
+                <div
+                    class="tech-icon"
+                    style="color:#00bcd4;"
+                >
 
                     <i class="bi bi-database"></i>
 
@@ -635,7 +465,10 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon git-icon">
+                <div
+                    class="tech-icon"
+                    style="color:#f05033;"
+                >
 
                     <i class="bi bi-git"></i>
 
@@ -652,7 +485,10 @@ Home | Midhlaj Dev
 
             <div class="tech-card">
 
-                <div class="tech-icon github-icon">
+                <div
+                    class="tech-icon"
+                    style="color:white;"
+                >
 
                     <i class="bi bi-github"></i>
 
@@ -665,39 +501,6 @@ Home | Midhlaj Dev
             </div>
 
 
-            <!-- REST API -->
-
-            <div class="tech-card">
-
-                <div class="tech-icon api-icon">
-
-                    <i class="bi bi-braces"></i>
-
-                </div>
-
-                <span>
-                    REST API
-                </span>
-
-            </div>
-
-
-            <!-- VS CODE -->
-
-            <div class="tech-card">
-
-                <div class="tech-icon vscode-icon">
-
-                    <i class="bi bi-code-square"></i>
-
-                </div>
-
-                <span>
-                    VS Code
-                </span>
-
-            </div>
-
         </div>
 
     </section>
@@ -705,291 +508,21 @@ Home | Midhlaj Dev
 
 
     <!-- =====================================================
-         PROJECTS
-    ===================================================== -->
-
-    <section class="home-section">
-
-        <div class="section-top">
-
-            <div>
-
-                <h2>
-                    Featured Projects
-                </h2>
-
-                <p class="section-description">
-
-                    A selection of applications and websites
-                    built while learning and developing.
-
-                </p>
-
-            </div>
-
-
-            <a
-                href="{% url 'projects' %}"
-                class="view-all"
-            >
-                All Projects →
-            </a>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <!-- PORTFOLIO -->
-
-            <article class="project-card">
-
-                <img
-                    src="{% static 'images/projects/portfolio.png' %}"
-                    class="project-image"
-                    alt="Portfolio Website"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <span class="project-category">
-                        Django • Portfolio
-                    </span>
-
-                    <h3>
-                        Personal Portfolio
-                    </h3>
-
-                    <p>
-
-                        A modern developer portfolio
-                        designed to showcase skills,
-                        projects and experience.
-
-                    </p>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="{% url 'projects' %}"
-                            class="project-link"
-                        >
-                            <i class="bi bi-eye"></i>
-                            Details
-                        </a>
-
-                        <a
-                            href="#"
-                            class="project-link"
-                        >
-                            <i class="bi bi-github"></i>
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- HOSPITAL -->
-
-            <article class="project-card">
-
-                <img
-                    src="{% static 'images/projects/hospital.png' %}"
-                    class="project-image"
-                    alt="Hospital Management System"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <span class="project-category">
-                        Django • MySQL
-                    </span>
-
-                    <h3>
-                        Hospital Management
-                    </h3>
-
-                    <p>
-
-                        A web application designed
-                        to manage hospital-related
-                        information and workflows.
-
-                    </p>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="{% url 'projects' %}"
-                            class="project-link"
-                        >
-                            <i class="bi bi-eye"></i>
-                            Details
-                        </a>
-
-                        <a
-                            href="#"
-                            class="project-link"
-                        >
-                            <i class="bi bi-github"></i>
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- HOTEL -->
-
-            <article class="project-card">
-
-                <img
-                    src="{% static 'images/projects/hotel.png' %}"
-                    class="project-image"
-                    alt="Hotel Booking System"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <span class="project-category">
-                        Django • Booking
-                    </span>
-
-                    <h3>
-                        Hotel Booking
-                    </h3>
-
-                    <p>
-
-                        A booking platform concept
-                        focused on rooms, users and
-                        reservation workflows.
-
-                    </p>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="{% url 'projects' %}"
-                            class="project-link"
-                        >
-                            <i class="bi bi-eye"></i>
-                            Details
-                        </a>
-
-                        <a
-                            href="#"
-                            class="project-link"
-                        >
-                            <i class="bi bi-github"></i>
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- ECOMMERCE -->
-
-            <article class="project-card">
-
-                <img
-                    src="{% static 'images/projects/ecommerce.png' %}"
-                    class="project-image"
-                    alt="E-Commerce Website"
-                    loading="lazy"
-                >
-
-                <div class="project-info">
-
-                    <span class="project-category">
-                        Django • E-Commerce
-                    </span>
-
-                    <h3>
-                        E-Commerce Website
-                    </h3>
-
-                    <p>
-
-                        An online shopping application
-                        with products, categories and
-                        modern user interface.
-
-                    </p>
-
-
-                    <div class="project-actions">
-
-                        <a
-                            href="{% url 'projects' %}"
-                            class="project-link"
-                        >
-                            <i class="bi bi-eye"></i>
-                            Details
-                        </a>
-
-                        <a
-                            href="#"
-                            class="project-link"
-                        >
-                            <i class="bi bi-github"></i>
-                            GitHub
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         PROJECT VIDEO / SHOWCASE
-    ===================================================== -->
-
-    <section class="home-section">
+         RECENT PROJECTS
+         ===================================================== -->
+<section class="home-section">
 
     <div class="section-top">
 
-        <div>
-            <span class="section-label">MY WORK</span>
+        <h2>
+            Recent Projects
+        </h2>
 
-            <h2>
-                Recent Projects
-            </h2>
-
-            <p class="section-small-text">
-                A selection of web applications and projects
-                I have developed using modern technologies.
-            </p>
-        </div>
-
-        <a href="{% url 'projects' %}" class="view-all">
-            View All Projects
-            <i class="bi bi-arrow-up-right"></i>
+        <a
+            href="{% url 'projects' %}"
+            class="view-all"
+        >
+            View All Projects →
         </a>
 
     </div>
@@ -997,454 +530,140 @@ Home | Midhlaj Dev
 
     <div class="project-grid">
 
+        {% for project in recent_projects %}
 
-        <!-- PORTFOLIO -->
+            <a
+                href="{% url 'project_detail' project.slug %}"
+                class="project-card"
+            >
 
-        <a href="{% url 'portfolio_project' %}" class="project-card">
+                {% if project.cover_image %}
 
-            <div class="project-image-wrap">
+                    <img
+                        src="{{ project.cover_image.url }}"
+                        class="project-image"
+                        alt="{{ project.title }}"
+                    >
 
-                <img
-                    src="{% static 'images/projects/portfolio.png' %}"
-                    class="project-image"
-                    alt="Portfolio Website"
-                >
+                {% elif project.image %}
 
-                <div class="project-overlay">
-                    <span>
-                        View Project
-                        <i class="bi bi-arrow-up-right"></i>
-                    </span>
+                    <img
+                        src="{{ project.image.url }}"
+                        class="project-image"
+                        alt="{{ project.title }}"
+                    >
+
+                {% else %}
+
+                    <div class="project-image project-no-image">
+                        <i class="bi bi-folder2-open"></i>
+                    </div>
+
+                {% endif %}
+
+
+                <div class="project-info">
+
+                    <div class="project-category">
+                        {{ project.get_category_display }}
+                    </div>
+
+                    <h3>
+                        {{ project.title }}
+                    </h3>
+
+                    {% if project.description %}
+
+                        <p>
+                            {{ project.description|truncatewords:15 }}
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if project.technology_list %}
+
+                        <div class="project-tech">
+
+                            {% for tech in project.technology_list|slice:":3" %}
+
+                                <span>
+                                    {{ tech }}
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
                 </div>
 
-            </div>
+            </a>
 
-            <div class="project-info">
+        {% empty %}
 
-                <span class="project-category">
-                    Django Project
-                </span>
+            <div class="projects-empty">
+
+                <i class="bi bi-folder2-open"></i>
 
                 <h3>
-                    Portfolio Website
+                    No Recent Projects
                 </h3>
 
                 <p>
-                    A modern and responsive personal portfolio
-                    built with Django, HTML, CSS and JavaScript.
+                    Recent projects will appear here.
                 </p>
 
             </div>
 
-        </a>
-
-
-
-        <!-- HOSPITAL -->
-
-        <a href="{% url 'hospital' %}" class="project-card">
-
-            <div class="project-image-wrap">
-
-                <img
-                    src="{% static 'images/projects/hospital.png' %}"
-                    class="project-image"
-                    alt="Hospital Management System"
-                >
-
-                <div class="project-overlay">
-                    <span>
-                        View Project
-                        <i class="bi bi-arrow-up-right"></i>
-                    </span>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-category">
-                    Django Project
-                </span>
-
-                <h3>
-                    Hospital Management
-                </h3>
-
-                <p>
-                    A web-based management system designed
-                    to manage hospital-related operations.
-                </p>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- HOTEL -->
-
-        <a href="{% url 'hotel' %}" class="project-card">
-
-            <div class="project-image-wrap">
-
-                <img
-                    src="{% static 'images/projects/hotel.png' %}"
-                    class="project-image"
-                    alt="Hotel Booking System"
-                >
-
-                <div class="project-overlay">
-                    <span>
-                        View Project
-                        <i class="bi bi-arrow-up-right"></i>
-                    </span>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-category">
-                    Web Application
-                </span>
-
-                <h3>
-                    Hotel Booking System
-                </h3>
-
-                <p>
-                    A responsive hotel booking application
-                    with a clean and user-friendly interface.
-                </p>
-
-            </div>
-
-        </a>
-
-
-
-        <!-- E-COMMERCE -->
-
-        <a href="{% url 'ecommerce' %}" class="project-card">
-
-            <div class="project-image-wrap">
-
-                <img
-                    src="{% static 'images/projects/ecommerce.png' %}"
-                    class="project-image"
-                    alt="E-Commerce Website"
-                >
-
-                <div class="project-overlay">
-                    <span>
-                        View Project
-                        <i class="bi bi-arrow-up-right"></i>
-                    </span>
-                </div>
-
-            </div>
-
-            <div class="project-info">
-
-                <span class="project-category">
-                    Full Stack
-                </span>
-
-                <h3>
-                    E-Commerce Website
-                </h3>
-
-                <p>
-                    An online shopping platform built with
-                    Django and modern frontend technologies.
-                </p>
-
-            </div>
-
-        </a>
+        {% endfor %}
 
     </div>
 
 </section>
-
-
-
     <!-- =====================================================
-         DEVELOPMENT APPROACH
-    ===================================================== -->
-
-    <section class="home-section">
-
-        <div class="section-top">
-
-            <div>
-
-                <h2>
-                    How I Build
-                </h2>
-
-                <p class="section-description">
-
-                    My development process focuses on simplicity,
-                    usability and continuous improvement.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="service-grid">
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="bi bi-lightbulb"></i>
-
-                </div>
-
-                <h3>
-                    Understand
-                </h3>
-
-                <p>
-
-                    First I understand the idea, requirements
-                    and expected user experience.
-
-                </p>
-
-                <a
-                    href="{% url 'about' %}"
-                    class="service-link"
-                >
-                    Learn More →
-                </a>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="bi bi-diagram-3"></i>
-
-                </div>
-
-                <h3>
-                    Plan
-                </h3>
-
-                <p>
-
-                    I organize the application structure,
-                    database and development workflow.
-
-                </p>
-
-                <a
-                    href="{% url 'skills' %}"
-                    class="service-link"
-                >
-                    My Skills →
-                </a>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="bi bi-code-square"></i>
-
-                </div>
-
-                <h3>
-                    Develop
-                </h3>
-
-                <p>
-
-                    I implement backend functionality,
-                    frontend components and integrations.
-
-                </p>
-
-                <a
-                    href="{% url 'projects' %}"
-                    class="service-link"
-                >
-                    My Work →
-                </a>
-
-            </div>
-
-
-            <div class="service-card">
-
-                <div class="service-icon">
-
-                    <i class="bi bi-check2-circle"></i>
-
-                </div>
-
-                <h3>
-                    Improve
-                </h3>
-
-                <p>
-
-                    I test, refine and improve the application
-                    for a better final experience.
-
-                </p>
-
-                <a
-                    href="{% url 'contact' %}"
-                    class="service-link"
-                >
-                    Contact Me →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         RESUME CTA
-    ===================================================== -->
+         ABOUT PREVIEW
+         ===================================================== -->
 
     <section class="home-section">
 
         <div class="about-preview">
 
+
             <div class="about-preview-content">
 
-                <span class="section-label">
-                    MY RESUME
-                </span>
 
                 <h2>
-                    Want To Know More About Me?
+                    About Me
                 </h2>
+
 
                 <p>
 
-                    Explore my education, technical skills,
-                    projects and development journey through
-                    my resume.
+                    I'm currently pursuing BCA and
+                    passionate about web development.
+                    I love creating clean, efficient
+                    and user-friendly web applications
+                    using Python and Django.
 
                 </p>
 
 
-                <div class="hero-buttons">
+                <a
+                    href="{% url 'about' %}"
+                    class="home-btn resume-btn about-btn"
+                >
 
-                    <a
-                        href="{% url 'resume' %}"
-                        class="home-btn resume-btn"
-                    >
+                    Read More
 
-                        <i class="bi bi-file-earmark-person"></i>
+                    <i class="bi bi-arrow-right"></i>
 
-                        View Resume
+                </a>
 
-                    </a>
-
-
-                    <a
-                        href="{% static 'resume/midhlaj_resume.pdf' %}"
-                        class="home-btn contact-btn"
-                        download
-                    >
-
-                        <i class="bi bi-download"></i>
-
-                        Download PDF
-
-                    </a>
-
-                </div>
 
             </div>
 
-        </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         CONTACT CTA
-    ===================================================== -->
-
-    <section class="home-section">
-
-        <div class="project-showcase">
-
-            <div class="project-showcase-content">
-
-                <span class="section-label">
-                    LET'S CONNECT
-                </span>
-
-                <h2>
-                    Have a Project in Mind?
-                </h2>
-
-                <p>
-
-                    I'm always interested in learning,
-                    building new projects and exploring
-                    opportunities in web development.
-
-                </p>
-
-                <p>
-
-                    If you have an idea, project or opportunity,
-                    feel free to get in touch.
-
-                </p>
-
-
-                <div class="hero-buttons">
-
-                    <a
-                        href="{% url 'contact' %}"
-                        class="home-btn resume-btn"
-                    >
-
-                        <i class="bi bi-send"></i>
-
-                        Get In Touch
-
-                    </a>
-
-
-                    <a
-                        href="mailto:yourmail@gmail.com"
-                        class="home-btn contact-btn"
-                    >
-
-                        <i class="bi bi-envelope"></i>
-
-                        Email Me
-
-                    </a>
-
-                </div>
-
-            </div>
 
         </div>
 

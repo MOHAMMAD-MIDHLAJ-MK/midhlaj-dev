@@ -1,8 +1,6 @@
 from django import forms
-
 from .models import Project, ProjectContent
-
-
+from django.forms import inlineformset_factory
 # =========================================================
 # PROJECT FORM
 # =========================================================
@@ -118,6 +116,7 @@ class ProjectForm(forms.ModelForm):
             # =============================================
 
             "featured",
+            "recent",
             "is_active",
         ]
 
@@ -301,7 +300,16 @@ class ProjectForm(forms.ModelForm):
 
             "featured": forms.CheckboxInput(
                 attrs={
-                    "class": "form-check-input",
+                    "class": "premium-checkbox",
+                }
+            ),
+            # =============================================
+            # RECENT
+            # =============================================
+
+            "recent": forms.CheckboxInput(
+                attrs={
+                   "class": "premium-checkbox",
                 }
             ),
 
@@ -311,7 +319,7 @@ class ProjectForm(forms.ModelForm):
 
             "is_active": forms.CheckboxInput(
                 attrs={
-                    "class": "form-check-input",
+                    "class": "premium-checkbox",
                 }
             ),
         }
@@ -343,6 +351,7 @@ class ProjectForm(forms.ModelForm):
             "live_url": "Live Demo",
 
             "featured": "Featured Project",
+            "recent": "Recent Project",
             "is_active": "Project Active",
         }
 
@@ -403,6 +412,9 @@ class ProjectForm(forms.ModelForm):
             "featured": (
                 "Show this project on the homepage."
             ),
+            "recent": (
+                 "Show this project in the recent projects section."
+            ),
 
             "is_active": (
                 "Inactive projects are hidden from the project list."
@@ -461,192 +473,6 @@ class ProjectForm(forms.ModelForm):
 # =========================================================
 # PROJECT CONTENT FORM
 # =========================================================
-
-class ProjectContentForm(forms.ModelForm):
-
-    class Meta:
-
-        model = ProjectContent
-
-        fields = [
-            "content_type",
-            "image",
-            "video",
-            "title",
-            "paragraph",
-            "order",
-            "is_active",
-        ]
-
-        widgets = {
-
-            # =============================================
-            # CONTENT TYPE
-            # =============================================
-
-            "content_type": forms.Select(
-                attrs={
-                    "class": "form-control content-type-input",
-                }
-            ),
-
-            # =============================================
-            # IMAGE
-            # =============================================
-
-            "image": forms.ClearableFileInput(
-                attrs={
-                    "class": "form-control content-image-input",
-                    "accept": "image/*",
-                }
-            ),
-
-            # =============================================
-            # VIDEO
-            # =============================================
-
-            "video": forms.ClearableFileInput(
-                attrs={
-                    "class": "form-control content-video-input",
-                    "accept": "video/*",
-                }
-            ),
-
-            # =============================================
-            # TITLE
-            # =============================================
-
-            "title": forms.TextInput(
-                attrs={
-                    "class": "form-control",
-                    "placeholder": "Content title...",
-                    "autocomplete": "off",
-                }
-            ),
-
-            # =============================================
-            # PARAGRAPH
-            # =============================================
-
-            "paragraph": forms.Textarea(
-                attrs={
-                    "class": "form-control",
-                    "placeholder": (
-                        "Write a description for "
-                        "this image or video..."
-                    ),
-                    "rows": 5,
-                }
-            ),
-
-            # =============================================
-            # ORDER
-            # =============================================
-
-            "order": forms.NumberInput(
-                attrs={
-                    "class": "form-control",
-                    "min": 1,
-                    "placeholder": "Display order",
-                }
-            ),
-
-            # =============================================
-            # ACTIVE
-            # =============================================
-
-            "is_active": forms.CheckboxInput(
-                attrs={
-                    "class": "form-check-input",
-                }
-            ),
-        }
-
-        labels = {
-
-            "content_type": "Content Type",
-            "image": "Project Image",
-            "video": "Project Video",
-            "title": "Content Title",
-            "paragraph": "Content Description",
-            "order": "Display Order",
-            "is_active": "Active",
-        }
-
-    # =====================================================
-    # CLEAN
-    # =====================================================
-
-    def clean(self):
-
-        cleaned_data = super().clean()
-
-        content_type = cleaned_data.get(
-            "content_type"
-        )
-
-        image = cleaned_data.get(
-            "image"
-        )
-
-        video = cleaned_data.get(
-            "video"
-        )
-
-        # =================================================
-        # IMAGE
-        # =================================================
-
-        if content_type == "image":
-
-            if not image:
-
-                if (
-                    not self.instance.pk
-                    or not self.instance.image
-                ):
-
-                    raise forms.ValidationError(
-                        "Please upload an image."
-                    )
-
-            cleaned_data["video"] = None
-
-        # =================================================
-        # VIDEO
-        # =================================================
-
-        elif content_type == "video":
-
-            if not video:
-
-                if (
-                    not self.instance.pk
-                    or not self.instance.video
-                ):
-
-                    raise forms.ValidationError(
-                        "Please upload a video."
-                    )
-
-            cleaned_data["image"] = None
-
-        # =================================================
-        # INVALID
-        # =================================================
-
-        else:
-
-            raise forms.ValidationError(
-                "Please select Image or Video."
-            )
-
-        return cleaned_data
-from django import forms
-from django.forms import inlineformset_factory
-
-from .models import Project, ProjectContent
-
 
 class ProjectContentForm(forms.ModelForm):
 

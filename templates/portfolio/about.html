@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}
@@ -15,23 +15,133 @@ About | Midhlaj
 <main class="about-page">
 
     <!-- =====================================================
-         PAGE HEADER
+         ABOUT HERO
     ====================================================== -->
 
-    <section class="about-header">
+    <section class="about-hero">
 
-        <span class="section-label">
-            ABOUT ME
-        </span>
+        <div class="about-container">
 
-        <h1 class="section-title">
-            Get To Know Me
-        </h1>
+            <div class="about-hero-grid">
 
-        <p class="section-description">
-            A little more about my journey,
-            interests and development skills.
-        </p>
+                <!-- LEFT -->
+
+                <div class="about-hero-content">
+
+                    <span class="about-eyebrow">
+                        <span></span>
+                        ABOUT ME
+                        <span></span>
+                    </span>
+
+                    <h1>
+                        Building Ideas Into
+                        <span>Digital Experiences.</span>
+                    </h1>
+
+                    <p class="about-intro">
+                        Aspiring Python Django Developer passionate about
+                        creating modern, responsive, and user-friendly web
+                        applications.
+                    </p>
+
+                    <p class="about-description">
+                        I enjoy transforming ideas into practical digital
+                        solutions using Python, Django, HTML, CSS and
+                        JavaScript. I focus on writing clean code, designing
+                        intuitive interfaces and building web applications
+                        that are reliable, responsive and easy to use.
+                    </p>
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="about-actions">
+
+                        <a
+                            href="{% url 'projects' %}"
+                            class="about-primary-btn"
+                        >
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            View My Projects
+                        </a>
+
+                        <a
+                            href="{% url 'contact' %}"
+                            class="about-secondary-btn"
+                        >
+                            Contact Me
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT PROFILE CARD -->
+
+                <div class="about-profile-area">
+
+                    <div class="profile-glow"></div>
+
+                    <div class="profile-card">
+
+                        <div class="profile-card-top">
+
+                            <span>
+                                DEVELOPER
+                            </span>
+
+                            <i class="bi bi-code-slash"></i>
+
+                        </div>
+
+
+                        <div class="profile-avatar">
+
+                            <div class="avatar-circle">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+
+                        </div>
+
+
+                        <h2>
+                           Mohammad Midhlaj mk
+                        </h2>
+
+                        <p>
+                            Python Django Developer
+                        </p>
+
+
+                        <div class="profile-status">
+
+                            <span class="status-dot"></span>
+
+                            Available for opportunities
+
+                        </div>
+
+
+                        <div class="profile-tech">
+
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </section>
 
@@ -41,168 +151,104 @@ About | Midhlaj
          ABOUT INTRO
     ====================================================== -->
 
-    <section class="about-intro">
+    <section class="about-story">
 
-        <!-- PROFILE IMAGE -->
+        <div class="about-container">
 
-        <div class="about-image-wrapper">
+            <div class="section-heading">
 
-            <div class="about-image-card">
+                <span>
+                    MY JOURNEY
+                </span>
 
-                <img
-                    src="{% static 'images/profile/profile.png' %}"
-                    alt="Midhlaj - Python Django Developer"
-                >
+                <h2>
+                    Passion for Building
+                </h2>
 
-                <div class="about-image-overlay">
-
-                    <span>
-                        <i class="bi bi-code-slash"></i>
-                        Python Django Developer
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ABOUT CONTENT -->
-
-        <div class="about-content">
-
-            <span class="section-label">
-                WHO I AM
-            </span>
-
-            <h2 class="about-title">
-                Building Digital
-                <span>Experiences With Code.</span>
-            </h2>
-
-            <p class="about-text">
-
-                I'm a BCA student and aspiring
-                Python Django Developer with an interest
-                in building modern web applications.
-
-            </p>
-
-            <p class="about-text">
-
-                I enjoy turning ideas into functional,
-                responsive and user-friendly applications
-                using Python, Django and modern frontend
-                technologies.
-
-            </p>
-
-
-            <!-- INFO CARDS -->
-
-            <div class="info-grid">
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        <i class="bi bi-code-slash"></i>
-                    </div>
-
-                    <div class="info-content">
-
-                        <small>
-                            Focus
-                        </small>
-
-                        <strong>
-                            Web Development
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        <i class="bi bi-server"></i>
-                    </div>
-
-                    <div class="info-content">
-
-                        <small>
-                            Backend
-                        </small>
-
-                        <strong>
-                            Python & Django
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        <i class="bi bi-database"></i>
-                    </div>
-
-                    <div class="info-content">
-
-                        <small>
-                            Database
-                        </small>
-
-                        <strong>
-                            MySQL
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <div class="info-icon">
-                        <i class="bi bi-window-stack"></i>
-                    </div>
-
-                    <div class="info-content">
-
-                        <small>
-                            Frontend
-                        </small>
-
-                        <strong>
-                            HTML, CSS & JS
-                        </strong>
-
-                    </div>
-
-                </div>
+                <div class="heading-line"></div>
 
             </div>
 
 
-            <!-- BUTTON -->
+            <div class="story-grid">
 
-            <div class="about-actions">
+                <div class="story-content">
 
-                <a
-                    href="{% url 'contact' %}"
-                    class="premium-btn"
-                >
+                    <p>
+                        My journey into web development started with a
+                        curiosity about how websites and applications work.
+                        Over time, that curiosity developed into a strong
+                        interest in programming and software development.
+                    </p>
 
-                    Let's Work Together
+                    <p>
+                        I started working with Python and gradually moved
+                        into Django development, where I learned how to
+                        build dynamic web applications, work with databases,
+                        create authentication systems and structure projects
+                        using reusable components.
+                    </p>
 
-                    <i class="bi bi-arrow-right"></i>
+                    <p>
+                        Alongside backend development, I enjoy creating
+                        responsive frontend interfaces using HTML, CSS and
+                        JavaScript. My goal is to combine functionality with
+                        clean and modern design.
+                    </p>
 
-                </a>
+                </div>
+
+
+                <div class="story-highlight">
+
+                    <div class="highlight-card">
+
+                        <i class="bi bi-lightning-charge-fill"></i>
+
+                        <h3>
+                            Learn
+                        </h3>
+
+                        <p>
+                            Continuously improving my technical knowledge
+                            through practice and real-world projects.
+                        </p>
+
+                    </div>
+
+
+                    <div class="highlight-card">
+
+                        <i class="bi bi-code-square"></i>
+
+                        <h3>
+                            Build
+                        </h3>
+
+                        <p>
+                            Turning ideas into functional and responsive
+                            web applications.
+                        </p>
+
+                    </div>
+
+
+                    <div class="highlight-card">
+
+                        <i class="bi bi-rocket-takeoff-fill"></i>
+
+                        <h3>
+                            Grow
+                        </h3>
+
+                        <p>
+                            Looking for opportunities to apply my skills
+                            and grow as a developer.
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -213,68 +259,62 @@ About | Midhlaj
 
 
     <!-- =====================================================
-         EDUCATION SECTION
+         EDUCATION
     ====================================================== -->
 
     <section class="education-section">
 
-        <div class="section-heading">
+        <div class="about-container">
 
-            <span class="section-label">
-                EDUCATION
-            </span>
+            <div class="section-heading">
 
-            <h2 class="section-title">
-                My Education
-            </h2>
+                <span>
+                    EDUCATION
+                </span>
 
-            <p class="section-description">
-                My academic background and learning journey.
-            </p>
+                <h2>
+                    Academic Background
+                </h2>
 
-        </div>
+                <div class="heading-line"></div>
 
-
-        <div class="timeline">
-
-            <!-- BCA -->
-
-            <
+            </div>
 
 
-                
-                   
-
-            <!-- PLUS TWO -->
-
-            <div class="timeline-item">
-
-                <div class="timeline-dot">
-
-                    <i class="bi bi-book-fill"></i>
-
-                </div>
+            <div class="education-timeline">
 
 
-                <div class="timeline-card">
+                <!-- EDUCATION ITEM -->
 
-                    <span class="timeline-date">
-                        COMPLETED
-                    </span>
+                <div class="education-item">
 
-                    <h3>
-                        Higher Secondary Education
-                    </h3>
+                    <div class="education-icon">
+                        <i class="bi bi-book-fill"></i>
+                    </div>
 
-                    <h4>
-                        Plus Two
-                    </h4>
 
-                    <p>
-                        Higher Secondary Education
-                    </p>
+                    <div class="education-content">
+
+                        <span class="education-status">
+                            COMPLETED
+                        </span>
+
+                        <h4>
+                            Higher Secondary Education
+                        </h4>
+
+                        <p class="education-level">
+                            Plus Two
+                        </p>
+
+                        <p class="education-meta">
+                            Higher Secondary School Education
+                        </p>
+
+                    </div>
 
                 </div>
+
 
             </div>
 
@@ -285,101 +325,221 @@ About | Midhlaj
 
 
     <!-- =====================================================
-         CERTIFICATION SECTION
+         WHAT I DO
     ====================================================== -->
 
-    <section class="certification-section">
+    <section class="what-i-do-section">
 
-        <div class="section-heading">
+        <div class="about-container">
 
-            <span class="section-label">
-                CERTIFICATION
-            </span>
+            <div class="section-heading">
 
-            <h2 class="section-title">
-                My Certifications
-            </h2>
+                <span>
+                    WHAT I DO
+                </span>
 
-            <p class="section-description">
-                Certifications and professional learning
-                that support my development journey.
-            </p>
+                <h2>
+                    Areas I Work With
+                </h2>
 
-        </div>
+                <div class="heading-line"></div>
 
-
-        <!-- CERTIFICATION CARD -->
-
-        <div class="certification-grid">
+            </div>
 
 
-            <article class="certification-card">
+            <div class="services-grid">
 
-                <!-- TOP -->
 
-                <div class="certification-top">
+                <!-- SERVICE -->
 
-                    <div class="certification-icon">
+                <article class="service-card">
 
-                        <i class="bi bi-patch-check-fill"></i>
-
+                    <div class="service-icon">
+                        <i class="bi bi-server"></i>
                     </div>
 
-
-                    <span class="certification-status">
-
-                        <i class="bi bi-check-circle-fill"></i>
-
-                        Certified
-
-                    </span>
-
-                </div>
-
-
-                <!-- CONTENT -->
-
-                <div class="certification-content">
-
-                    <span class="certification-year">
-                        2026
+                    <span>
+                        01
                     </span>
 
                     <h3>
-                        Python Full Stack Developer
+                        Backend Development
                     </h3>
 
                     <p>
-                        Python Full Stack Developer
-                        Certification
+                        Building dynamic and reliable backend systems
+                        using Python and Django with structured database
+                        integration.
                     </p>
 
-                </div>
+                </article>
 
 
-                <!-- TECHNOLOGIES -->
+                <!-- SERVICE -->
 
-                <div class="certification-skills">
+                <article class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-window-stack"></i>
+                    </div>
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Creating responsive websites and web applications
+                        using modern HTML, CSS and JavaScript.
+                    </p>
+
+                </article>
+
+
+                <!-- SERVICE -->
+
+                <article class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-database-fill"></i>
+                    </div>
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Database Integration
+                    </h3>
+
+                    <p>
+                        Working with databases and Django models to manage
+                        structured application data efficiently.
+                    </p>
+
+                </article>
+
+
+                <!-- SERVICE -->
+
+                <article class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-phone-fill"></i>
+                    </div>
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        Designing interfaces that provide a smooth
+                        experience across desktop, tablet and mobile
+                        devices.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         TECHNOLOGY STACK
+    ====================================================== -->
+
+    <section class="about-stack-section">
+
+        <div class="about-container">
+
+            <div class="section-heading">
+
+                <span>
+                    TECHNOLOGY STACK
+                </span>
+
+                <h2>
+                    Tools & Technologies
+                </h2>
+
+                <div class="heading-line"></div>
+
+            </div>
+
+
+            <div class="stack-grid">
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-filetype-py"></i>
 
                     <span>
                         Python
                     </span>
 
+                </div>
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-box"></i>
+
                     <span>
                         Django
                     </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-filetype-html"></i>
 
                     <span>
                         HTML
                     </span>
 
+                </div>
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-filetype-css"></i>
+
                     <span>
                         CSS
                     </span>
 
+                </div>
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-filetype-js"></i>
+
                     <span>
                         JavaScript
                     </span>
+
+                </div>
+
+
+                <div class="stack-item">
+
+                    <i class="bi bi-database"></i>
 
                     <span>
                         MySQL
@@ -388,47 +548,88 @@ About | Midhlaj
                 </div>
 
 
-                <!-- FOOTER -->
+                <div class="stack-item">
 
-                <div class="certification-footer">
-
-                    <span>
-                        <i class="bi bi-calendar3"></i>
-                        2026
-                    </span>
+                    <i class="bi bi-git"></i>
 
                     <span>
-                        <i class="bi bi-award"></i>
-                        Professional Certification
+                        Git
                     </span>
 
                 </div>
 
-            </article>
 
+                <div class="stack-item">
 
-            <!-- ADD MORE CERTIFICATIONS HERE -->
+                    <i class="bi bi-github"></i>
 
-            <article class="certification-card certification-empty">
-
-                <div class="empty-icon">
-
-                    <i class="bi bi-plus-lg"></i>
+                    <span>
+                        GitHub
+                    </span>
 
                 </div>
 
-                <h3>
-                    More Certifications
-                </h3>
 
-                <p>
-                    Future certifications and
-                    professional achievements will
-                    appear here.
-                </p>
+            </div>
 
-            </article>
+        </div>
 
+    </section>
+
+
+
+    <!-- =====================================================
+         CURRENT FOCUS
+    ====================================================== -->
+
+    <section class="focus-section">
+
+        <div class="about-container">
+
+            <div class="focus-card">
+
+                <div class="focus-content">
+
+                    <span class="focus-label">
+                        CURRENT FOCUS
+                    </span>
+
+                    <h2>
+                        Growing Through
+                        <span>Real Projects.</span>
+                    </h2>
+
+                    <p>
+                        Currently focused on strengthening my Python and
+                        Django development skills by building practical
+                        projects, exploring modern web technologies and
+                        improving my understanding of clean and scalable
+                        application development.
+                    </p>
+
+
+                    <div class="focus-actions">
+
+                        <a
+                            href="{% url 'skills' %}"
+                            class="focus-btn"
+                        >
+                            Explore My Skills
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="focus-icon">
+
+                    <i class="bi bi-rocket-takeoff"></i>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -442,37 +643,52 @@ About | Midhlaj
 
     <section class="about-cta">
 
-        <div class="cta-content">
+        <div class="about-container">
 
-            <span class="section-label">
-                LET'S CONNECT
-            </span>
+            <div class="about-cta-content">
 
-            <h2>
-                Let's Build Something
-                <span>Great Together.</span>
-            </h2>
+                <span>
+                    LET'S CONNECT
+                </span>
 
-            <p>
-                Have a project, idea or opportunity?
-                Let's turn it into something meaningful.
-            </p>
+                <h2>
+                    Have an idea?
+                    <strong>Let's build it.</strong>
+                </h2>
 
-            <a
-                href="{% url 'contact' %}"
-                class="premium-btn"
-            >
+                <p>
+                    I'm open to learning opportunities, collaborations,
+                    internships and projects where I can contribute and
+                    grow as a developer.
+                </p>
 
-                Contact Me
 
-                <i class="bi bi-arrow-up-right"></i>
+                <div class="cta-buttons">
 
-            </a>
+                    <a
+                        href="{% url 'contact' %}"
+                        class="cta-primary"
+                    >
+                        <i class="bi bi-send-fill"></i>
+                        Contact Me
+                    </a>
+
+
+                    <a
+                        href="{% url 'projects' %}"
+                        class="cta-secondary"
+                    >
+                        View Projects
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
     </section>
-
 
 </main>
 

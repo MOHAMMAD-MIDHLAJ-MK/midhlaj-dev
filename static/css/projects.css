@@ -73,7 +73,7 @@
 ========================================================= */
 
 .projects-hero {
-    padding: 75px 0 65px;
+    padding: 5px 0 65px;
 }
 
 .projects-hero-content {
@@ -450,7 +450,7 @@
 ========================================================= */
 
 .project-card-content {
-    padding: 22px;
+    padding: 10px;
 }
 
 .project-number {
@@ -478,7 +478,7 @@
 }
 
 .project-description {
-    margin: 12px 0 18px;
+    margin: 1px 0 1px;
 
     color: var(--projects-muted);
 
@@ -876,7 +876,7 @@ body.dark .project-filter-btn,
     }
 
     .projects-hero {
-        padding: 45px 0 35px;
+        padding: 2px 0 3px;
     }
 
     .projects-title {
@@ -942,7 +942,7 @@ body.dark .project-filter-btn,
     }
 
     .project-description {
-        margin: 8px 0 11px;
+        margin: 2px 0 2px;
 
         font-size: 10px;
         line-height: 1.5;
@@ -1091,4 +1091,180 @@ body.dark .project-filter-btn,
         font-size: 8px;
     }
 
+}
+/* =========================================================
+   PROJECTS TOP ACTION
+========================================================= */
+
+.projects-top-action {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 22px 0 8px;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative;
+    z-index: 20;
+}
+
+
+/* =========================================================
+   ADD PROJECT BUTTON
+========================================================= */
+
+.add-project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 42px;
+    padding: 7px 15px 7px 8px;
+
+    border: 1px solid rgba(124, 58, 237, .18);
+    border-radius: 11px;
+
+    background: #ffffff;
+    color: #5b21b6;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow:
+        0 7px 20px rgba(30, 20, 60, .08);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+}
+
+
+/* ICON */
+
+.add-project-icon {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #5b21b6
+    );
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    box-shadow:
+        0 5px 12px rgba(124, 58, 237, .25);
+}
+
+
+/* TEXT */
+
+.add-project-text {
+    white-space: nowrap;
+}
+
+
+/* HOVER */
+
+.add-project-btn:hover {
+    color: #5b21b6;
+
+    border-color: rgba(124, 58, 237, .35);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(124, 58, 237, .14);
+}
+
+
+.add-project-btn:hover .add-project-icon {
+    transform: rotate(90deg);
+
+    transition: transform .25s ease;
+}
+
+
+/* ACTIVE */
+
+.add-project-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .projects-top-action {
+        width: calc(100% - 24px);
+
+        padding: 14px 0 6px;
+
+        justify-content: flex-end;
+    }
+
+    .add-project-btn {
+        min-height: 40px;
+
+        padding: 6px 12px 6px 7px;
+
+        gap: 7px;
+
+        border-radius: 10px;
+
+        font-size: 11px;
+    }
+
+    .add-project-icon {
+        width: 27px;
+        height: 27px;
+
+        border-radius: 7px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .projects-top-action {
+        width: calc(100% - 20px);
+
+        padding-top: 12px;
+    }
+
+    .add-project-btn {
+        min-height: 38px;
+
+        padding: 5px 10px 5px 6px;
+
+        font-size: 10px;
+    }
+
+    .add-project-icon {
+        width: 25px;
+        height: 25px;
+    }
 }

@@ -1,17 +1,78 @@
 /* =========================================================
-   FOOTER
+   PREMIUM FOOTER
 ========================================================= */
 
-.site-footer {
-    width: 100%;
+.premium-footer {
+    --footer-bg: #0a0d14;
+    --footer-card: rgba(255, 255, 255, 0.035);
+    --footer-border: rgba(255, 255, 255, 0.09);
+    --footer-text: #f4f6fb;
+    --footer-muted: #9ba3b4;
+    --footer-gold: #d6ad55;
+    --footer-gold-light: #f2d98a;
+
+    position: relative;
+    margin-top: 100px;
     padding: 75px 0 25px;
-    background: var(--footer-bg, #f8fafc);
-    color: var(--footer-text, #172033);
-    border-top: 1px solid var(--footer-border, rgba(100, 116, 139, 0.15));
-    transition:
-        background 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(214, 173, 85, 0.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(91, 101, 255, 0.08),
+            transparent 30%
+        ),
+        var(--footer-bg);
+
+    color: var(--footer-text);
+
+    border-top: 1px solid var(--footer-border);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TOP GLOW
+========================================================= */
+
+.premium-footer::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 180px;
+    height: 2px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--footer-gold),
+        transparent
+    );
+
+    box-shadow:
+        0 0 20px rgba(214, 173, 85, 0.55);
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.premium-footer .container {
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -20,22 +81,34 @@
 ========================================================= */
 
 .footer-brand {
-    margin: 0 0 15px;
-    font-size: 28px;
+    margin: 0 0 18px;
+
+    font-size: 30px;
     font-weight: 800;
+
     letter-spacing: -0.8px;
-    color: var(--footer-heading, #111827);
+
+    color: var(--footer-text);
 }
 
 .footer-brand span {
-    color: #6366f1;
+    color: var(--footer-gold);
+
     font-weight: 700;
 }
 
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
 .footer-description {
-    max-width: 430px;
-    margin: 0;
-    color: var(--footer-muted, #64748b);
+    max-width: 480px;
+
+    margin: 0 0 25px;
+
+    color: var(--footer-muted);
+
     font-size: 15px;
     line-height: 1.8;
 }
@@ -49,47 +122,50 @@
     display: flex;
     align-items: center;
     gap: 11px;
-    margin-top: 25px;
 }
 
+
 .footer-social a {
-    width: 42px;
-    height: 42px;
+    width: 43px;
+    height: 43px;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
+    border: 1px solid var(--footer-border);
+
     border-radius: 12px;
 
-    color: var(--footer-icon, #475569);
-    background: var(--footer-icon-bg, rgba(99, 102, 241, 0.07));
+    background: var(--footer-card);
 
-    border: 1px solid var(
-        --footer-border,
-        rgba(100, 116, 139, 0.15)
-    );
+    color: var(--footer-muted);
 
     text-decoration: none;
 
+    font-size: 18px;
+
     transition:
-        transform 0.25s ease,
-        color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease;
+        transform 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.footer-social a i {
-    font-size: 18px;
-}
 
 .footer-social a:hover {
-    transform: translateY(-4px);
-    color: #ffffff;
-    background: #6366f1;
-    border-color: #6366f1;
-    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+    transform: translateY(-5px);
+
+    color: var(--footer-gold-light);
+
+    border-color: rgba(214, 173, 85, 0.55);
+
+    background: rgba(214, 173, 85, 0.08);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25),
+        0 0 18px rgba(214, 173, 85, 0.12);
 }
 
 
@@ -97,40 +173,38 @@
    FOOTER HEADINGS
 ========================================================= */
 
-.site-footer h6 {
+.premium-footer h6 {
     position: relative;
 
-    margin: 3px 0 20px;
+    display: inline-block;
 
-    color: var(--footer-heading, #111827);
+    margin: 0 0 22px;
+
+    color: var(--footer-text);
 
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 700;
 
     text-transform: uppercase;
-    letter-spacing: 0.8px;
+
+    letter-spacing: 1.4px;
 }
 
 
-/* Small accent line */
-
-.site-footer h6::after {
+.premium-footer h6::after {
     content: "";
 
-    display: block;
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
 
     width: 28px;
-    height: 3px;
-
-    margin-top: 9px;
+    height: 2px;
 
     border-radius: 10px;
 
-    background: linear-gradient(
-        90deg,
-        #6366f1,
-        #8b5cf6
-    );
+    background: var(--footer-gold);
 }
 
 
@@ -139,59 +213,64 @@
 ========================================================= */
 
 .footer-links {
-    padding: 0;
     margin: 0;
+    padding: 0;
 
     list-style: none;
 }
 
+
 .footer-links li {
-    margin-bottom: 11px;
+    margin-bottom: 12px;
 }
 
+
 .footer-links a {
+    position: relative;
+
     display: inline-flex;
     align-items: center;
 
-    position: relative;
-
-    color: var(--footer-muted, #64748b);
-
-    font-size: 14px;
-    font-weight: 500;
+    color: var(--footer-muted);
 
     text-decoration: none;
+
+    font-size: 14px;
 
     transition:
         color 0.25s ease,
         transform 0.25s ease;
 }
 
+
 .footer-links a::before {
-    content: "→";
+    content: "›";
 
-    margin-right: 0;
+    margin-right: 7px;
 
-    width: 0;
-    overflow: hidden;
+    color: var(--footer-gold);
 
     opacity: 0;
 
+    transform: translateX(-5px);
+
     transition:
-        width 0.25s ease,
         opacity 0.25s ease,
-        margin 0.25s ease;
+        transform 0.25s ease;
 }
+
 
 .footer-links a:hover {
-    color: #6366f1;
-    transform: translateX(3px);
+    color: var(--footer-gold-light);
+
+    transform: translateX(4px);
 }
 
+
 .footer-links a:hover::before {
-    width: 17px;
-    margin-right: 5px;
     opacity: 1;
+
+    transform: translateX(0);
 }
 
 
@@ -202,63 +281,67 @@
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
+
     gap: 9px;
 }
+
 
 .tech-tags span {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
+
+    min-height: 34px;
 
     padding: 7px 12px;
 
+    border: 1px solid var(--footer-border);
+
     border-radius: 9px;
 
-    color: var(--tag-text, #475569);
-    background: var(--tag-bg, rgba(99, 102, 241, 0.06));
+    background: var(--footer-card);
 
-    border: 1px solid var(
-        --tag-border,
-        rgba(99, 102, 241, 0.13)
-    );
+    color: var(--footer-muted);
 
     font-size: 12px;
-    font-weight: 600;
-
-    white-space: nowrap;
+    font-weight: 500;
 
     transition:
         transform 0.25s ease,
         color 0.25s ease,
-        background 0.25s ease,
-        border-color 0.25s ease;
+        border-color 0.25s ease,
+        background 0.25s ease;
 }
 
+
 .tech-tags span:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
-    color: #ffffff;
+    color: var(--footer-gold-light);
 
-    background: #6366f1;
-    border-color: #6366f1;
+    border-color: rgba(214, 173, 85, 0.45);
+
+    background: rgba(214, 173, 85, 0.07);
 }
 
 
 /* =========================================================
-   HR
+   DIVIDER
 ========================================================= */
 
-.site-footer hr {
-    margin: 50px 0 22px;
+.premium-footer hr {
+    margin: 55px 0 22px;
 
     border: 0;
 
     height: 1px;
 
-    background: var(
-        --footer-border,
-        rgba(100, 116, 139, 0.15)
-    );
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--footer-border),
+            transparent
+        );
 
     opacity: 1;
 }
@@ -270,6 +353,588 @@
 
 .footer-bottom {
     display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: var(--footer-muted);
+
+    font-size: 12px;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+}
+
+
+.heart {
+    color: #e85d75;
+
+    display: inline-block;
+
+    margin: 0 3px;
+
+    animation: footerHeart 1.6s ease-in-out infinite;
+}
+
+
+@keyframes footerHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   Works with body.light / body.light-mode / .light-mode
+========================================================= */
+
+body.light .premium-footer,
+body.light-mode .premium-footer,
+body.light-theme .premium-footer {
+
+    --footer-bg: #f7f8fb;
+
+    --footer-card: rgba(15, 23, 42, 0.035);
+
+    --footer-border: rgba(15, 23, 42, 0.10);
+
+    --footer-text: #151923;
+
+    --footer-muted: #687080;
+
+    --footer-gold: #ad7c20;
+
+    --footer-gold-light: #8d6419;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(214, 173, 85, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(91, 101, 255, 0.05),
+            transparent 30%
+        ),
+        var(--footer-bg);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .premium-footer,
+body.dark-mode .premium-footer,
+body.dark-theme .premium-footer {
+
+    --footer-bg: #080b11;
+
+    --footer-card: rgba(255, 255, 255, 0.035);
+
+    --footer-border: rgba(255, 255, 255, 0.09);
+
+    --footer-text: #f4f6fb;
+
+    --footer-muted: #9ba3b4;
+
+    --footer-gold: #d6ad55;
+
+    --footer-gold-light: #f2d98a;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .premium-footer {
+        margin-top: 80px;
+        padding: 65px 0 25px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+    }
+
+    .footer-social {
+        margin-bottom: 10px;
+    }
+
+    .premium-footer .row {
+        row-gap: 45px !important;
+    }
+
+    .premium-footer hr {
+        margin-top: 45px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .premium-footer {
+        margin-top: 60px;
+
+        padding:
+            55px 20px
+            22px;
+    }
+
+
+    .footer-brand {
+        font-size: 26px;
+    }
+
+
+    .footer-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+
+    .footer-social {
+        gap: 9px;
+    }
+
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 10px;
+
+        font-size: 16px;
+    }
+
+
+    .premium-footer h6 {
+        margin-bottom: 18px;
+    }
+
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+
+    .tech-tags {
+        gap: 7px;
+    }
+
+
+    .tech-tags span {
+        padding: 6px 10px;
+
+        min-height: 31px;
+
+        font-size: 11px;
+    }
+
+
+    .premium-footer hr {
+        margin:
+            40px 0
+            18px;
+    }
+
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 7px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .premium-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .footer-brand {
+        font-size: 24px;
+    }
+
+
+    .footer-description {
+        font-size: 13px;
+    }
+
+
+    .footer-social a {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .tech-tags span {
+        font-size: 10px;
+
+        padding:
+            5px 9px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .premium-footer *,
+    .premium-footer *::before,
+    .premium-footer *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+/* =========================================================
+   PREMIUM FOOTER
+========================================================= */
+
+.premium-footer {
+    --footer-bg: #f8fafc;
+    --footer-card: #ffffff;
+    --footer-text: #172033;
+    --footer-muted: #64748b;
+    --footer-border: rgba(15, 23, 42, 0.10);
+    --footer-accent: #c99a2e;
+
+    position: relative;
+    padding: 75px 0 25px;
+    margin-top: 80px;
+
+    background: var(--footer-bg);
+    color: var(--footer-text);
+
+    border-top: 1px solid var(--footer-border);
+
+    transition:
+        background-color .35s ease,
+        color .35s ease,
+        border-color .35s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .premium-footer,
+body.dark-mode .premium-footer,
+[data-theme="dark"] .premium-footer {
+
+    --footer-bg: #080b12;
+    --footer-card: #10151f;
+    --footer-text: #f5f7fb;
+    --footer-muted: #9aa4b2;
+    --footer-border: rgba(255, 255, 255, 0.10);
+    --footer-accent: #d4a73c;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+body.light .premium-footer,
+body.light-mode .premium-footer,
+[data-theme="light"] .premium-footer {
+
+    --footer-bg: #f8fafc;
+    --footer-card: #ffffff;
+    --footer-text: #172033;
+    --footer-muted: #64748b;
+    --footer-border: rgba(15, 23, 42, 0.10);
+    --footer-accent: #b8860b;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.premium-footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    margin: 0 0 18px;
+
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+
+    color: var(--footer-text);
+
+    transition: color .3s ease;
+}
+
+.footer-brand span {
+    color: var(--footer-accent);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.footer-description {
+    max-width: 470px;
+
+    margin: 0;
+
+    color: var(--footer-muted);
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    transition: color .3s ease;
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.footer-social a {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--footer-border);
+    border-radius: 12px;
+
+    background: var(--footer-card);
+    color: var(--footer-text);
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform .3s ease,
+        color .3s ease,
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px);
+
+    color: var(--footer-accent);
+
+    border-color: var(--footer-accent);
+
+    box-shadow:
+        0 12px 30px rgba(201, 154, 46, .18);
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.premium-footer h6 {
+    margin-bottom: 22px;
+
+    color: var(--footer-text);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    transition: color .3s ease;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.footer-links {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+
+    color: var(--footer-muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.footer-links a::before {
+    content: "→";
+
+    margin-right: 7px;
+
+    color: var(--footer-accent);
+
+    opacity: 0;
+
+    transform: translateX(-5px);
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--footer-accent);
+
+    transform: translateX(4px);
+}
+
+.footer-links a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   TECHNOLOGY TAGS
+========================================================= */
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+.tech-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 12px;
+
+    border: 1px solid var(--footer-border);
+    border-radius: 9px;
+
+    background: var(--footer-card);
+    color: var(--footer-muted);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        color .25s ease,
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+.tech-tags span:hover {
+    color: var(--footer-accent);
+
+    border-color: var(--footer-accent);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.premium-footer hr {
+    margin: 55px 0 22px;
+
+    border: 0;
+    border-top: 1px solid var(--footer-border);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.footer-bottom {
+    display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -277,21 +942,23 @@
 }
 
 .footer-bottom p {
-    color: var(--footer-muted, #64748b);
+    color: var(--footer-muted);
 
     font-size: 13px;
-    line-height: 1.6;
+
+    transition: color .3s ease;
 }
 
 .heart {
-    color: #ef4444;
+    color: #e25555;
 
     display: inline-block;
 
-    animation: heartbeat 1.5s ease-in-out infinite;
+    animation: heartbeat 1.5s infinite;
 }
 
 @keyframes heartbeat {
+
     0%,
     100% {
         transform: scale(1);
@@ -304,56 +971,65 @@
 
 
 /* =========================================================
-   DARK MODE
-   Works with:
-   <body class="dark">
-   OR
-   <html data-bs-theme="dark">
-========================================================= */
-
-body.dark .site-footer,
-html[data-bs-theme="dark"] .site-footer {
-    --footer-bg: #080b14;
-    --footer-text: #f8fafc;
-    --footer-heading: #f8fafc;
-    --footer-muted: #94a3b8;
-
-    --footer-icon: #cbd5e1;
-    --footer-icon-bg: rgba(99, 102, 241, 0.10);
-
-    --footer-border: rgba(148, 163, 184, 0.14);
-
-    --tag-text: #cbd5e1;
-    --tag-bg: rgba(99, 102, 241, 0.08);
-    --tag-border: rgba(99, 102, 241, 0.18);
-}
-
-
-/* =========================================================
    MOBILE
 ========================================================= */
 
 @media (max-width: 991px) {
 
-    .site-footer {
-        padding: 60px 0 22px;
+    .premium-footer {
+        padding: 60px 0 25px;
+        margin-top: 60px;
+    }
+
+    .footer-brand {
+        font-size: 27px;
     }
 
     .footer-description {
         max-width: 100%;
     }
-
 }
 
 
-/* =========================================================
-   TABLET / MOBILE
-========================================================= */
-
 @media (max-width: 767px) {
 
-    .site-footer {
+    .premium-footer {
         padding: 50px 0 20px;
+        margin-top: 45px;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .premium-footer h6 {
+        margin-bottom: 16px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+
+        gap: 8px;
+    }
+
+    .tech-tags {
+        gap: 7px;
+    }
+
+    .tech-tags span {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .premium-footer {
+        padding: 45px 15px 18px;
     }
 
     .footer-brand {
@@ -362,68 +1038,6 @@ html[data-bs-theme="dark"] .site-footer {
 
     .footer-description {
         font-size: 14px;
-        line-height: 1.75;
-    }
-
-    .footer-social {
-        margin-top: 20px;
-    }
-
-    .site-footer h6 {
-        margin-top: 10px;
-        margin-bottom: 17px;
-    }
-
-    .footer-links li {
-        margin-bottom: 9px;
-    }
-
-    .footer-links a {
-        font-size: 13px;
-    }
-
-    .tech-tags {
-        gap: 7px;
-    }
-
-    .tech-tags span {
-        padding: 6px 10px;
-        font-size: 11px;
-    }
-
-    .site-footer hr {
-        margin: 35px 0 20px;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        text-align: center;
-
-        gap: 5px;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .site-footer {
-        padding: 42px 0 18px;
-    }
-
-    .footer-brand {
-        font-size: 23px;
-    }
-
-    .footer-description {
-        font-size: 13px;
     }
 
     .footer-social {
@@ -431,46 +1045,8 @@ html[data-bs-theme="dark"] .site-footer {
     }
 
     .footer-social a {
-        width: 38px;
-        height: 38px;
-
+        width: 40px;
+        height: 40px;
         border-radius: 10px;
     }
-
-    .footer-social a i {
-        font-size: 16px;
-    }
-
-    .tech-tags span {
-        padding: 6px 9px;
-        font-size: 10.5px;
-    }
-
-    .footer-bottom p {
-        font-size: 11px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL DEVICES
-========================================================= */
-
-@media (max-width: 360px) {
-
-    .footer-social a {
-        width: 36px;
-        height: 36px;
-    }
-
-    .tech-tags {
-        gap: 6px;
-    }
-
-    .tech-tags span {
-        padding: 5px 8px;
-        font-size: 10px;
-    }
-
 }

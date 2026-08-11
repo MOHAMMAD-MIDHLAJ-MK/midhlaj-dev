@@ -1,35 +1,29 @@
 /* =========================================================
-   PREMIUM NAVBAR
+   MIDHLAJ DEV — PREMIUM NAVBAR
+   FULL WIDTH / NO CAP / RESPONSIVE / DARK + LIGHT
+========================================================= */
+
+
+/* =========================================================
+   VARIABLES
 ========================================================= */
 
 :root {
+    --nav-bg: rgba(255, 255, 255, 0.94);
+    --nav-card: #ffffff;
 
-    --nav-bg:
-        rgba(255, 255, 255, 0.86);
+    --nav-text: #111827;
+    --nav-muted: #64748b;
 
-    --nav-card:
-        rgba(255, 255, 255, 0.98);
+    --nav-border: rgba(15, 23, 42, 0.10);
 
-    --nav-text:
-        #111827;
+    --nav-primary: #2563eb;
+    --nav-purple: #7c3aed;
 
-    --nav-muted:
-        #64748b;
-
-    --nav-border:
-        rgba(15, 23, 42, 0.10);
-
-    --nav-primary:
-        #2563eb;
-
-    --nav-purple:
-        #7c3aed;
-
-    --nav-hover:
-        rgba(37, 99, 235, 0.08);
+    --nav-hover: rgba(37, 99, 235, 0.08);
 
     --nav-shadow:
-        0 12px 35px rgba(15, 23, 42, 0.10);
+        0 8px 25px rgba(15, 23, 42, 0.08);
 }
 
 
@@ -37,70 +31,95 @@
    DARK MODE
 ========================================================= */
 
+html[data-bs-theme="dark"],
 body.dark,
 body.dark-mode {
 
-    --nav-bg:
-        rgba(12, 12, 15, 0.88);
+    --nav-bg: rgba(5, 11, 18, 0.97);
+    --nav-card: #09141d;
 
-    --nav-card:
-        rgba(20, 20, 24, 0.98);
+    --nav-text: #f8fafc;
+    --nav-muted: #94a3b8;
 
-    --nav-text:
-        #f8fafc;
+    --nav-border: rgba(0, 217, 208, 0.14);
 
-    --nav-muted:
-        #94a3b8;
+    --nav-primary: #00d9d0;
+    --nav-purple: #8b5cf6;
 
-    --nav-border:
-        rgba(255, 255, 255, 0.09);
-
-    --nav-hover:
-        rgba(255, 255, 255, 0.06);
+    --nav-hover: rgba(0, 217, 208, 0.07);
 
     --nav-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.40);
+        0 8px 30px rgba(0, 0, 0, 0.30);
 }
 
 
 /* =========================================================
-   NAVBAR
+   IMPORTANT — REMOVE ALL CAP / PILL EFFECT
+========================================================= */
+
+.site-navbar,
+.navbar,
+.main-navbar,
+.navbar-container,
+.nav-wrapper,
+.navbar-wrapper {
+
+    width: 100% !important;
+
+    max-width: none !important;
+
+    margin: 0 !important;
+
+    top: 0 !important;
+
+    left: 0 !important;
+
+    right: 0 !important;
+
+    border-radius: 0 !important;
+
+    border-top: none !important;
+
+    border-left: none !important;
+
+    border-right: none !important;
+
+}
+
+
+/* =========================================================
+   MAIN NAVBAR
 ========================================================= */
 
 .site-navbar {
 
-    position: sticky;
+    position: fixed;
 
-    top: 12px;
+    top: 0;
+    left: 0;
 
-    z-index: 9999;
+    width: 100%;
 
-    width:
-        min(
-            calc(100% - 32px),
-            1180px
-        );
+    height: auto;
 
-    margin:
-        12px auto 0;
-
-    border:
-        1px solid var(--nav-border);
-
-    border-radius:
-        18px;
+    z-index: 99999;
 
     background:
         var(--nav-bg);
 
-    backdrop-filter:
-        blur(22px);
-
-    -webkit-backdrop-filter:
-        blur(22px);
+    border-bottom:
+        1px solid var(--nav-border);
 
     box-shadow:
         var(--nav-shadow);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-sizing: border-box;
 
     transition:
         background .3s ease,
@@ -110,23 +129,31 @@ body.dark-mode {
 
 
 /* =========================================================
-   INNER
+   NAVBAR INNER
 ========================================================= */
 
 .navbar-inner {
 
-    position: relative;
+    width: 100%;
+
+    max-width: 1180px;
 
     min-height: 68px;
+
+    margin: 0 auto;
+
+    padding:
+        8px 20px;
 
     display: flex;
 
     align-items: center;
 
-    padding:
-        8px 14px;
-
     gap: 18px;
+
+    box-sizing: border-box;
+
+    position: relative;
 }
 
 
@@ -142,13 +169,16 @@ body.dark-mode {
 
     min-width: max-content;
 
-    text-decoration: none;
+    color:
+        var(--nav-text);
 
-    color: var(--nav-text);
+    text-decoration: none;
 
     font-weight: 800;
 
     letter-spacing: -.4px;
+
+    line-height: 1;
 
     transition:
         transform .25s ease,
@@ -158,12 +188,21 @@ body.dark-mode {
 
 .nav-logo:hover {
 
+    color:
+        var(--nav-text);
+
+    text-decoration: none;
+
     transform:
         translateY(-1px);
 
     opacity: .9;
 }
 
+
+/* =========================================================
+   LOGO SYMBOL
+========================================================= */
 
 .nav-logo-symbol {
 
@@ -178,12 +217,26 @@ body.dark-mode {
 }
 
 
+/* =========================================================
+   LOGO NAME
+========================================================= */
+
 .nav-logo-name {
+
+    color:
+        var(--nav-text);
 
     font-size:
         18px;
+
+    font-weight:
+        800;
 }
 
+
+/* =========================================================
+   LOGO /DEV
+========================================================= */
 
 .nav-logo-slash {
 
@@ -195,19 +248,26 @@ body.dark-mode {
 
     font-size:
         18px;
+
+    font-weight:
+        800;
 }
 
+
+/* =========================================================
+   DEVELOPER TEXT
+========================================================= */
 
 .nav-logo-dev {
 
     margin-left:
-        4px;
+        5px;
 
     color:
         var(--nav-primary);
 
     font-size:
-        13px;
+        12px;
 
     font-weight:
         700;
@@ -234,16 +294,29 @@ body.dark-mode {
 }
 
 
+/* =========================================================
+   NAV LINK
+========================================================= */
+
 .nav-link {
 
     position:
         relative;
 
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
     padding:
         10px 12px;
 
     border-radius:
-        10px;
+        8px;
 
     color:
         var(--nav-text);
@@ -256,6 +329,9 @@ body.dark-mode {
 
     font-weight:
         700;
+
+    line-height:
+        1;
 
     transition:
         color .2s ease,
@@ -272,10 +348,17 @@ body.dark-mode {
     background:
         var(--nav-hover);
 
+    text-decoration:
+        none;
+
     transform:
         translateY(-1px);
 }
 
+
+/* =========================================================
+   LINK UNDERLINE
+========================================================= */
 
 .nav-link::after {
 
@@ -292,13 +375,13 @@ body.dark-mode {
         12px;
 
     bottom:
-        5px;
+        4px;
 
     height:
         2px;
 
     border-radius:
-        20px;
+        10px;
 
     background:
         linear-gradient(
@@ -309,6 +392,9 @@ body.dark-mode {
 
     transform:
         scaleX(0);
+
+    transform-origin:
+        center;
 
     transition:
         transform .25s ease;
@@ -323,7 +409,7 @@ body.dark-mode {
 
 
 /* =========================================================
-   ACTIONS
+   RIGHT ACTIONS
 ========================================================= */
 
 .nav-actions {
@@ -343,6 +429,98 @@ body.dark-mode {
 
 
 /* =========================================================
+   ADMIN BUTTON
+========================================================= */
+
+.nav-admin-btn {
+
+    min-height:
+        40px;
+
+    padding:
+        0 13px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    border:
+        1px solid var(--nav-border);
+
+    border-radius:
+        10px;
+
+    color:
+        var(--nav-text);
+
+    background:
+        var(--nav-card);
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    box-sizing:
+        border-box;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+
+.nav-admin-btn i {
+
+    font-size:
+        14px;
+
+    color:
+        var(--nav-primary);
+}
+
+
+.nav-admin-btn:hover {
+
+    color:
+        #fff;
+
+    background:
+        var(--nav-primary);
+
+    border-color:
+        var(--nav-primary);
+
+    text-decoration:
+        none;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.nav-admin-btn:hover i {
+
+    color:
+        #fff;
+}
+
+
+/* =========================================================
    THEME BUTTON
 ========================================================= */
 
@@ -353,6 +531,9 @@ body.dark-mode {
 
     height:
         42px;
+
+    padding:
+        0;
 
     display:
         flex;
@@ -367,7 +548,7 @@ body.dark-mode {
         1px solid var(--nav-border);
 
     border-radius:
-        12px;
+        10px;
 
     background:
         var(--nav-card);
@@ -381,10 +562,14 @@ body.dark-mode {
     font-size:
         15px;
 
+    box-sizing:
+        border-box;
+
     transition:
         transform .25s ease,
         color .25s ease,
-        background .25s ease;
+        background .25s ease,
+        border-color .25s ease;
 }
 
 
@@ -395,6 +580,9 @@ body.dark-mode {
 
     background:
         var(--nav-hover);
+
+    border-color:
+        var(--nav-primary);
 
     transform:
         translateY(-2px);
@@ -425,8 +613,11 @@ body.dark-mode {
     gap:
         7px;
 
+    border:
+        1px solid transparent;
+
     border-radius:
-        12px;
+        10px;
 
     color:
         #fff;
@@ -442,14 +633,17 @@ body.dark-mode {
         none;
 
     font-size:
-        13px;
+        12px;
 
     font-weight:
         800;
 
+    white-space:
+        nowrap;
+
     box-shadow:
-        0 8px 20px
-        rgba(37, 99, 235, .22);
+        0 7px 20px
+        rgba(37, 99, 235, .20);
 
     transition:
         transform .25s ease,
@@ -462,6 +656,9 @@ body.dark-mode {
     color:
         #fff;
 
+    text-decoration:
+        none;
+
     transform:
         translateY(-2px);
 
@@ -473,8 +670,6 @@ body.dark-mode {
 
 /* =========================================================
    MOBILE MENU BUTTON
-   IMPORTANT:
-   HIDDEN ON LAPTOP / DESKTOP
 ========================================================= */
 
 .nav-menu-toggle {
@@ -488,6 +683,9 @@ body.dark-mode {
     height:
         42px;
 
+    padding:
+        0;
+
     align-items:
         center;
 
@@ -498,7 +696,7 @@ body.dark-mode {
         1px solid var(--nav-border);
 
     border-radius:
-        12px;
+        10px;
 
     background:
         var(--nav-card);
@@ -512,9 +710,13 @@ body.dark-mode {
     font-size:
         19px;
 
+    box-sizing:
+        border-box;
+
     transition:
         color .2s ease,
         background .2s ease,
+        border-color .2s ease,
         transform .2s ease;
 }
 
@@ -526,6 +728,9 @@ body.dark-mode {
 
     background:
         var(--nav-hover);
+
+    border-color:
+        var(--nav-primary);
 }
 
 
@@ -549,13 +754,16 @@ body.dark-mode {
         absolute;
 
     top:
-        calc(100% + 9px);
+        calc(100% + 8px);
 
     right:
-        0;
+        10px;
 
     width:
         230px;
+
+    max-width:
+        calc(100vw - 24px);
 
     padding:
         7px;
@@ -564,26 +772,28 @@ body.dark-mode {
         1px solid var(--nav-border);
 
     border-radius:
-        17px;
+        14px;
 
     background:
         var(--nav-card);
 
     box-shadow:
-        0 22px 55px
-        rgba(0, 0, 0, .20);
+        0 20px 50px rgba(0,0,0,.22);
 
     backdrop-filter:
-        blur(25px);
+        blur(22px);
 
     -webkit-backdrop-filter:
-        blur(25px);
+        blur(22px);
 
     opacity:
         0;
 
     visibility:
         hidden;
+
+    pointer-events:
+        none;
 
     transform:
         translateY(-8px)
@@ -592,13 +802,10 @@ body.dark-mode {
     transform-origin:
         top right;
 
-    pointer-events:
-        none;
-
     transition:
         opacity .2s ease,
-        transform .2s ease,
-        visibility .2s ease;
+        visibility .2s ease,
+        transform .2s ease;
 }
 
 
@@ -613,17 +820,17 @@ body.dark-mode {
     visibility:
         visible;
 
+    pointer-events:
+        auto;
+
     transform:
         translateY(0)
         scale(1);
-
-    pointer-events:
-        auto;
 }
 
 
 /* =========================================================
-   MOBILE LINK
+   MOBILE NAV LINKS
 ========================================================= */
 
 .mobile-nav-link {
@@ -634,8 +841,11 @@ body.dark-mode {
     min-height:
         44px;
 
-    box-sizing:
-        border-box;
+    padding:
+        8px 11px;
+
+    margin:
+        2px 0;
 
     display:
         flex;
@@ -646,17 +856,14 @@ body.dark-mode {
     gap:
         12px;
 
-    padding:
-        8px 11px;
-
-    margin:
-        2px 0;
+    box-sizing:
+        border-box;
 
     border:
-        0;
+        none;
 
     border-radius:
-        11px;
+        9px;
 
     background:
         transparent;
@@ -680,8 +887,8 @@ body.dark-mode {
         pointer;
 
     transition:
-        background .18s ease,
         color .18s ease,
+        background .18s ease,
         transform .18s ease;
 }
 
@@ -713,16 +920,19 @@ body.dark-mode {
     background:
         var(--nav-hover);
 
+    text-decoration:
+        none;
+
     transform:
         translateX(2px);
 }
 
 
 /* =========================================================
-   HIRE MOBILE
+   MOBILE HIRE
 ========================================================= */
 
-.mobile-hire-link {
+.mobile-hire {
 
     margin-top:
         6px;
@@ -739,17 +949,24 @@ body.dark-mode {
 }
 
 
-.mobile-hire-link i {
+.mobile-hire i {
 
     color:
         #fff;
 }
 
 
-.mobile-hire-link:hover {
+.mobile-hire:hover {
 
     color:
         #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--nav-primary),
+            var(--nav-purple)
+        );
 
     transform:
         none;
@@ -760,10 +977,10 @@ body.dark-mode {
 
 
 /* =========================================================
-   ADMIN DASHBOARD
+   MOBILE ADMIN
 ========================================================= */
 
-.mobile-admin-link {
+.mobile-admin {
 
     margin-top:
         4px;
@@ -773,7 +990,7 @@ body.dark-mode {
 }
 
 
-.mobile-admin-link i {
+.mobile-admin i {
 
     color:
         #c99b28;
@@ -781,24 +998,7 @@ body.dark-mode {
 
 
 /* =========================================================
-   LOGIN
-========================================================= */
-
-.mobile-login-link {
-
-    margin-top:
-        5px;
-
-    border-top:
-        1px solid var(--nav-border);
-
-    border-radius:
-        0 0 11px 11px;
-}
-
-
-/* =========================================================
-   LOGOUT
+   LOGOUT FORM
 ========================================================= */
 
 .mobile-logout-form {
@@ -814,13 +1014,13 @@ body.dark-mode {
 
     border-top:
         1px solid var(--nav-border);
+
+    box-sizing:
+        border-box;
 }
 
 
-.mobile-logout-btn {
-
-    margin:
-        0;
+.mobile-logout {
 
     color:
         #ef4444;
@@ -830,7 +1030,7 @@ body.dark-mode {
 }
 
 
-.mobile-logout-btn i {
+.mobile-logout i {
 
     color:
         #ef4444;
@@ -843,10 +1043,10 @@ body.dark-mode {
 
 @media (max-width: 1050px) {
 
-    .site-navbar {
+    .navbar-inner {
 
-        width:
-            calc(100% - 24px);
+        padding:
+            8px 16px;
     }
 
 
@@ -860,9 +1060,25 @@ body.dark-mode {
     .nav-link {
 
         padding:
-            9px;
+            9px 10px;
+
+        font-size:
+            12px;
     }
 
+
+    .nav-admin-btn {
+
+        padding:
+            0 10px;
+    }
+
+
+    .nav-hire-btn {
+
+        padding:
+            0 13px;
+    }
 }
 
 
@@ -874,31 +1090,40 @@ body.dark-mode {
 
     .site-navbar {
 
+        position:
+            fixed;
+
         top:
-            8px;
+            0 !important;
+
+        left:
+            0;
 
         width:
-            calc(100% - 20px);
+            100% !important;
 
-        margin-top:
-            8px;
+        margin:
+            0 !important;
 
         border-radius:
-            16px;
+            0 !important;
     }
 
 
     .navbar-inner {
 
+        width:
+            100%;
+
         min-height:
             58px;
 
         padding:
-            7px 9px;
+            7px 12px;
     }
 
 
-    /* Desktop links hide */
+    /* Hide desktop links */
 
     .nav-links {
 
@@ -907,7 +1132,7 @@ body.dark-mode {
     }
 
 
-    /* Desktop hire hide */
+    /* Hide desktop hire */
 
     .nav-hire-btn {
 
@@ -916,7 +1141,7 @@ body.dark-mode {
     }
 
 
-    /* Mobile menu button SHOW */
+    /* Mobile menu */
 
     .nav-menu-toggle {
 
@@ -929,18 +1154,20 @@ body.dark-mode {
 
         margin-left:
             auto;
+
+        gap:
+            6px;
     }
 
 
     .mobile-menu {
 
+        right:
+            8px;
+
         width:
             220px;
-
-        max-width:
-            calc(100vw - 28px);
     }
-
 }
 
 
@@ -950,20 +1177,13 @@ body.dark-mode {
 
 @media (max-width: 480px) {
 
-    .site-navbar {
-
-        width:
-            calc(100% - 14px);
-    }
-
-
     .navbar-inner {
 
         min-height:
             55px;
 
         padding:
-            6px 8px;
+            6px 10px;
     }
 
 
@@ -981,6 +1201,13 @@ body.dark-mode {
     }
 
 
+    .nav-logo-slash {
+
+        font-size:
+            16px;
+    }
+
+
     .theme-toggle,
     .nav-menu-toggle {
 
@@ -989,18 +1216,20 @@ body.dark-mode {
 
         height:
             37px;
+
+        border-radius:
+            9px;
     }
 
 
     .mobile-menu {
 
+        right:
+            7px;
+
         width:
             210px;
-
-        right:
-            -1px;
     }
-
 }
 
 
@@ -1010,7 +1239,28 @@ body.dark-mode {
 
 @media (max-width: 350px) {
 
+    .navbar-inner {
+
+        padding:
+            6px 8px;
+    }
+
+
     .nav-logo-name {
+
+        font-size:
+            15px;
+    }
+
+
+    .nav-logo-symbol {
+
+        font-size:
+            18px;
+    }
+
+
+    .nav-logo-slash {
 
         font-size:
             15px;
@@ -1043,43 +1293,58 @@ body.dark-mode {
         width:
             200px;
     }
-
-}
-.nav-admin-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-
-    height: 40px;
-    padding: 0 14px;
-
-    border-radius: 12px;
-
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 700;
-
-    color: var(--text-color);
-    background: var(--card-bg);
-
-    border: 1px solid var(--border-color);
-
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease;
 }
 
-.nav-admin-btn i {
-    font-size: 15px;
+
+/* =========================================================
+   EXTRA FORCE — NO TOP CAP
+========================================================= */
+
+html body .site-navbar {
+
+    top: 0 !important;
+
+    margin-top: 0 !important;
+
+    margin-bottom: 0 !important;
+
+    margin-left: 0 !important;
+
+    margin-right: 0 !important;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
+
+    border-radius: 0 !important;
+
+    transform: none !important;
 }
 
-.nav-admin-btn:hover {
-    transform: translateY(-2px);
 
-    background: var(--accent-color);
-    color: #fff;
+html body .site-navbar::before,
+html body .site-navbar::after {
 
-    border-color: var(--accent-color);
+    border-radius: 0 !important;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .site-navbar,
+    .nav-logo,
+    .nav-link,
+    .nav-admin-btn,
+    .theme-toggle,
+    .nav-hire-btn,
+    .nav-menu-toggle,
+    .mobile-nav-link {
+
+        transition:
+            none !important;
+    }
 }

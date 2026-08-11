@@ -1,6 +1,6 @@
 from django.urls import path
-
 from . import views
+
 
 urlpatterns = [
 
@@ -35,7 +35,7 @@ urlpatterns = [
     ),
 
     # =====================================================
-    # PROJECTS
+    # PROJECT LIST
     # =====================================================
 
     path(
@@ -46,12 +46,24 @@ urlpatterns = [
 
     # =====================================================
     # ADD PROJECT
+    # IMPORTANT:
+    # Must be before projects/<slug:slug>/
     # =====================================================
 
     path(
         "projects/add/",
         views.add_project,
         name="add_project"
+    ),
+
+    # =====================================================
+    # PROJECT DETAIL
+    # =====================================================
+
+    path(
+        "projects/<slug:slug>/",
+        views.project_detail,
+        name="project_detail"
     ),
 
     # =====================================================
@@ -75,16 +87,6 @@ urlpatterns = [
     ),
 
     # =====================================================
-    # PROJECT DETAIL
-    # =====================================================
-
-    path(
-        "projects/<slug:slug>/",
-        views.project_detail,
-        name="project_detail"
-    ),
-
-    # =====================================================
     # CONTACT
     # =====================================================
 
@@ -103,10 +105,4 @@ urlpatterns = [
         views.resume,
         name="resume"
     ),
-    path(
-    "projects/<slug:slug>/edit/",
-    views.edit_project,
-    name="edit_project"
-    ),
-    # ACCOUNT
 ]
