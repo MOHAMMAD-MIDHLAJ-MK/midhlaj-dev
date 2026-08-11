@@ -1,0 +1,306 @@
+/* =========================================================
+   MIDHLAJ DEV — BASE CSS
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+
+    overflow-x: hidden;
+
+    background: var(--bg-primary);
+    color: var(--text-primary);
+
+    transition:
+        background-color .3s ease,
+        color .3s ease;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main-content {
+    width: 100%;
+    min-height: 100vh;
+
+    /*
+       Fixed navbar space
+    */
+    padding-top: 76px;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: min(1180px, 92%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BUTTON RESET
+========================================================= */
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   IMAGES
+========================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    padding-top: 25px;
+    margin-bottom: 30px;
+}
+
+.section-label {
+    display: inline-block;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #00d9d0;
+
+    margin-bottom: 8px;
+}
+
+.section-title {
+    margin: 0;
+
+    font-size: clamp(28px, 4vw, 46px);
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+}
+
+.section-description {
+    max-width: 650px;
+
+    margin: 12px auto 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   PREMIUM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #6d3cff,
+        #00d9d0
+    );
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00d9d0;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(0, 217, 208, .25);
+    color: #fff;
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #00d9d0;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .main-content {
+        padding-top: 68px;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .page-header {
+        padding-top: 18px;
+        margin-bottom: 22px;
+    }
+
+    .section-label {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .section-title {
+        font-size: 27px;
+        letter-spacing: -1px;
+    }
+
+    .section-description {
+        font-size: 10px;
+        line-height: 1.6;
+
+        max-width: 340px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .main-content {
+        padding-top: 64px;
+    }
+
+    .container {
+        width: calc(100% - 20px);
+    }
+
+    .page-header {
+        padding-top: 15px;
+        margin-bottom: 18px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-description {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .main-content {
+        padding-top: 62px;
+    }
+
+    .container {
+        width: calc(100% - 16px);
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}

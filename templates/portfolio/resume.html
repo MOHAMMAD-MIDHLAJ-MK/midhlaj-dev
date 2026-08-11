@@ -1,0 +1,563 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Resume | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/resume.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<main class="resume-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <section class="page-header text-center">
+
+        <span class="section-label">
+            RESUME
+        </span>
+
+        <h1 class="section-title">
+            My Resume
+        </h1>
+
+        <p class="section-description">
+            My education, technical skills,
+            projects and development journey.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RESUME
+    ====================================================== -->
+
+    <section class="resume-wrapper">
+
+        <div class="resume-card">
+
+
+            <!-- =================================================
+                 RESUME HEADER
+            ================================================== -->
+
+            <div class="resume-header">
+
+                <div class="resume-person">
+
+                    <span class="resume-role">
+                        PYTHON DJANGO DEVELOPER
+                    </span>
+
+                    <h2>
+                        Midhlaj MK
+                    </h2>
+
+                    <p>
+                        BCA Student · Python Django Developer
+                    </p>
+
+                </div>
+
+
+                <div class="resume-icon">
+
+                    <i class="bi bi-file-earmark-person-fill"></i>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="resume-divider"></div>
+
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section class="resume-block">
+
+                <div class="resume-heading">
+
+                    <div class="resume-heading-icon">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>ABOUT</span>
+
+                        <h3>
+                            Profile
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <p class="resume-text">
+
+                    Aspiring Python Django Developer and
+                    BCA student passionate about building
+                    modern, responsive and user-friendly
+                    web applications.
+
+                </p>
+
+                <p class="resume-text">
+
+                    Interested in backend development,
+                    REST APIs, database management and
+                    full-stack web development using
+                    Python and Django.
+
+                </p>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 TECHNOLOGIES
+            ================================================== -->
+
+            <section class="resume-block">
+
+                <div class="resume-heading">
+
+                    <div class="resume-heading-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <div>
+                        <span>TECHNOLOGIES</span>
+
+                        <h3>
+                            Technical Skills
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="resume-skills">
+
+
+                    <!-- Python -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-filetype-py"></i>
+                        <span>Python</span>
+                    </div>
+
+
+                    <!-- Django -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-server"></i>
+                        <span>Django</span>
+                    </div>
+
+
+                    <!-- HTML -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-filetype-html"></i>
+                        <span>HTML5</span>
+                    </div>
+
+
+                    <!-- CSS -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-filetype-css"></i>
+                        <span>CSS3</span>
+                    </div>
+
+
+                    <!-- JavaScript -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-filetype-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+
+
+                    <!-- jQuery -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-code-square"></i>
+                        <span>jQuery</span>
+                    </div>
+
+
+                    <!-- Bootstrap -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-bootstrap"></i>
+                        <span>Bootstrap</span>
+                    </div>
+
+
+                    <!-- MySQL -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-database"></i>
+                        <span>MySQL</span>
+                    </div>
+
+
+                    <!-- Git -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-git"></i>
+                        <span>Git & GitHub</span>
+                    </div>
+
+
+                    <!-- REST API -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-cloud-arrow-up"></i>
+                        <span>REST API</span>
+                    </div>
+
+
+                    <!-- VS Code -->
+
+                    <div class="resume-skill">
+                        <i class="bi bi-code-square"></i>
+                        <span>VS Code</span>
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 PROJECTS
+            ================================================== -->
+
+            <section class="resume-block">
+
+                <div class="resume-heading">
+
+                    <div class="resume-heading-icon">
+                        <i class="bi bi-folder-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>WORK</span>
+
+                        <h3>
+                            Projects
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="resume-projects">
+
+
+                    <div class="resume-project">
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <div>
+                            <h4>
+                                E-Commerce Website
+                            </h4>
+
+                            <p>
+                                Django-based e-commerce
+                                platform with product,
+                                category and shopping
+                                functionality.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-project">
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <div>
+                            <h4>
+                                Hospital Management System
+                            </h4>
+
+                            <p>
+                                Web application for managing
+                                hospital-related data and
+                                operations.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-project">
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <div>
+                            <h4>
+                                Hotel Booking Website
+                            </h4>
+
+                            <p>
+                                Hotel booking platform with
+                                responsive frontend and
+                                Django backend.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-project">
+
+                        <div class="project-number">
+                            04
+                        </div>
+
+                        <div>
+                            <h4>
+                                Real-Time Chat Application
+                            </h4>
+
+                            <p>
+                                Real-time messaging application
+                                using Django and WebSocket
+                                technologies.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="resume-project">
+
+                        <div class="project-number">
+                            05
+                        </div>
+
+                        <div>
+                            <h4>
+                                Student Management System
+                            </h4>
+
+                            <p>
+                                CRUD-based Django application
+                                for managing student records.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 EDUCATION
+            ================================================== -->
+
+            <section class="resume-block">
+
+                <div class="resume-heading">
+
+                    <div class="resume-heading-icon">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>ACADEMIC</span>
+
+                        <h3>
+                            Education
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="resume-education">
+
+
+                    <div class="education-item">
+
+                        <div class="education-icon">
+
+                            <i class="bi bi-mortarboard-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                CURRENT
+                            </span>
+
+                            <h4>
+                                Bachelor of Computer Applications
+                            </h4>
+
+                            <p>
+                                BCA
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="education-item">
+
+                        <div class="education-icon">
+
+                            <i class="bi bi-book-fill"></i>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                COMPLETED
+                            </span>
+
+                            <h4>
+                                Higher Secondary Education
+                            </h4>
+
+                            <p>
+                                Plus Two
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CERTIFICATION
+            ================================================== -->
+
+            <section class="resume-block">
+
+                <div class="resume-heading">
+
+                    <div class="resume-heading-icon">
+                        <i class="bi bi-patch-check-fill"></i>
+                    </div>
+
+                    <div>
+                        <span>CERTIFICATION</span>
+
+                        <h3>
+                            Professional Certification
+                        </h3>
+                    </div>
+
+                </div>
+
+
+                <div class="resume-certification">
+
+                    <div class="certification-logo">
+
+                        <i class="bi bi-patch-check-fill"></i>
+
+                    </div>
+
+                    <div class="certification-info">
+
+                        <span>
+                            2026
+                        </span>
+
+                        <h4>
+                            Python Full Stack Developer
+                        </h4>
+
+                        <p>
+                            Python Full Stack Developer
+                            Certification
+                        </p>
+
+                    </div>
+
+                    <div class="certified-badge">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Certified
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 DOWNLOAD
+            ================================================== -->
+
+            <div class="resume-download">
+
+                <a
+                    href="{% static 'resume/midhlaj_resume.pdf' %}"
+                    class="premium-btn"
+                    download
+                >
+
+                    <i class="bi bi-download"></i>
+
+                    Download Resume
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}

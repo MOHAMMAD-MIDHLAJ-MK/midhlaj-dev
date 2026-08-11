@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Hospital Management System | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects/ecommerce.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="project-detail-hero">
+
+    <div class="project-detail-container">
+
+        <a href="{% url 'projects' %}" class="back-projects">
+            <i class="bi bi-arrow-left"></i>
+            Back to Projects
+        </a>
+
+        <div class="project-detail-heading">
+
+            <span class="project-label">
+                FULL STACK PROJECT
+            </span>
+
+            <h1>
+                Hospital Management System
+            </h1>
+
+            <p>
+                A web-based hospital management application
+                designed to organize patient, doctor and
+                hospital-related information efficiently.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="project-detail-section">
+
+    <div class="project-detail-container">
+
+        <!-- IMAGE -->
+
+        <div class="project-main-image">
+
+            <img
+                src="{% static 'images/projects/hospital.png' %}"
+                alt="Hospital Management System"
+            >
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="project-info-grid">
+
+            <div class="project-description">
+
+                <span class="detail-label">
+                    ABOUT THE PROJECT
+                </span>
+
+                <h2>
+                    Digital Hospital Management
+                </h2>
+
+                <p>
+                    This project is a hospital management
+                    web application created to simplify
+                    the management of hospital information.
+                </p>
+
+                <p>
+                    It provides a structured interface for
+                    managing patients, doctors and other
+                    hospital-related information.
+                </p>
+
+            </div>
+
+
+            <div class="project-meta">
+
+                <div class="meta-item">
+                    <span>Project Type</span>
+                    <strong>Web Application</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Backend</span>
+                    <strong>Python / Django</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Database</span>
+                    <strong>MySQL</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="project-technologies">
+
+            <span class="detail-label">
+                TECHNOLOGIES
+            </span>
+
+            <div class="technology-list">
+
+                <span>Python</span>
+                <span>Django</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>MySQL</span>
+                <span>Git</span>
+                <span>GitHub</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div class="project-video-section">
+
+            <span class="detail-label">
+                PROJECT PREVIEW
+            </span>
+
+            <h2>
+                See It In Action
+            </h2>
+
+            <p>
+                A short demonstration of the hospital
+                management interface and functionality.
+            </p>
+
+            <div class="project-video">
+
+                <video
+                    controls
+                    preload="metadata"
+                    poster="{% static 'images/projects/hospital.png' %}"
+                >
+
+                    <source
+                        src="{% static 'videos/hospital.mp4' %}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURES -->
+
+        <div class="project-features">
+
+            <span class="detail-label">
+                KEY FEATURES
+            </span>
+
+            <div class="features-grid">
+
+                <div class="feature-item">
+
+                    <i class="bi bi-person-vcard"></i>
+
+                    <h3>
+                        Patient Management
+                    </h3>
+
+                    <p>
+                        Patient information can be
+                        managed systematically.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-person-badge"></i>
+
+                    <h3>
+                        Doctor Management
+                    </h3>
+
+                    <p>
+                        Doctor-related information
+                        can be organized efficiently.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-phone"></i>
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        The interface works across
+                        different screen sizes.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-database"></i>
+
+                    <h3>
+                        Database Integration
+                    </h3>
+
+                    <p>
+                        Hospital data is stored and
+                        managed using a database.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINKS -->
+
+        <div class="project-actions">
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="project-action github"
+            >
+                <i class="bi bi-github"></i>
+                View Source Code
+            </a>
+
+            <a
+                href="#"
+                target="_blank"
+                class="project-action live"
+            >
+                <i class="bi bi-box-arrow-up-right"></i>
+                Live Demo
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Hotel Booking System | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects/ecommerce.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="project-detail-hero">
+    <div class="project-detail-container">
+
+        <a href="{% url 'projects' %}" class="back-projects">
+            <i class="bi bi-arrow-left"></i>
+            Back to Projects
+        </a>
+
+        <div class="project-detail-heading">
+
+            <span class="project-label">
+                FULL STACK PROJECT
+            </span>
+
+            <h1>
+                Hotel Booking System
+            </h1>
+
+            <p>
+                A modern hotel booking web application designed
+                to make room discovery, booking and management
+                simple and user-friendly.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="project-detail-section">
+
+    <div class="project-detail-container">
+
+        <!-- IMAGE -->
+
+        <div class="project-main-image">
+
+            <img
+                src="{% static 'images/projects/hotel.png' %}"
+                alt="Hotel Booking System"
+            >
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="project-info-grid">
+
+            <div class="project-description">
+
+                <span class="detail-label">
+                    ABOUT THE PROJECT
+                </span>
+
+                <h2>
+                    Smart Hotel Booking Experience
+                </h2>
+
+                <p>
+                    This project is a hotel booking web application
+                    developed to provide users with a convenient
+                    way to explore hotels and available rooms.
+                </p>
+
+                <p>
+                    The application focuses on a clean interface,
+                    responsive design and an easy booking experience
+                    for users.
+                </p>
+
+            </div>
+
+
+            <div class="project-meta">
+
+                <div class="meta-item">
+                    <span>Project Type</span>
+                    <strong>Full Stack Web Application</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Backend</span>
+                    <strong>Python / Django</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Database</span>
+                    <strong>MySQL</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="project-technologies">
+
+            <span class="detail-label">
+                TECHNOLOGIES
+            </span>
+
+            <div class="technology-list">
+
+                <span>Python</span>
+                <span>Django</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>MySQL</span>
+                <span>Git</span>
+                <span>GitHub</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div class="project-video-section">
+
+            <span class="detail-label">
+                PROJECT PREVIEW
+            </span>
+
+            <h2>
+                See It In Action
+            </h2>
+
+            <p>
+                Explore the hotel booking interface and
+                its main functionality.
+            </p>
+
+            <div class="project-video">
+
+                <video
+                    controls
+                    preload="metadata"
+                    poster="{% static 'images/projects/hotel.png' %}"
+                >
+
+                    <source
+                        src="{% static 'videos/hotel.mp4' %}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURES -->
+
+        <div class="project-features">
+
+            <span class="detail-label">
+                KEY FEATURES
+            </span>
+
+            <div class="features-grid">
+
+                <div class="feature-item">
+                    <i class="bi bi-building"></i>
+
+                    <h3>
+                        Hotel Listings
+                    </h3>
+
+                    <p>
+                        Users can explore available
+                        hotels and rooms.
+                    </p>
+                </div>
+
+
+                <div class="feature-item">
+                    <i class="bi bi-calendar-check"></i>
+
+                    <h3>
+                        Room Booking
+                    </h3>
+
+                    <p>
+                        Simple and convenient booking
+                        functionality.
+                    </p>
+                </div>
+
+
+                <div class="feature-item">
+                    <i class="bi bi-phone"></i>
+
+                    <h3>
+                        Responsive UI
+                    </h3>
+
+                    <p>
+                        Optimized for desktop,
+                        tablet and mobile devices.
+                    </p>
+                </div>
+
+
+                <div class="feature-item">
+                    <i class="bi bi-database"></i>
+
+                    <h3>
+                        Database Management
+                    </h3>
+
+                    <p>
+                        Hotel and booking information
+                        is managed efficiently.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINKS -->
+
+        <div class="project-actions">
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="project-action github"
+            >
+                <i class="bi bi-github"></i>
+                View Source Code
+            </a>
+
+            <a
+                href="#"
+                target="_blank"
+                class="project-action live"
+            >
+                <i class="bi bi-box-arrow-up-right"></i>
+                Live Demo
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

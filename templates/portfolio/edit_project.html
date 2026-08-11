@@ -1,0 +1,1543 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Edit {{ project.title }} | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+
+<style>
+
+/* =========================================================
+   EDIT PROJECT
+========================================================= */
+
+.edit-project-page {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 45px 20px 80px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.edit-project-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.edit-header-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: #c79b3b;
+    margin-bottom: 10px;
+}
+
+.edit-project-header h1 {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+
+    color: var(--text-color, #111);
+}
+
+.edit-project-header h1 span {
+    color: #c79b3b;
+}
+
+.edit-project-header p {
+    margin: 12px 0 0;
+
+    color: var(--muted-text, #777);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.edit-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 11px 17px;
+
+    border: 1px solid rgba(199,155,59,.35);
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: var(--text-color, #222);
+    background: var(--card-bg, #fff);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+.edit-back-btn:hover {
+    color: #c79b3b;
+    border-color: #c79b3b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.edit-project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.edit-card {
+    padding: 28px;
+
+    border-radius: 18px;
+
+    background: var(--card-bg, #fff);
+
+    border: 1px solid var(--border-color, rgba(0,0,0,.08));
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.06);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.edit-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border-color, rgba(0,0,0,.08));
+}
+
+.edit-section-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: rgba(199,155,59,.12);
+    color: #c79b3b;
+
+    font-size: 20px;
+}
+
+.edit-card-header span {
+    display: block;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    color: #c79b3b;
+}
+
+.edit-card-header h2 {
+    margin: 3px 0 0;
+
+    font-size: 20px;
+    font-weight: 800;
+
+    color: var(--text-color, #111);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.edit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.edit-full {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.edit-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-field label {
+    font-size: 13px;
+    font-weight: 750;
+
+    color: var(--text-color, #222);
+}
+
+.edit-field label i {
+    color: #c79b3b;
+    margin-right: 5px;
+}
+
+.edit-field small {
+    font-size: 11px;
+    line-height: 1.5;
+
+    color: var(--muted-text, #888);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.edit-field input:not([type="checkbox"]),
+.edit-field select,
+.edit-field textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    border: 1px solid var(--border-color, #ddd);
+
+    background: var(--input-bg, #fff);
+    color: var(--text-color, #222);
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition: .25s ease;
+}
+
+.edit-field textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.edit-field input:not([type="checkbox"]):focus,
+.edit-field select:focus,
+.edit-field textarea:focus {
+    border-color: #c79b3b;
+
+    box-shadow:
+        0 0 0 3px rgba(199,155,59,.10);
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.technology-input-wrap {
+    position: relative;
+}
+
+.technology-input-wrap input {
+    padding-left: 42px !important;
+}
+
+.technology-input-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #c79b3b;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   MEDIA EDITOR
+========================================================= */
+
+.media-editor {
+    display: grid;
+
+    grid-template-columns: minmax(250px, .9fr) minmax(280px, 1.1fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   CURRENT IMAGE
+========================================================= */
+
+.current-media {
+    width: 100%;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: var(--media-bg, #f5f5f5);
+
+    border: 1px solid var(--border-color, #ddd);
+}
+
+.current-media img {
+    width: 100%;
+
+    height: 230px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.current-media-label {
+    display: block;
+
+    padding: 10px 13px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+
+    color: #c79b3b;
+}
+
+
+/* =========================================================
+   NO IMAGE
+========================================================= */
+
+.no-media {
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 14px;
+
+    border: 1px dashed var(--border-color, #ccc);
+
+    color: var(--muted-text, #888);
+}
+
+.no-media i {
+    font-size: 35px;
+    color: #c79b3b;
+}
+
+
+/* =========================================================
+   REPLACE BOX
+========================================================= */
+
+.replace-box {
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px dashed rgba(199,155,59,.45);
+
+    background: rgba(199,155,59,.035);
+}
+
+.replace-box label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    color: var(--text-color, #222);
+}
+
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.current-video {
+    width: 100%;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+.current-video video {
+    width: 100%;
+
+    height: 260px;
+
+    display: block;
+}
+
+.video-empty {
+    min-height: 180px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    border: 1px dashed var(--border-color, #ccc);
+
+    color: var(--muted-text, #888);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.status-option {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 17px;
+
+    border-radius: 13px;
+
+    border: 1px solid var(--border-color, #ddd);
+
+    background: var(--input-bg, #fff);
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.status-option:hover {
+    border-color: rgba(199,155,59,.55);
+}
+
+.status-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #c79b3b;
+}
+
+.status-option strong {
+    display: block;
+
+    color: var(--text-color, #222);
+
+    font-size: 13px;
+}
+
+.status-option small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted-text, #888);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.field-error {
+    padding: 9px 11px;
+
+    border-radius: 8px;
+
+    background: rgba(220,53,69,.08);
+
+    color: #dc3545;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.edit-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    padding-top: 5px;
+}
+
+.cancel-edit-btn,
+.save-edit-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 13px 22px;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    text-decoration: none;
+
+    transition: .25s ease;
+}
+
+.cancel-edit-btn {
+    color: var(--text-color, #333);
+
+    border: 1px solid var(--border-color, #ddd);
+
+    background: var(--card-bg, #fff);
+}
+
+.cancel-edit-btn:hover {
+    color: #c79b3b;
+    border-color: #c79b3b;
+}
+
+.save-edit-btn {
+    border: none;
+
+    background: #c79b3b;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.save-edit-btn:hover {
+    background: #ad822b;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(199,155,59,.22);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .edit-project-header h1,
+.dark .edit-project-header h1 {
+    color: #f5f5f5;
+}
+
+body.dark .edit-card,
+.dark .edit-card {
+    background: #151515;
+    border-color: rgba(255,255,255,.08);
+    box-shadow: 0 12px 35px rgba(0,0,0,.25);
+}
+
+body.dark .edit-field input:not([type="checkbox"]),
+body.dark .edit-field select,
+body.dark .edit-field textarea,
+.dark .edit-field input:not([type="checkbox"]),
+.dark .edit-field select,
+.dark .edit-field textarea {
+    background: #101010;
+    color: #f5f5f5;
+    border-color: rgba(255,255,255,.12);
+}
+
+body.dark .status-option,
+.dark .status-option {
+    background: #101010;
+    border-color: rgba(255,255,255,.10);
+}
+
+body.dark .edit-back-btn,
+.dark .edit-back-btn,
+body.dark .cancel-edit-btn,
+.dark .cancel-edit-btn {
+    background: #151515;
+    color: #eee;
+    border-color: rgba(255,255,255,.12);
+}
+
+body.dark .current-media,
+.dark .current-media {
+    background: #101010;
+    border-color: rgba(255,255,255,.10);
+}
+
+body.dark .no-media,
+.dark .no-media,
+body.dark .video-empty,
+.dark .video-empty {
+    border-color: rgba(255,255,255,.12);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .media-editor {
+        grid-template-columns: 1fr;
+    }
+
+    .current-media img {
+        height: 260px;
+    }
+
+    .current-video video {
+        height: 280px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .edit-project-page {
+        padding: 30px 14px 60px;
+    }
+
+    .edit-project-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edit-back-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .edit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-full {
+        grid-column: auto;
+    }
+
+    .edit-card {
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-edit-btn,
+    .save-edit-btn {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .edit-project-header h1 {
+        font-size: 30px;
+    }
+
+    .edit-project-header p {
+        font-size: 13px;
+    }
+
+    .edit-card-header h2 {
+        font-size: 17px;
+    }
+
+    .edit-section-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+    .current-media img {
+        height: 190px;
+    }
+
+    .current-video video {
+        height: 210px;
+    }
+
+}
+
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="edit-project-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="edit-project-header">
+
+        <div>
+
+            <span class="edit-header-label">
+                <i class="bi bi-pencil-square"></i>
+                PROJECT MANAGEMENT
+            </span>
+
+            <h1>
+                Edit <span>Project</span>
+            </h1>
+
+            <p>
+                Update your project information, images,
+                video and links.
+            </p>
+
+        </div>
+
+
+        <a
+            href="{% url 'project_detail' project.slug %}"
+            class="edit-back-btn"
+        >
+            <i class="bi bi-arrow-left"></i>
+            View Project
+        </a>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         FORM
+    ====================================================== -->
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+        class="edit-project-form"
+    >
+
+        {% csrf_token %}
+
+
+        <!-- =================================================
+             BASIC INFORMATION
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-info-circle"></i>
+                </div>
+
+                <div>
+                    <span>01</span>
+                    <h2>Project Information</h2>
+                </div>
+
+            </div>
+
+
+            <div class="edit-grid">
+
+
+                <!-- TITLE -->
+
+                <div class="edit-field edit-full">
+
+                    <label>
+                        <i class="bi bi-type"></i>
+                        Project Title
+                    </label>
+
+                    {{ form.title }}
+
+                    {% if form.title.errors %}
+                        <div class="field-error">
+                            {{ form.title.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- CATEGORY -->
+
+                <div class="edit-field">
+
+                    <label>
+                        <i class="bi bi-folder2-open"></i>
+                        Category
+                    </label>
+
+                    {{ form.category }}
+
+                    {% if form.category.errors %}
+                        <div class="field-error">
+                            {{ form.category.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- TECHNOLOGIES -->
+
+                <div class="edit-field">
+
+                    <label>
+                        <i class="bi bi-code-slash"></i>
+                        Technologies
+                    </label>
+
+                    <div class="technology-input-wrap">
+
+                        <i class="bi bi-terminal technology-input-icon"></i>
+
+                        {{ form.technologies }}
+
+                    </div>
+
+                    <small>
+                        Example: Python, Django, HTML, CSS, JavaScript
+                    </small>
+
+                    {% if form.technologies.errors %}
+                        <div class="field-error">
+                            {{ form.technologies.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="edit-field edit-full">
+
+                    <label>
+                        <i class="bi bi-text-paragraph"></i>
+                        Project Description
+                    </label>
+
+                    {{ form.description }}
+
+                    {% if form.description.errors %}
+                        <div class="field-error">
+                            {{ form.description.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COVER IMAGE
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-image"></i>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <h2>Project Cover</h2>
+                </div>
+
+            </div>
+
+
+            <div class="media-editor">
+
+
+                <!-- CURRENT COVER -->
+
+                <div>
+
+                    {% if project.cover_image %}
+
+                        <div class="current-media">
+
+                            <img
+                                src="{{ project.cover_image.url }}"
+                                alt="{{ project.title }} cover"
+                            >
+
+                            <span class="current-media-label">
+                                CURRENT COVER IMAGE
+                            </span>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="no-media">
+
+                            <i class="bi bi-image"></i>
+
+                            <span>
+                                No cover image
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- EDIT COVER -->
+
+                <div class="replace-box">
+
+                    <div class="edit-field">
+
+                        <label>
+                            Replace Cover Image
+                        </label>
+
+                        {{ form.cover_image }}
+
+                        <small>
+                            Leave empty to keep the current image.
+                        </small>
+
+                    </div>
+
+
+                    <div class="edit-field" style="margin-top:18px;">
+
+                        <label>
+                            Cover Image Description
+                        </label>
+
+                        {{ form.cover_paragraph }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             IMAGE 01
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-image"></i>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <h2>Project Image 01</h2>
+                </div>
+
+            </div>
+
+
+            <div class="media-editor">
+
+
+                <!-- CURRENT IMAGE -->
+
+                <div>
+
+                    {% if project.image %}
+
+                        <div class="current-media">
+
+                            <img
+                                src="{{ project.image.url }}"
+                                alt="{{ project.title }} image 01"
+                            >
+
+                            <span class="current-media-label">
+                                CURRENT IMAGE 01
+                            </span>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="no-media">
+
+                            <i class="bi bi-image"></i>
+
+                            <span>
+                                No Image 01
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- EDIT -->
+
+                <div class="replace-box">
+
+                    <div class="edit-field">
+
+                        <label>
+                            Replace Image 01
+                        </label>
+
+                        {{ form.image }}
+
+                        <small>
+                            Leave empty to keep the existing image.
+                        </small>
+
+                    </div>
+
+
+                    <div class="edit-field" style="margin-top:18px;">
+
+                        <label>
+                            Image 01 Description
+                        </label>
+
+                        {{ form.image_paragraph }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             IMAGE 02
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-images"></i>
+                </div>
+
+                <div>
+                    <span>04</span>
+                    <h2>Project Image 02</h2>
+                </div>
+
+            </div>
+
+
+            <div class="media-editor">
+
+
+                <!-- CURRENT IMAGE -->
+
+                <div>
+
+                    {% if project.image_2 %}
+
+                        <div class="current-media">
+
+                            <img
+                                src="{{ project.image_2.url }}"
+                                alt="{{ project.title }} image 02"
+                            >
+
+                            <span class="current-media-label">
+                                CURRENT IMAGE 02
+                            </span>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="no-media">
+
+                            <i class="bi bi-image"></i>
+
+                            <span>
+                                No Image 02
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- EDIT -->
+
+                <div class="replace-box">
+
+                    <div class="edit-field">
+
+                        <label>
+                            Replace Image 02
+                        </label>
+
+                        {{ form.image_2 }}
+
+                        <small>
+                            Leave empty to keep the existing image.
+                        </small>
+
+                    </div>
+
+
+                    <div class="edit-field" style="margin-top:18px;">
+
+                        <label>
+                            Image 02 Description
+                        </label>
+
+                        {{ form.image_2_paragraph }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             IMAGE 03
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-images"></i>
+                </div>
+
+                <div>
+                    <span>05</span>
+                    <h2>Project Image 03</h2>
+                </div>
+
+            </div>
+
+
+            <div class="media-editor">
+
+
+                <!-- CURRENT IMAGE -->
+
+                <div>
+
+                    {% if project.image_3 %}
+
+                        <div class="current-media">
+
+                            <img
+                                src="{{ project.image_3.url }}"
+                                alt="{{ project.title }} image 03"
+                            >
+
+                            <span class="current-media-label">
+                                CURRENT IMAGE 03
+                            </span>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="no-media">
+
+                            <i class="bi bi-image"></i>
+
+                            <span>
+                                No Image 03
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- EDIT -->
+
+                <div class="replace-box">
+
+                    <div class="edit-field">
+
+                        <label>
+                            Replace Image 03
+                        </label>
+
+                        {{ form.image_3 }}
+
+                        <small>
+                            Leave empty to keep the existing image.
+                        </small>
+
+                    </div>
+
+
+                    <div class="edit-field" style="margin-top:18px;">
+
+                        <label>
+                            Image 03 Description
+                        </label>
+
+                        {{ form.image_3_paragraph }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VIDEO
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-play-circle"></i>
+                </div>
+
+                <div>
+                    <span>06</span>
+                    <h2>Project Demo Video</h2>
+                </div>
+
+            </div>
+
+
+            <div class="media-editor">
+
+
+                <!-- CURRENT VIDEO -->
+
+                <div>
+
+                    {% if project.video %}
+
+                        <div class="current-video">
+
+                            <video controls preload="metadata">
+
+                                <source
+                                    src="{{ project.video.url }}"
+                                    type="video/mp4"
+                                >
+
+                                Your browser does not support video.
+
+                            </video>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="video-empty">
+
+                            <span>
+                                No project video uploaded.
+                            </span>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- VIDEO EDIT -->
+
+                <div class="replace-box">
+
+                    <div class="edit-field">
+
+                        <label>
+                            Replace Video
+                        </label>
+
+                        {{ form.video }}
+
+                        <small>
+                            Leave empty to keep the current video.
+                        </small>
+
+                    </div>
+
+
+                    <div class="edit-field" style="margin-top:18px;">
+
+                        <label>
+                            Video Description
+                        </label>
+
+                        {{ form.video_paragraph }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LINKS
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-link-45deg"></i>
+                </div>
+
+                <div>
+                    <span>07</span>
+                    <h2>Project Links</h2>
+                </div>
+
+            </div>
+
+
+            <div class="edit-grid">
+
+                <div class="edit-field">
+
+                    <label>
+                        <i class="bi bi-github"></i>
+                        GitHub Repository
+                    </label>
+
+                    {{ form.github_url }}
+
+                </div>
+
+
+                <div class="edit-field">
+
+                    <label>
+                        <i class="bi bi-globe2"></i>
+                        Live Demo
+                    </label>
+
+                    {{ form.live_url }}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATUS
+        ================================================== -->
+
+        <section class="edit-card">
+
+            <div class="edit-card-header">
+
+                <div class="edit-section-icon">
+                    <i class="bi bi-toggles"></i>
+                </div>
+
+                <div>
+                    <span>08</span>
+                    <h2>Project Status</h2>
+                </div>
+
+            </div>
+
+
+            <div class="status-grid">
+
+
+                <label class="status-option">
+
+                    {{ form.featured }}
+
+                    <div>
+
+                        <strong>
+                            Featured Project
+                        </strong>
+
+                        <small>
+                            Show this project as featured.
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+                <label class="status-option">
+
+                    {{ form.is_active }}
+
+                    <div>
+
+                        <strong>
+                            Active Project
+                        </strong>
+
+                        <small>
+                            Keep this project visible.
+                        </small>
+
+                    </div>
+
+                </label>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ACTIONS
+        ================================================== -->
+
+        <div class="edit-actions">
+
+            <a
+                href="{% url 'project_detail' project.slug %}"
+                class="cancel-edit-btn"
+            >
+                <i class="bi bi-x-lg"></i>
+                Cancel
+            </a>
+
+
+            <button
+                type="submit"
+                class="save-edit-btn"
+            >
+                <i class="bi bi-check2-circle"></i>
+                Save Changes
+            </button>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,629 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ project.title }} | Project Details
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/project_detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<main class="project-detail-page">
+
+    <!-- =====================================================
+         BACKGROUND DECORATION
+    ====================================================== -->
+
+    <div class="project-bg-orb project-bg-orb-1"></div>
+    <div class="project-bg-orb project-bg-orb-2"></div>
+
+
+    <div class="project-detail-container">
+
+        <!-- =================================================
+             TOP NAV / BACK
+        ================================================== -->
+
+        <div class="project-topbar">
+
+            <a href="{% url 'projects' %}" class="project-back-btn">
+                <span class="back-icon">←</span>
+                <span>All Projects</span>
+            </a>
+
+            <div class="project-actions">
+
+                {% if request.user.is_authenticated %}
+                    {% if project.owner == request.user %}
+
+                        <a
+                            href="{% url 'edit_project' project.slug %}"
+                            class="project-action-btn edit-btn"
+                        >
+                            <span>✎</span>
+                            <span>Edit</span>
+                        </a>
+
+                        <a
+                            href="{% url 'delete_project' project.slug %}"
+                            class="project-action-btn delete-btn"
+                        >
+                            <span>⌫</span>
+                            <span>Delete</span>
+                        </a>
+
+                    {% endif %}
+                {% endif %}
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROJECT HERO
+        ================================================== -->
+
+        <section class="project-hero-card">
+
+            <div class="project-hero-content">
+
+                <!-- CATEGORY -->
+
+                <div class="project-category-row">
+
+                    {% if project.category %}
+                        <span class="project-category">
+                            {{ project.get_category_display }}
+                        </span>
+                    {% endif %}
+
+                    {% if project.featured %}
+                        <span class="project-featured">
+                            ★ Featured
+                        </span>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <h1 class="project-title">
+                    {{ project.title }}
+                </h1>
+
+
+                <!-- DESCRIPTION -->
+
+                {% if project.description %}
+
+                    <div class="project-main-description">
+                        {{ project.description|linebreaks }}
+                    </div>
+
+                {% endif %}
+
+
+                <!-- TECHNOLOGIES -->
+
+                {% if technologies %}
+
+                    <div class="technology-section">
+
+                        <div class="section-mini-title">
+                            Technologies
+                        </div>
+
+                        <div class="technology-list">
+
+                            {% for technology in technologies %}
+
+                                <span class="technology-chip">
+                                    {{ technology }}
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- LINKS -->
+
+                <div class="project-links">
+
+                    {% if project.github_url %}
+
+                        <a
+                            href="{{ project.github_url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-main-btn github-btn"
+                        >
+                            <span class="btn-icon">↗</span>
+                            <span>GitHub</span>
+                        </a>
+
+                    {% endif %}
+
+
+                    {% if project.live_url %}
+
+                        <a
+                            href="{{ project.live_url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-main-btn live-btn"
+                        >
+                            <span class="btn-icon">↗</span>
+                            <span>Live Demo</span>
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 COVER IMAGE
+            ================================================== -->
+
+            {% if project.cover_image %}
+
+                <div class="project-cover-wrapper">
+
+                    <div class="project-cover-card">
+
+                        <img
+                            src="{{ project.cover_image.url }}"
+                            alt="{{ project.title }}"
+                            class="project-cover-image"
+                            loading="eager"
+                        >
+
+                    </div>
+
+                    {% if project.cover_paragraph %}
+
+                        <div class="cover-caption">
+                            {{ project.cover_paragraph|linebreaks }}
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- =================================================
+             CONTENT SECTION
+        ================================================== -->
+
+        {% if contents %}
+
+            <section class="project-content-section">
+
+                <div class="project-section-heading">
+
+                    <span class="heading-line"></span>
+
+                    <div>
+                        <span class="heading-small">
+                            PROJECT JOURNEY
+                        </span>
+
+                        <h2>
+                            Project Showcase
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     CONTENT ITEMS
+                ================================================== -->
+
+                <div class="project-content-list">
+
+                    {% for content in contents %}
+
+                        <article
+                            class="
+                                project-content-item
+                                {% if forloop.counter|divisibleby:2 %}
+                                    content-right
+                                {% else %}
+                                    content-left
+                                {% endif %}
+                            "
+                        >
+
+                            <div class="content-number">
+                                {{ forloop.counter|stringformat:"02d" }}
+                            </div>
+
+
+                            <div class="content-media-column">
+
+                                <div class="content-media-card">
+
+                                    <!-- IMAGE -->
+
+                                    {% if content.content_type == "image" %}
+
+                                        {% if content.image %}
+
+                                            <div class="media-image-wrapper">
+
+                                                <img
+                                                    src="{{ content.image.url }}"
+                                                    alt="
+                                                        {% if content.title %}
+                                                            {{ content.title }}
+                                                        {% else %}
+                                                            {{ project.title }} image {{ forloop.counter }}
+                                                        {% endif %}
+                                                    "
+                                                    class="project-content-image"
+                                                    loading="lazy"
+                                                >
+
+                                                <div class="media-type-badge">
+                                                    IMAGE
+                                                </div>
+
+                                            </div>
+
+                                        {% endif %}
+
+                                    {% endif %}
+
+
+                                    <!-- VIDEO -->
+
+                                    {% if content.content_type == "video" %}
+
+                                        {% if content.video %}
+
+                                            <div class="media-video-wrapper">
+
+                                                <video
+                                                    class="project-content-video"
+                                                    controls
+                                                    preload="metadata"
+                                                    playsinline
+                                                >
+                                                    <source
+                                                        src="{{ content.video.url }}"
+                                                    >
+
+                                                    Your browser does not support
+                                                    video playback.
+                                                </video>
+
+                                                <div class="media-type-badge">
+                                                    VIDEO
+                                                </div>
+
+                                            </div>
+
+                                        {% endif %}
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- =================================================
+                                 TEXT
+                            ================================================== -->
+
+                            <div class="content-text-column">
+
+                                <div class="content-text-card">
+
+                                    <div class="content-card-top">
+
+                                        <span class="content-index">
+                                            {{ forloop.counter|stringformat:"02d" }}
+                                        </span>
+
+                                        {% if content.content_type == "image" %}
+
+                                            <span class="content-kind image-kind">
+                                                Image
+
+                                            </span>
+
+                                        {% elif content.content_type == "video" %}
+
+                                            <span class="content-kind video-kind">
+                                                Video
+                                            </span>
+
+                                        {% endif %}
+
+                                    </div>
+
+
+                                    {% if content.title %}
+
+                                        <h3 class="content-title">
+                                            {{ content.title }}
+                                        </h3>
+
+                                    {% endif %}
+
+
+                                    {% if content.paragraph %}
+
+                                        <div class="content-paragraph">
+                                            {{ content.paragraph|linebreaks }}
+                                        </div>
+
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+            </section>
+
+        {% endif %}
+
+
+        <!-- =================================================
+             OLD STATIC MEDIA
+             These are shown only when ProjectContent is not used
+        ================================================== -->
+
+        {% if not contents %}
+
+            {% if project.image or project.image_2 or project.image_3 or project.video %}
+
+                <section class="project-content-section">
+
+                    <div class="project-section-heading">
+
+                        <span class="heading-line"></span>
+
+                        <div>
+                            <span class="heading-small">
+                                PROJECT MEDIA
+                            </span>
+
+                            <h2>
+                                Project Showcase
+                            </h2>
+                        </div>
+
+                    </div>
+
+
+                    <div class="legacy-media-list">
+
+
+                        <!-- IMAGE 01 -->
+
+                        {% if project.image %}
+
+                            <article class="legacy-content-item">
+
+                                <div class="legacy-media">
+
+                                    <img
+                                        src="{{ project.image.url }}"
+                                        alt="{{ project.title }} image 01"
+                                        loading="lazy"
+                                    >
+
+                                </div>
+
+                                {% if project.image_paragraph %}
+
+                                    <div class="legacy-text">
+
+                                        <span class="legacy-label">
+                                            IMAGE 01
+                                        </span>
+
+                                        <div>
+                                            {{ project.image_paragraph|linebreaks }}
+                                        </div>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </article>
+
+                        {% endif %}
+
+
+                        <!-- IMAGE 02 -->
+
+                        {% if project.image_2 %}
+
+                            <article class="legacy-content-item reverse">
+
+                                <div class="legacy-media">
+
+                                    <img
+                                        src="{{ project.image_2.url }}"
+                                        alt="{{ project.title }} image 02"
+                                        loading="lazy"
+                                    >
+
+                                </div>
+
+                                {% if project.image_2_paragraph %}
+
+                                    <div class="legacy-text">
+
+                                        <span class="legacy-label">
+                                            IMAGE 02
+                                        </span>
+
+                                        <div>
+                                            {{ project.image_2_paragraph|linebreaks }}
+                                        </div>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </article>
+
+                        {% endif %}
+
+
+                        <!-- IMAGE 03 -->
+
+                        {% if project.image_3 %}
+
+                            <article class="legacy-content-item">
+
+                                <div class="legacy-media">
+
+                                    <img
+                                        src="{{ project.image_3.url }}"
+                                        alt="{{ project.title }} image 03"
+                                        loading="lazy"
+                                    >
+
+                                </div>
+
+                                {% if project.image_3_paragraph %}
+
+                                    <div class="legacy-text">
+
+                                        <span class="legacy-label">
+                                            IMAGE 03
+                                        </span>
+
+                                        <div>
+                                            {{ project.image_3_paragraph|linebreaks }}
+                                        </div>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </article>
+
+                        {% endif %}
+
+
+                        <!-- VIDEO -->
+
+                        {% if project.video %}
+
+                            <article class="legacy-content-item reverse">
+
+                                <div class="legacy-media">
+
+                                    <video
+                                        controls
+                                        preload="metadata"
+                                        playsinline
+                                    >
+                                        <source
+                                            src="{{ project.video.url }}"
+                                        >
+
+                                        Your browser does not support
+                                        video playback.
+                                    </video>
+
+                                </div>
+
+                                {% if project.video_paragraph %}
+
+                                    <div class="legacy-text">
+
+                                        <span class="legacy-label">
+                                            PROJECT VIDEO
+                                        </span>
+
+                                        <div>
+                                            {{ project.video_paragraph|linebreaks }}
+                                        </div>
+
+                                    </div>
+
+                                {% endif %}
+
+                            </article>
+
+                        {% endif %}
+
+                    </div>
+
+                </section>
+
+            {% endif %}
+
+        {% endif %}
+
+
+        <!-- =================================================
+             PROJECT FOOTER
+        ================================================== -->
+
+        <section class="project-end-card">
+
+            <div class="project-end-content">
+
+                <span class="end-label">
+                    END OF PROJECT
+                </span>
+
+                <h2>
+                    Thanks for exploring
+                    {{ project.title }}
+                </h2>
+
+                <p>
+                    Explore more projects and discover
+                    other work from the portfolio.
+                </p>
+
+                <a
+                    href="{% url 'projects' %}"
+                    class="all-projects-btn"
+                >
+                    <span>View All Projects</span>
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+{% endblock %}

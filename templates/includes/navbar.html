@@ -1,0 +1,167 @@
+{% load static %}
+
+<nav class="site-navbar" id="siteNavbar">
+
+    <div class="navbar-inner">
+
+        <!-- LOGO -->
+        <a href="{% url 'home' %}" class="nav-logo">
+            <span class="nav-logo-symbol">&lt;</span>
+            <span class="nav-logo-name">Midhlaj</span>
+            <span class="nav-logo-slash">/</span>
+            <span class="nav-logo-dev">Python Developer</span>
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}" class="nav-link">Home</a>
+
+            <a href="{% url 'about' %}" class="nav-link">About</a>
+
+            <a href="{% url 'skills' %}" class="nav-link">Skills</a>
+
+            <a href="{% url 'projects' %}" class="nav-link">Projects</a>
+
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+
+        </div>
+
+
+        <!-- RIGHT ACTIONS -->
+        <div class="nav-actions">
+
+            <!-- ADMIN DESKTOP -->
+            {% if user.is_authenticated and user.is_staff %}
+
+                <a
+                    href="{% url 'admin:index' %}"
+                    class="nav-admin-btn"
+                >
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Admin</span>
+                </a>
+
+            {% endif %}
+
+
+            <!-- THEME -->
+            <button
+                type="button"
+                class="theme-toggle"
+                id="themeToggle"
+                aria-label="Toggle theme"
+            >
+                <i class="bi bi-moon-fill"></i>
+            </button>
+
+
+            <!-- HIRE -->
+            <a
+                href="{% url 'contact' %}"
+                class="nav-hire-btn"
+            >
+                <i class="bi bi-send-fill"></i>
+                <span>Hire Me</span>
+            </a>
+
+
+            <!-- MOBILE MENU BUTTON -->
+            <button
+                type="button"
+                class="nav-menu-toggle"
+                id="navMenuToggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
+                <i class="bi bi-list"></i>
+            </button>
+
+        </div>
+
+
+        <!-- MOBILE MENU -->
+        <div
+            class="mobile-menu"
+            id="mobileMenu"
+        >
+
+            <a href="{% url 'home' %}" class="mobile-nav-link">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="{% url 'about' %}" class="mobile-nav-link">
+                <i class="bi bi-person"></i>
+                <span>About</span>
+            </a>
+
+            <a href="{% url 'skills' %}" class="mobile-nav-link">
+                <i class="bi bi-code-slash"></i>
+                <span>Skills</span>
+            </a>
+
+            <a href="{% url 'projects' %}" class="mobile-nav-link">
+                <i class="bi bi-folder2-open"></i>
+                <span>Projects</span>
+            </a>
+
+            <a href="{% url 'contact' %}" class="mobile-nav-link">
+                <i class="bi bi-envelope"></i>
+                <span>Contact</span>
+            </a>
+
+
+            <!-- MOBILE HIRE -->
+            <a
+                href="{% url 'contact' %}"
+                class="mobile-nav-link mobile-hire"
+            >
+                <i class="bi bi-send-fill"></i>
+                <span>Hire Me</span>
+            </a>
+
+
+            <!-- MOBILE ADMIN -->
+            {% if user.is_authenticated and user.is_staff %}
+
+                <a
+                    href="{% url 'admin:index' %}"
+                    class="mobile-nav-link mobile-admin"
+                >
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Admin Dashboard</span>
+                </a>
+
+            {% endif %}
+
+
+            <!-- MOBILE LOGOUT -->
+            {% if user.is_authenticated %}
+
+                <form
+                    method="post"
+                    action="{% url 'logout' %}"
+                    class="mobile-logout-form"
+                >
+
+                    {% csrf_token %}
+
+                    <button
+                        type="submit"
+                        class="mobile-nav-link mobile-logout"
+                    >
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </button>
+
+                </form>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</nav>

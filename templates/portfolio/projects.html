@@ -1,0 +1,599 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Projects | Midhlaj Dev
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="projects-page">
+
+    <!-- =====================================================
+         TOP ACTION
+    ====================================================== -->
+
+    {% if user.is_authenticated %}
+    <div class="projects-top-action">
+        <a href="{% url 'add_project' %}" class="add-project-btn">
+            <i class="bi bi-plus-lg"></i>
+            <span>Add Project</span>
+        </a>
+    </div>
+    {% endif %}
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="projects-hero">
+
+        <div class="projects-container">
+
+            <div class="projects-hero-content">
+
+                <div class="projects-eyebrow">
+                    <span></span>
+                    PORTFOLIO
+                    <span></span>
+                </div>
+
+                <h1 class="projects-title">
+                    My <span>Projects</span>
+                </h1>
+
+                <p class="projects-description">
+                    A collection of projects I've built while learning,
+                    experimenting and developing my skills in Python,
+                    Django and modern web technologies.
+                </p>
+
+                <div class="projects-meta">
+
+                    <div class="meta-item">
+                        <strong>{{ projects|length }}+</strong>
+                        <span>Projects</span>
+                    </div>
+
+                    <div class="meta-divider"></div>
+
+                    <div class="meta-item">
+                        <strong>Python</strong>
+                        <span>Backend</span>
+                    </div>
+
+                    <div class="meta-divider"></div>
+
+                    <div class="meta-item">
+                        <strong>Django</strong>
+                        <span>Framework</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECT SECTION
+    ====================================================== -->
+
+    <section class="projects-section">
+
+        <div class="projects-container">
+
+
+            <!-- FILTER -->
+
+            <div class="project-filter-wrapper">
+
+                <div class="project-filter">
+
+                    <button
+                        type="button"
+                        class="project-filter-btn active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="django"
+                    >
+                        Django
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="full stack"
+                    >
+                        Full Stack
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="frontend"
+                    >
+                        Frontend
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="backend"
+                    >
+                        Backend
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="web application"
+                    >
+                        Web Application
+                    </button>
+
+                    <button
+                        type="button"
+                        class="project-filter-btn"
+                        data-filter="other"
+                    >
+                        Other
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT GRID
+            ================================================== -->
+
+            <div
+                class="project-grid"
+                id="projectGrid"
+            >
+
+                {% for project in projects %}
+
+                <article
+                    class="project-card project-item"
+                    data-category="{{ project.category|lower }}"
+                >
+
+                    <!-- IMAGE -->
+
+                    <div class="project-image-wrapper">
+
+                        {% if project.cover_image %}
+
+                        <img
+                            src="{{ project.cover_image.url }}"
+                            alt="{{ project.title }}"
+                            class="project-image"
+                            loading="lazy"
+                        >
+
+                        {% elif project.image %}
+
+                        <img
+                            src="{{ project.image.url }}"
+                            alt="{{ project.title }}"
+                            class="project-image"
+                            loading="lazy"
+                        >
+
+                        {% else %}
+
+                        <div class="project-image-placeholder">
+
+                            <i class="bi bi-code-square"></i>
+
+                            <span>
+                                Project Preview
+                            </span>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <!-- CATEGORY -->
+
+                        {% if project.category %}
+                        <span class="project-category">
+                            {{ project.get_category_display }}
+                        </span>
+                        {% endif %}
+
+
+                        <!-- FEATURED -->
+
+                        {% if project.featured %}
+                        <span class="featured-badge">
+                            <i class="bi bi-star-fill"></i>
+                            Featured
+                        </span>
+                        {% endif %}
+
+
+                        <!-- VIEW -->
+
+                        <div class="project-image-overlay">
+
+                            <a
+                                href="{% url 'project_detail' project.slug %}"
+                                class="image-action"
+                                aria-label="View {{ project.title }}"
+                            >
+                                <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CONTENT -->
+
+                    <div class="project-card-content">
+
+                        <span class="project-number">
+                            PROJECT
+                            {% if forloop.counter < 10 %}
+                                0{{ forloop.counter }}
+                            {% else %}
+                                {{ forloop.counter }}
+                            {% endif %}
+                        </span>
+
+
+                        <h2 class="project-title">
+                            {{ project.title }}
+                        </h2>
+
+
+                        {% if project.description %}
+
+                        <p class="project-description">
+                            {{ project.description|truncatewords:25 }}
+                        </p>
+
+                        {% else %}
+
+                        <p class="project-description">
+                            Explore this project and discover
+                            the technologies and features used.
+                        </p>
+
+                        {% endif %}
+
+
+                        <!-- TECHNOLOGIES -->
+
+                        {% if project.technology_list %}
+
+                        <div class="project-technologies">
+
+                            {% for tech in project.technology_list|slice:":5" %}
+
+                            <span>
+                                {{ tech }}
+                            </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <!-- CARD FOOTER -->
+
+                        <div class="project-card-footer">
+
+                            <a
+                                href="{% url 'project_detail' project.slug %}"
+                                class="project-details-link"
+                            >
+                                View Details
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+
+
+                            <div class="project-links">
+
+                                {% if project.github_url %}
+
+                                <a
+                                    href="{{ project.github_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-icon-link"
+                                    title="GitHub"
+                                >
+                                    <i class="bi bi-github"></i>
+                                </a>
+
+                                {% endif %}
+
+
+                                {% if project.live_url %}
+
+                                <a
+                                    href="{{ project.live_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-icon-link"
+                                    title="Live Demo"
+                                >
+                                    <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             EDIT / DELETE
+                        ================================================== -->
+
+                        {% if user.is_authenticated %}
+                        {% if project.owner == user %}
+
+                        <div class="project-admin-actions">
+
+                            <a
+                                href="{% url 'edit_project' project.slug %}"
+                                class="admin-action edit-action"
+                            >
+                                <i class="bi bi-pencil-square"></i>
+                                <span>Edit</span>
+                            </a>
+
+
+                            <a
+                                href="{% url 'delete_project' project.slug %}"
+                                class="admin-action delete-action"
+                            >
+                                <i class="bi bi-trash3"></i>
+                                <span>Delete</span>
+                            </a>
+
+                        </div>
+
+                        {% endif %}
+                        {% endif %}
+
+                    </div>
+
+                </article>
+
+
+                {% empty %}
+
+                <!-- EMPTY -->
+
+                <div class="projects-empty">
+
+                    <div class="empty-icon">
+                        <i class="bi bi-folder2-open"></i>
+                    </div>
+
+                    <h2>
+                        No Projects Yet
+                    </h2>
+
+                    <p>
+                        {% if user.is_authenticated %}
+                            You haven't added any projects yet.
+                        {% else %}
+                            Projects will appear here once they are added.
+                        {% endif %}
+                    </p>
+
+                    {% if user.is_authenticated %}
+
+                    <a
+                        href="{% url 'add_project' %}"
+                        class="empty-admin-btn"
+                    >
+                        <i class="bi bi-plus-lg"></i>
+                        Add Your First Project
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+
+            <!-- FILTER EMPTY -->
+
+            <div
+                id="noFilterResults"
+                class="no-filter-results"
+                style="display:none;"
+            >
+
+                <div class="empty-icon">
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <h3>
+                    No projects found
+                </h3>
+
+                <p>
+                    Try selecting another category.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="projects-cta-section">
+
+        <div class="projects-container">
+
+            <div class="projects-cta">
+
+                <div class="cta-content">
+
+                    <span class="cta-label">
+                        HAVE AN IDEA?
+                    </span>
+
+                    <h2>
+                        Let's build something
+                        <span>amazing.</span>
+                    </h2>
+
+                    <p>
+                        I'm always interested in working on
+                        new ideas, projects and opportunities.
+                    </p>
+
+                    <div class="cta-buttons">
+
+                        <a
+                            href="{% url 'contact' %}"
+                            class="projects-primary-btn"
+                        >
+                            <i class="bi bi-send-fill"></i>
+                            Contact Me
+                        </a>
+
+                        <a
+                            href="{% url 'about' %}"
+                            class="projects-secondary-btn"
+                        >
+                            About Me
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_js %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const buttons = document.querySelectorAll(
+        ".project-filter-btn"
+    );
+
+    const items = document.querySelectorAll(
+        ".project-item"
+    );
+
+    const noResults = document.getElementById(
+        "noFilterResults"
+    );
+
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            buttons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+
+            const filter = this
+                .getAttribute("data-filter")
+                .toLowerCase();
+
+            let visibleCount = 0;
+
+
+            items.forEach(item => {
+
+                const category =
+                    item.getAttribute("data-category")
+                    .toLowerCase();
+
+
+                if (
+                    filter === "all" ||
+                    category.includes(filter)
+                ) {
+
+                    item.classList.remove(
+                        "project-hidden"
+                    );
+
+                    visibleCount++;
+
+                } else {
+
+                    item.classList.add(
+                        "project-hidden"
+                    );
+
+                }
+
+            });
+
+
+            if (visibleCount === 0) {
+
+                noResults.style.display = "block";
+
+            } else {
+
+                noResults.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+{% endblock %}

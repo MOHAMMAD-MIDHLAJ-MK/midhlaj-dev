@@ -1,0 +1,139 @@
+<footer class="premium-footer">
+
+    <div class="container">
+
+        <div class="row gy-5">
+
+            <!-- BRAND -->
+
+            <div class="col-lg-5">
+
+                <h4 class="footer-brand">
+                    Midhlaj<span>/dev</span>
+                </h4>
+
+                <p class="footer-description">
+
+                    Python Full Stack Developer passionate about
+                    creating modern, responsive and scalable
+                    web applications.
+
+                </p>
+
+                <div class="footer-social">
+
+                    <a href="#" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                     <a href="https://wa.me/91XXXXXXXXXX"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="WhatsApp">
+
+                      <i class="bi bi-whatsapp"></i>
+
+                    </a>
+
+                    <a href="mailto:yourmail@gmail.com"
+                       aria-label="Email">
+
+                        <i class="bi bi-envelope"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- LINKS -->
+
+            <div class="col-6 col-lg-3">
+
+                <h6>Quick Links</h6>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="{% url 'home' %}">
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'about' %}">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'skills' %}">
+                            Skills
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'projects' %}">
+                            Projects
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- TECHNOLOGIES -->
+
+            <div class="col-6 col-lg-4">
+
+                <h6>Technologies</h6>
+
+                <div class="tech-tags">
+
+                    <span>Python</span>
+                    <span>Django</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>jQuery</span>
+                    <span>Bootstrap</span>
+                    <span>MySQL</span>
+                    <span>Git</span>
+                    <span>GitHub</span>
+                    <span>REST API</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+
+            <p class="mb-0">
+                © {% now "Y" %} Midhlaj. All Rights Reserved.
+            </p>
+
+            <p class="mb-0">
+                Built with <span class="heart">♥</span> Django
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>

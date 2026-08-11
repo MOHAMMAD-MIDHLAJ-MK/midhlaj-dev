@@ -1,0 +1,690 @@
+/* =========================================================
+   EDIT PROJECT PAGE
+   Premium • Responsive • Dark / Light Mode
+========================================================= */
+
+.edit-project-container {
+    width: min(1100px, 92%);
+    margin: 40px auto 80px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.edit-project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.edit-project-header-content {
+    flex: 1;
+}
+
+.edit-page-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #b88925;
+    margin-bottom: 10px;
+}
+
+.edit-project-header h1 {
+    margin: 0;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--text-color, #111);
+}
+
+.edit-project-header h1 span {
+    color: #c59632;
+}
+
+.edit-project-header p {
+    margin: 10px 0 0;
+    max-width: 650px;
+    color: var(--muted-text, #777);
+    line-height: 1.7;
+}
+
+.edit-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 17px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color, #222);
+    border: 1px solid rgba(150, 150, 150, .25);
+    background: var(--card-bg, #fff);
+    transition: .25s ease;
+    white-space: nowrap;
+}
+
+.edit-back-btn:hover {
+    color: #fff;
+    background: #b88925;
+    border-color: #b88925;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   FORM CARD
+========================================================= */
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.edit-form-card {
+    padding: 30px;
+    border-radius: 18px;
+    background: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, rgba(0,0,0,.08));
+    box-shadow: 0 12px 35px rgba(0,0,0,.06);
+}
+
+.edit-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.edit-section-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(135deg, #b88925, #d8ad55);
+    box-shadow: 0 8px 20px rgba(184,137,37,.25);
+}
+
+.edit-card-header span {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #b88925;
+}
+
+.edit-card-header h2 {
+    margin: 3px 0;
+    font-size: 22px;
+    color: var(--text-color, #111);
+}
+
+.edit-card-header p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted-text, #777);
+}
+
+/* =========================================================
+   FORM GRID
+========================================================= */
+
+.edit-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.edit-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.edit-form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-color, #222);
+}
+
+.edit-form-group label span {
+    color: #d44;
+}
+
+.edit-form-group input,
+.edit-form-group select,
+.edit-form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 11px;
+    outline: none;
+    font-size: 14px;
+    color: var(--text-color, #222);
+    background: var(--input-bg, #f8f8f8);
+    border: 1px solid var(--border-color, #ddd);
+    transition: .25s ease;
+}
+
+.edit-form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.edit-form-group input:focus,
+.edit-form-group select:focus,
+.edit-form-group textarea:focus {
+    border-color: #c59632;
+    box-shadow: 0 0 0 3px rgba(197,150,50,.12);
+}
+
+.edit-form-group small {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted-text, #888);
+}
+
+/* =========================================================
+   CURRENT IMAGE
+========================================================= */
+
+.current-media {
+    margin-bottom: 18px;
+}
+
+.current-media-label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #b88925;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.current-image-box {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 13px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #ddd);
+    background: var(--input-bg, #f7f7f7);
+}
+
+.current-image-box img {
+    display: block;
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+.edit-upload-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.edit-upload-panel {
+    padding: 25px;
+    text-align: center;
+    border: 1px dashed rgba(184,137,37,.5);
+    border-radius: 15px;
+    background: rgba(184,137,37,.035);
+}
+
+.edit-upload-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #b88925;
+    background: rgba(184,137,37,.1);
+    font-size: 21px;
+}
+
+.edit-upload-panel h3 {
+    margin: 0 0 5px;
+    color: var(--text-color, #222);
+    font-size: 17px;
+}
+
+.edit-upload-panel p {
+    margin: 0 0 16px;
+    font-size: 12px;
+    color: var(--muted-text, #888);
+}
+
+.edit-upload-panel input[type="file"] {
+    width: 100%;
+    font-size: 12px;
+    color: var(--muted-text, #777);
+}
+
+/* =========================================================
+   MULTIPLE IMAGE ROWS
+========================================================= */
+
+.edit-image-item {
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    border: 1px solid var(--border-color, #ddd);
+    background: var(--input-bg, #fafafa);
+}
+
+.edit-image-item:last-child {
+    margin-bottom: 0;
+}
+
+.edit-image-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.edit-image-number {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    color: #fff;
+    background: #b88925;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.edit-image-title h3 {
+    margin: 0;
+    font-size: 17px;
+    color: var(--text-color, #222);
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.edit-video-preview {
+    width: 100%;
+    max-width: 650px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #000;
+}
+
+.edit-video-preview video {
+    display: block;
+    width: 100%;
+    max-height: 340px;
+    object-fit: contain;
+}
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.technology-help {
+    margin-top: 7px;
+    font-size: 12px;
+    color: var(--muted-text, #888);
+}
+
+.technology-input-wrapper {
+    position: relative;
+}
+
+.technology-input-wrapper input {
+    padding-right: 45px;
+}
+
+.technology-input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b88925;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.edit-link-input {
+    position: relative;
+}
+
+.edit-link-input i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b88925;
+}
+
+.edit-link-input input {
+    padding-left: 43px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.edit-status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 18px;
+}
+
+.edit-status-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid var(--border-color, #ddd);
+    background: var(--input-bg, #fafafa);
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.edit-status-box:hover {
+    border-color: rgba(184,137,37,.5);
+    transform: translateY(-2px);
+}
+
+.edit-status-box input {
+    width: 18px;
+    height: 18px;
+    accent-color: #b88925;
+}
+
+.edit-status-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.edit-status-content strong {
+    font-size: 14px;
+    color: var(--text-color, #222);
+}
+
+.edit-status-content small {
+    font-size: 12px;
+    color: var(--muted-text, #888);
+}
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.edit-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.edit-cancel-btn,
+.edit-save-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.edit-cancel-btn {
+    color: var(--text-color, #333);
+    background: var(--card-bg, #fff);
+    border-color: var(--border-color, #ddd);
+}
+
+.edit-cancel-btn:hover {
+    border-color: #aaa;
+    transform: translateY(-2px);
+}
+
+.edit-save-btn {
+    color: #fff;
+    background: linear-gradient(135deg, #b88925, #d2a94c);
+    box-shadow: 0 8px 22px rgba(184,137,37,.25);
+}
+
+.edit-save-btn:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(184,137,37,.35);
+}
+
+/* =========================================================
+   ERRORS
+========================================================= */
+
+.edit-field-error {
+    padding: 8px 11px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #d64545;
+    background: rgba(214,69,69,.08);
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-theme="dark"] .edit-project-header h1,
+.dark .edit-project-header h1 {
+    color: #f5f5f5;
+}
+
+[data-theme="dark"] .edit-project-header p,
+.dark .edit-project-header p {
+    color: #aaa;
+}
+
+[data-theme="dark"] .edit-form-card,
+.dark .edit-form-card {
+    background: #171717;
+    border-color: rgba(255,255,255,.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+}
+
+[data-theme="dark"] .edit-card-header h2,
+.dark .edit-card-header h2,
+[data-theme="dark"] .edit-form-group label,
+.dark .edit-form-group label,
+[data-theme="dark"] .edit-image-title h3,
+.dark .edit-image-title h3,
+[data-theme="dark"] .edit-upload-panel h3,
+.dark .edit-upload-panel h3,
+[data-theme="dark"] .edit-status-content strong,
+.dark .edit-status-content strong {
+    color: #f1f1f1;
+}
+
+[data-theme="dark"] .edit-form-group input,
+[data-theme="dark"] .edit-form-group select,
+[data-theme="dark"] .edit-form-group textarea,
+.dark .edit-form-group input,
+.dark .edit-form-group select,
+.dark .edit-form-group textarea {
+    color: #eee;
+    background: #101010;
+    border-color: rgba(255,255,255,.12);
+}
+
+[data-theme="dark"] .edit-image-item,
+.dark .edit-image-item,
+[data-theme="dark"] .edit-status-box,
+.dark .edit-status-box {
+    background: #111;
+    border-color: rgba(255,255,255,.09);
+}
+
+[data-theme="dark"] .edit-back-btn,
+.dark .edit-back-btn,
+[data-theme="dark"] .edit-cancel-btn,
+.dark .edit-cancel-btn {
+    color: #eee;
+    background: #171717;
+    border-color: rgba(255,255,255,.12);
+}
+
+[data-theme="dark"] .edit-upload-panel,
+.dark .edit-upload-panel {
+    background: rgba(184,137,37,.06);
+    border-color: rgba(184,137,37,.45);
+}
+
+[data-theme="dark"] .current-image-box,
+.dark .current-image-box {
+    background: #101010;
+    border-color: rgba(255,255,255,.1);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .edit-project-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .edit-back-btn {
+        width: fit-content;
+    }
+
+    .edit-upload-box {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .edit-project-container {
+        width: min(94%, 600px);
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+
+    .edit-project-header h1 {
+        font-size: 32px;
+    }
+
+    .edit-form-card {
+        padding: 20px 16px;
+        border-radius: 14px;
+    }
+
+    .edit-card-header {
+        margin-bottom: 21px;
+    }
+
+    .edit-section-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .edit-card-header h2 {
+        font-size: 19px;
+    }
+
+    .edit-form-grid {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .edit-form-group.full {
+        grid-column: auto;
+    }
+
+    .edit-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-current-image-box,
+    .current-image-box {
+        max-width: 100%;
+    }
+
+    .current-image-box img {
+        height: 190px;
+    }
+
+    .edit-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .edit-cancel-btn,
+    .edit-save-btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .edit-project-header h1 {
+        font-size: 28px;
+    }
+
+    .edit-project-header p {
+        font-size: 13px;
+    }
+
+    .edit-form-card {
+        padding: 17px 13px;
+    }
+
+    .edit-image-item {
+        padding: 15px;
+    }
+
+    .edit-upload-panel {
+        padding: 20px 14px;
+    }
+
+    .current-image-box img {
+        height: 160px;
+    }
+
+}

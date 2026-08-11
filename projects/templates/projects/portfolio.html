@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Portfolio Website | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/projects/ecommerce.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="project-detail-hero">
+
+    <div class="project-detail-container">
+
+        <a href="{% url 'projects' %}" class="back-projects">
+            <i class="bi bi-arrow-left"></i>
+            Back to Projects
+        </a>
+
+        <div class="project-detail-heading">
+
+            <span class="project-label">
+                PERSONAL PROJECT
+            </span>
+
+            <h1>
+                Portfolio Website
+            </h1>
+
+            <p>
+                A modern developer portfolio website built
+                to showcase skills, projects, experience and
+                technical knowledge.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="project-detail-section">
+
+    <div class="project-detail-container">
+
+        <!-- IMAGE -->
+
+        <div class="project-main-image">
+
+            <img
+                src="{% static 'images/projects/portfolio.png' %}"
+                alt="Portfolio Website"
+            >
+
+        </div>
+
+
+        <!-- ABOUT -->
+
+        <div class="project-info-grid">
+
+            <div class="project-description">
+
+                <span class="detail-label">
+                    ABOUT THE PROJECT
+                </span>
+
+                <h2>
+                    Modern Developer Portfolio
+                </h2>
+
+                <p>
+                    This portfolio website was developed
+                    to present my technical skills, projects
+                    and background in a professional way.
+                </p>
+
+                <p>
+                    The website uses a modern responsive
+                    interface with dedicated sections for
+                    projects, skills, about information
+                    and contact details.
+                </p>
+
+            </div>
+
+
+            <div class="project-meta">
+
+                <div class="meta-item">
+                    <span>Project Type</span>
+                    <strong>Personal Portfolio</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Backend</span>
+                    <strong>Python / Django</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Frontend</span>
+                    <strong>HTML / CSS / JavaScript</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TECHNOLOGIES -->
+
+        <div class="project-technologies">
+
+            <span class="detail-label">
+                TECHNOLOGIES
+            </span>
+
+            <div class="technology-list">
+
+                <span>Python</span>
+                <span>Django</span>
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>MySQL</span>
+                <span>Git</span>
+                <span>GitHub</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div class="project-video-section">
+
+            <span class="detail-label">
+                PROJECT PREVIEW
+            </span>
+
+            <h2>
+                See It In Action
+            </h2>
+
+            <p>
+                A short walkthrough of the portfolio
+                interface and its main sections.
+            </p>
+
+            <div class="project-video">
+
+                <video
+                    controls
+                    preload="metadata"
+                    poster="{% static 'images/projects/portfolio.png' %}"
+                >
+
+                    <source
+                        src="{% static 'videos/portfolio.mp4' %}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- FEATURES -->
+
+        <div class="project-features">
+
+            <span class="detail-label">
+                KEY FEATURES
+            </span>
+
+            <div class="features-grid">
+
+                <div class="feature-item">
+
+                    <i class="bi bi-person"></i>
+
+                    <h3>
+                        About Section
+                    </h3>
+
+                    <p>
+                        A dedicated section to introduce
+                        the developer and background.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <h3>
+                        Skills Showcase
+                    </h3>
+
+                    <p>
+                        Technical skills and technologies
+                        are presented clearly.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-folder2-open"></i>
+
+                    <h3>
+                        Project Showcase
+                    </h3>
+
+                    <p>
+                        Projects are displayed with
+                        detailed information.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-phone"></i>
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        Optimized for mobile, tablet
+                        and desktop devices.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LINKS -->
+
+        <div class="project-actions">
+
+            <a
+                href="https://github.com/"
+                target="_blank"
+                class="project-action github"
+            >
+                <i class="bi bi-github"></i>
+                View Source Code
+            </a>
+
+            <a
+                href="/"
+                target="_blank"
+                class="project-action live"
+            >
+                <i class="bi bi-box-arrow-up-right"></i>
+                Live Website
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

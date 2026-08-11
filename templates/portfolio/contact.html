@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Contact | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/contact.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <div class="text-center page-header">
+
+            <span class="section-label">
+                CONTACT
+            </span>
+
+            <h1 class="section-title">
+                Let's Work Together
+            </h1>
+
+            <p class="section-description">
+
+                Have a project, opportunity or idea?
+                Feel free to get in touch.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 mt-4">
+
+
+            <!-- CONTACT INFO -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-info-card">
+
+                    <span class="section-label">
+                        GET IN TOUCH
+                    </span>
+
+                    <h2>
+                        Let's Talk
+                    </h2>
+
+                    <p>
+
+                        I'm always interested in new
+                        opportunities, projects and
+                        collaborations.
+
+                    </p>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="bi bi-envelope"></i>
+
+                        </div>
+
+                        <div>
+
+                            <small>Email</small>
+
+                            <a href="mailto:yourmail@gmail.com">
+
+                                yourmail@gmail.com
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="bi bi-github"></i>
+
+                        </div>
+
+                        <div>
+
+                            <small>GitHub</small>
+
+                            <a href="#">
+                                github.com/yourusername
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+
+                            <i class="bi bi-linkedin"></i>
+
+                        </div>
+
+                        <div>
+
+                            <small>LinkedIn</small>
+
+                            <a href="#">
+                                LinkedIn Profile
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-form-card">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <label>
+                                    Your Name
+                                </label>
+
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Enter your name"
+                                       required>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input type="email"
+                                       name="email"
+                                       class="form-control"
+                                       placeholder="Enter your email"
+                                       required>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label>
+                                    Subject
+                                </label>
+
+                                <input type="text"
+                                       name="subject"
+                                       class="form-control"
+                                       placeholder="What is this about?"
+                                       required>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label>
+                                    Message
+                                </label>
+
+                                <textarea name="message"
+                                          class="form-control"
+                                          rows="6"
+                                          placeholder="Write your message..."
+                                          required></textarea>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <button type="submit"
+                                        class="btn premium-btn w-100">
+
+                                    <i class="bi bi-send me-2"></i>
+
+                                    Send Message
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

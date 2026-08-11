@@ -1,0 +1,627 @@
+/* =========================================================
+   DELETE PROJECT
+   PREMIUM • DARK / LIGHT • RESPONSIVE
+========================================================= */
+
+.delete-project-page {
+    --delete-bg: #f5f7fb;
+    --delete-card: rgba(255, 255, 255, 0.94);
+    --delete-text: #171a21;
+    --delete-muted: #6b7280;
+    --delete-border: rgba(15, 23, 42, 0.09);
+    --delete-danger: #ef4444;
+    --delete-danger-dark: #dc2626;
+
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background: var(--delete-bg);
+    color: var(--delete-text);
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark .delete-project-page,
+body.dark-mode .delete-project-page,
+html.dark .delete-project-page,
+html.dark-mode .delete-project-page {
+
+    --delete-bg: #080b12;
+    --delete-card: rgba(17, 23, 35, 0.96);
+    --delete-text: #f3f4f6;
+    --delete-muted: #9ca3af;
+    --delete-border: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.delete-project-card {
+
+    width: min(620px, 100%);
+
+    padding: 42px;
+
+    border-radius: 26px;
+
+    background: var(--delete-card);
+
+    border: 1px solid var(--delete-border);
+
+    box-shadow:
+        0 25px 70px rgba(15, 23, 42, 0.12);
+
+    text-align: center;
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    transition:
+        background .3s ease,
+        border .3s ease,
+        box-shadow .3s ease,
+        transform .3s ease;
+}
+
+body.dark .delete-project-card,
+body.dark-mode .delete-project-card,
+html.dark .delete-project-card,
+html.dark-mode .delete-project-card {
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, .45);
+}
+
+
+/* =========================================================
+   DELETE ICON
+========================================================= */
+
+.delete-icon {
+
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 20px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 20px;
+
+    color: #ef4444;
+
+    background:
+        rgba(239, 68, 68, .10);
+
+    border: 1px solid rgba(239, 68, 68, .18);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 12px 30px rgba(239, 68, 68, .10);
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.delete-label {
+
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    color: var(--delete-danger);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.delete-project-card h1 {
+
+    margin: 0;
+
+    color: var(--delete-text);
+
+    font-size: clamp(30px, 5vw, 42px);
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1.2px;
+}
+
+
+/* =========================================================
+   WARNING
+========================================================= */
+
+.delete-warning {
+
+    max-width: 470px;
+
+    margin: 14px auto 28px;
+
+    color: var(--delete-muted);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT PREVIEW
+========================================================= */
+
+.delete-project-preview {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 14px;
+
+    margin-bottom: 28px;
+
+    text-align: left;
+
+    border-radius: 17px;
+
+    background:
+        rgba(127, 127, 127, .055);
+
+    border: 1px solid var(--delete-border);
+
+    transition: .25s ease;
+}
+
+.delete-project-preview:hover {
+
+    border-color:
+        rgba(239, 68, 68, .22);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.delete-project-preview img {
+
+    width: 105px;
+    height: 78px;
+
+    flex: 0 0 105px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--delete-border);
+
+    background: #e5e7eb;
+}
+
+
+/* =========================================================
+   NO IMAGE
+========================================================= */
+
+.no-project-image {
+
+    width: 105px;
+    height: 78px;
+
+    flex: 0 0 105px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    color: var(--delete-muted);
+
+    background:
+        rgba(127, 127, 127, .10);
+
+    border: 1px solid var(--delete-border);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   PROJECT INFO
+========================================================= */
+
+.project-preview-info {
+
+    min-width: 0;
+}
+
+.project-preview-info h2 {
+
+    margin: 0 0 6px;
+
+    color: var(--delete-text);
+
+    font-size: 17px;
+
+    font-weight: 750;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.project-preview-info p {
+
+    margin: 0;
+
+    color: var(--delete-muted);
+
+    font-size: 12px;
+
+    line-height: 1.55;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   ACTION FORM
+========================================================= */
+
+.delete-project-form {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+}
+
+
+/* =========================================================
+   DELETE BUTTON
+========================================================= */
+
+.delete-confirm-btn {
+
+    min-height: 46px;
+
+    padding: 0 22px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ef4444,
+            #dc2626
+        );
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 750;
+
+    box-shadow:
+        0 10px 25px rgba(239, 68, 68, .22);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
+}
+
+.delete-confirm-btn:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.04);
+
+    box-shadow:
+        0 15px 32px rgba(239, 68, 68, .32);
+}
+
+.delete-confirm-btn:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* =========================================================
+   CANCEL BUTTON
+========================================================= */
+
+.delete-cancel-btn {
+
+    min-height: 46px;
+
+    padding: 0 19px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border-radius: 12px;
+
+    text-decoration: none;
+
+    color: var(--delete-muted);
+
+    background: transparent;
+
+    border: 1px solid var(--delete-border);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        color .2s ease,
+        border .2s ease,
+        background .2s ease,
+        transform .2s ease;
+}
+
+.delete-cancel-btn:hover {
+
+    color: var(--delete-text);
+
+    border-color: var(--delete-text);
+
+    background:
+        rgba(127, 127, 127, .06);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.delete-confirm-btn:focus-visible,
+.delete-cancel-btn:focus-visible {
+
+    outline: 3px solid rgba(239, 68, 68, .25);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .delete-project-page {
+
+        min-height: calc(100vh - 60px);
+
+        padding: 30px 15px;
+    }
+
+    .delete-project-card {
+
+        padding: 30px 22px;
+
+        border-radius: 21px;
+    }
+
+    .delete-icon {
+
+        width: 62px;
+        height: 62px;
+
+        border-radius: 17px;
+
+        font-size: 24px;
+
+        margin-bottom: 17px;
+    }
+
+    .delete-project-card h1 {
+
+        font-size: 31px;
+    }
+
+    .delete-warning {
+
+        font-size: 13px;
+
+        margin-top: 12px;
+        margin-bottom: 23px;
+    }
+
+    .delete-project-preview {
+
+        gap: 12px;
+
+        padding: 11px;
+
+        border-radius: 14px;
+    }
+
+    .delete-project-preview img,
+    .no-project-image {
+
+        width: 82px;
+        height: 65px;
+
+        flex-basis: 82px;
+
+        border-radius: 10px;
+    }
+
+    .project-preview-info h2 {
+
+        font-size: 14px;
+    }
+
+    .project-preview-info p {
+
+        font-size: 11px;
+
+        -webkit-line-clamp: 2;
+    }
+
+    .delete-project-form {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .delete-confirm-btn,
+    .delete-cancel-btn {
+
+        width: 100%;
+
+        min-height: 44px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .delete-project-page {
+
+        padding: 20px 11px;
+    }
+
+    .delete-project-card {
+
+        padding: 25px 15px;
+
+        border-radius: 18px;
+    }
+
+    .delete-icon {
+
+        width: 55px;
+        height: 55px;
+
+        border-radius: 15px;
+
+        font-size: 21px;
+    }
+
+    .delete-label {
+
+        font-size: 9px;
+    }
+
+    .delete-project-card h1 {
+
+        font-size: 27px;
+    }
+
+    .delete-warning {
+
+        font-size: 12px;
+    }
+
+    .delete-project-preview {
+
+        align-items: flex-start;
+
+        padding: 9px;
+    }
+
+    .delete-project-preview img,
+    .no-project-image {
+
+        width: 72px;
+        height: 58px;
+
+        flex-basis: 72px;
+    }
+
+    .project-preview-info h2 {
+
+        font-size: 13px;
+    }
+
+    .project-preview-info p {
+
+        font-size: 10px;
+    }
+
+    .delete-confirm-btn,
+    .delete-cancel-btn {
+
+        font-size: 12px;
+
+        min-height: 42px;
+    }
+}

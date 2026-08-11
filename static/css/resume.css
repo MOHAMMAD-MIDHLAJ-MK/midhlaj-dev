@@ -1,0 +1,799 @@
+/* =====================================================
+   RESUME PAGE
+===================================================== */
+
+.resume-page {
+    width: 100%;
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 40px 5% 100px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.page-header {
+    margin-bottom: 60px;
+}
+
+.page-header .section-label {
+    display: inline-block;
+
+    color: #7c3aed;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.page-header .section-title {
+    margin: 10px 0;
+
+    font-size: clamp(40px, 5vw, 64px);
+
+    font-weight: 900;
+
+    letter-spacing: -2px;
+
+    color: var(--text-color, #111827);
+}
+
+.page-header .section-description {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: var(--muted-color, #667085);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   RESUME WRAPPER
+===================================================== */
+
+.resume-wrapper {
+    display: flex;
+
+    justify-content: center;
+}
+
+.resume-card {
+    width: 100%;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    border:
+        1px solid
+        rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+        0 30px 80px
+        rgba(15, 23, 42, 0.08);
+}
+
+
+/* =====================================================
+   RESUME HEADER
+===================================================== */
+
+.resume-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.resume-role {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #7c3aed;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+.resume-person h2 {
+    margin: 0;
+
+    font-size: 42px;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+
+    color: var(--text-color, #111827);
+}
+
+.resume-person p {
+    margin: 8px 0 0;
+
+    color: var(--muted-color, #667085);
+}
+
+.resume-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
+
+    color: #7c3aed;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, .12),
+            rgba(6, 182, 212, .10)
+        );
+
+    font-size: 32px;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.resume-divider {
+    height: 1px;
+
+    margin: 35px 0;
+
+    background:
+        rgba(15, 23, 42, .08);
+}
+
+
+/* =====================================================
+   BLOCK
+===================================================== */
+
+.resume-block {
+    padding: 30px 0;
+
+    border-bottom:
+        1px solid
+        rgba(15, 23, 42, .07);
+}
+
+.resume-block:last-of-type {
+    border-bottom: none;
+}
+
+
+/* =====================================================
+   BLOCK HEADING
+===================================================== */
+
+.resume-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.resume-heading-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    color: #7c3aed;
+
+    background:
+        rgba(124, 58, 237, .09);
+}
+
+.resume-heading span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #98a2b3;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.resume-heading h3 {
+    margin: 0;
+
+    font-size: 21px;
+
+    font-weight: 850;
+
+    color: var(--text-color, #111827);
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.resume-text {
+    max-width: 900px;
+
+    margin: 0 0 12px;
+
+    color: var(--muted-color, #667085);
+
+    line-height: 1.8;
+
+    font-size: 15px;
+}
+
+.resume-text:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.resume-skills {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.resume-skill {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 13px 14px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(124, 58, 237, .045);
+
+    border:
+        1px solid
+        rgba(124, 58, 237, .08);
+
+    color: var(--text-color, #344054);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease;
+}
+
+.resume-skill:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(124, 58, 237, .25);
+}
+
+.resume-skill i {
+    color: #7c3aed;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.resume-projects {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.resume-project {
+    display: flex;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(15, 23, 42, .025);
+
+    border:
+        1px solid
+        rgba(15, 23, 42, .06);
+}
+
+.project-number {
+    font-size: 12px;
+
+    font-weight: 900;
+
+    color: #7c3aed;
+}
+
+.resume-project h4 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+
+    color: var(--text-color, #111827);
+}
+
+.resume-project p {
+    margin: 0;
+
+    color: var(--muted-color, #667085);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.resume-education {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.education-item {
+    display: flex;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(124, 58, 237, .045);
+
+    border:
+        1px solid
+        rgba(124, 58, 237, .08);
+}
+
+.education-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    color: #7c3aed;
+
+    background:
+        rgba(124, 58, 237, .09);
+}
+
+.education-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #7c3aed;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.education-item h4 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+
+    color: var(--text-color, #111827);
+}
+
+.education-item p {
+    margin: 0;
+
+    color: var(--muted-color, #667085);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   CERTIFICATION
+===================================================== */
+
+.resume-certification {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, .07),
+            rgba(6, 182, 212, .05)
+        );
+
+    border:
+        1px solid
+        rgba(124, 58, 237, .12);
+}
+
+.certification-logo {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    color: #7c3aed;
+
+    background:
+        rgba(124, 58, 237, .10);
+
+    font-size: 25px;
+}
+
+.certification-info {
+    flex: 1;
+}
+
+.certification-info > span {
+    color: #7c3aed;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+}
+
+.certification-info h4 {
+    margin: 4px 0;
+
+    font-size: 19px;
+
+    color: var(--text-color, #111827);
+}
+
+.certification-info p {
+    margin: 0;
+
+    color: var(--muted-color, #667085);
+
+    font-size: 13px;
+}
+
+.certified-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    color: #059669;
+
+    background:
+        rgba(16, 185, 129, .08);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+.resume-download {
+    display: flex;
+
+    justify-content: center;
+
+    padding-top: 35px;
+}
+
+.premium-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 13px 21px;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #4f7cff,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(99, 102, 241, .22);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.premium-btn:hover {
+    color: white;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 40px
+        rgba(99, 102, 241, .30);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark .page-header .section-title,
+body.dark .resume-person h2,
+body.dark .resume-heading h3,
+body.dark .resume-project h4,
+body.dark .education-item h4,
+body.dark .certification-info h4 {
+    color: #f8fafc;
+}
+
+body.dark .page-header .section-description,
+body.dark .resume-person p,
+body.dark .resume-text,
+body.dark .resume-project p,
+body.dark .education-item p,
+body.dark .certification-info p {
+    color: #94a3b8;
+}
+
+body.dark .resume-card {
+    background:
+        rgba(15, 23, 42, .78);
+
+    border-color:
+        rgba(148, 163, 184, .12);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, .25);
+}
+
+body.dark .resume-divider,
+body.dark .resume-block {
+    border-color:
+        rgba(148, 163, 184, .10);
+}
+
+body.dark .resume-skill,
+body.dark .resume-project,
+body.dark .education-item {
+    background:
+        rgba(255, 255, 255, .025);
+
+    border-color:
+        rgba(148, 163, 184, .10);
+}
+
+body.dark .resume-skill {
+    color: #e2e8f0;
+}
+
+body.dark .resume-certification {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124, 58, 237, .10),
+            rgba(6, 182, 212, .06)
+        );
+
+    border-color:
+        rgba(167, 139, 250, .15);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .resume-skills {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .resume-page {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .resume-card {
+        padding: 28px 22px;
+
+        border-radius: 23px;
+    }
+
+    .resume-header {
+        align-items: flex-start;
+    }
+
+    .resume-person h2 {
+        font-size: 34px;
+    }
+
+    .resume-icon {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 16px;
+
+        font-size: 24px;
+    }
+
+    .resume-skills {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .resume-projects,
+    .resume-education {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-certification {
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .certified-badge {
+        margin-left: 73px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .resume-card {
+        padding: 22px 17px;
+    }
+
+    .resume-header {
+        gap: 15px;
+    }
+
+    .resume-person h2 {
+        font-size: 29px;
+    }
+
+    .resume-person p {
+        font-size: 12px;
+    }
+
+    .resume-role {
+        font-size: 9px;
+    }
+
+    .resume-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 20px;
+    }
+
+    .resume-skills {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-block {
+        padding: 24px 0;
+    }
+
+    .resume-heading h3 {
+        font-size: 18px;
+    }
+
+    .certified-badge {
+        margin-left: 0;
+    }
+
+}

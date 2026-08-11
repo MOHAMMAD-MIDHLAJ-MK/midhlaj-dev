@@ -1,0 +1,637 @@
+<!--{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ project.title }} | Midhlaj
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'css/project_detail.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+ =========================================================
+     HERO
+=========================================================
+
+<section class="project-detail-hero">
+
+    <div class="project-detail-container">
+
+        <a href="{% url 'projects' %}"
+           class="back-projects">
+
+            <i class="bi bi-arrow-left"></i>
+
+            <span>
+                Back to Projects
+            </span>
+
+        </a>
+
+
+        <div class="project-detail-heading">
+
+            <span class="project-label">
+                FULL STACK PROJECT
+            </span>
+
+
+            <h1>
+                {{ project.title }}
+            </h1>
+
+
+            {% if project.short_description %}
+
+                <p>
+                    {{ project.short_description }}
+                </p>
+
+            {% elif project.description %}
+
+                <p>
+                    {{ project.description|truncatewords:30 }}
+                </p>
+
+            {% else %}
+
+                <p>
+                    A modern web application developed
+                    using Python and Django.
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+  <!-- =========================================================
+     USER / PROJECT MANAGEMENT
+  ========================================================= -->
+
+{% if user.is_authenticated %}
+
+<section class="project-management">
+
+    <div class="project-detail-container">
+
+        <div class="management-card">
+
+
+            <!-- USER INFO -->
+
+            <div class="management-info">
+
+                <i class="bi bi-person-circle"></i>
+
+                <div>
+
+                    <strong>
+                        {{ user.username }}
+                    </strong>
+
+                    <small>
+                        Project Management
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- MANAGEMENT BUTTONS -->
+
+            <div class="management-actions">
+
+
+                <!-- ADD PROJECT -->
+
+                <a href="{% url 'add_project' %}"
+                   class="manage-btn add-btn">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    <span>
+                        Add
+                    </span>
+
+                </a>
+
+
+                <!-- EDIT / DELETE ONLY OWNER -->
+
+                {% if project.owner == user %}
+
+                    <a href="{% url 'edit_project' project.slug %}"
+                       class="manage-btn edit-btn">
+
+                        <i class="bi bi-pencil-square"></i>
+
+                        <span>
+                            Edit
+                        </span>
+
+                    </a>
+
+
+                    <a href="{% url 'delete_project' project.slug %}"
+                       class="manage-btn delete-btn">
+
+                        <i class="bi bi-trash3"></i>
+
+                        <span>
+                            Delete
+                        </span>
+
+                    </a>
+
+                {% endif %}
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+ </section>
+
+ {% endif %}
+
+
+
+<!-- =========================================================
+     MAIN PROJECT
+========================================================= -->
+
+<section class="project-detail-section">
+
+    <div class="project-detail-container">
+
+
+
+        <!-- =================================================
+             PROJECT IMAGE GALLERY
+        ================================================== -->
+
+        <div class="project-gallery">
+
+
+            <!-- MAIN IMAGE -->
+
+            <div class="project-gallery-main">
+
+                {% if project.image %}
+
+                    <img
+                        src="{{ project.image.url }}"
+                        alt="{{ project.title }}"
+                        class="main-project-image"
+                    >
+
+                {% else %}
+
+                    <img
+                        src="{% static 'images/projects/ecommerce.png' %}"
+                        alt="{{ project.title }}"
+                        class="main-project-image"
+                    >
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- SIDE IMAGES -->
+
+            <div class="project-gallery-side">
+
+
+                <!-- IMAGE 2 -->
+
+                {% if project.image_2 %}
+
+                    <div class="gallery-small">
+
+                        <img
+                            src="{{ project.image_2.url }}"
+                            alt="{{ project.title }} image 2"
+                        >
+
+                    </div>
+
+                {% else %}
+
+                    <div class="gallery-small">
+
+                        <img
+                            src="{% static 'images/projects/ecommerce.png' %}"
+                            alt="{{ project.title }}"
+                        >
+
+                    </div>
+
+                {% endif %}
+
+
+
+                <!-- IMAGE 3 -->
+
+                {% if project.image_3 %}
+
+                    <div class="gallery-small">
+
+                        <img
+                            src="{{ project.image_3.url }}"
+                            alt="{{ project.title }} image 3"
+                        >
+
+                    </div>
+
+                {% else %}
+
+                    <div class="gallery-small">
+
+                        <img
+                            src="{% static 'images/projects/ecommerce.png' %}"
+                            alt="{{ project.title }}"
+                        >
+
+                    </div>
+
+                {% endif %}
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROJECT INFO
+        ================================================== -->
+
+        <div class="project-info-grid">
+
+
+            <!-- DESCRIPTION -->
+
+            <div class="project-description">
+
+                <span class="detail-label">
+                    ABOUT THE PROJECT
+                </span>
+
+
+                <h2>
+                    {{ project.title }}
+                </h2>
+
+
+                {% if project.description %}
+
+                    <p>
+                        {{ project.description }}
+                    </p>
+
+                {% else %}
+
+                    <p>
+                        This project is a complete web
+                        application developed to provide
+                        users with a smooth and responsive
+                        experience.
+                    </p>
+
+                {% endif %}
+
+
+            </div>
+
+
+
+            <!-- PROJECT DETAILS -->
+
+            <div class="project-meta">
+
+
+                <div class="meta-item">
+
+                    <span>
+                        Project Type
+                    </span>
+
+                    <strong>
+                        Full Stack Web Application
+                    </strong>
+
+                </div>
+
+
+
+                <div class="meta-item">
+
+                    <span>
+                        Backend
+                    </span>
+
+                    <strong>
+                        Python / Django
+                    </strong>
+
+                </div>
+
+
+
+                <div class="meta-item">
+
+                    <span>
+                        Database
+                    </span>
+
+                    <strong>
+                        MySQL
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TECHNOLOGIES
+        ================================================== -->
+
+        <div class="project-technologies">
+
+            <span class="detail-label">
+                TECHNOLOGIES
+            </span>
+
+
+            <div class="technology-list">
+
+
+                <span>
+                    Python
+                </span>
+
+
+                <span>
+                    Django
+                </span>
+
+
+                <span>
+                    HTML5
+                </span>
+
+
+                <span>
+                    CSS3
+                </span>
+
+
+                <span>
+                    JavaScript
+                </span>
+
+
+                <span>
+                    Bootstrap
+                </span>
+
+
+                <span>
+                    MySQL
+                </span>
+
+
+                <span>
+                    Git
+                </span>
+
+
+                <span>
+                    GitHub
+                </span>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             VIDEO
+        ================================================== -->
+
+        {% if project.video %}
+
+        <div class="project-video-section">
+
+            <span class="detail-label">
+                PROJECT PREVIEW
+            </span>
+
+
+            <h2>
+                See It In Action
+            </h2>
+
+
+            <p>
+                A short demonstration of the project
+                interface and main functionality.
+            </p>
+
+
+            <div class="project-video">
+
+                <video
+                    controls
+                    preload="metadata"
+                    {% if project.image %}
+                    poster="{{ project.image.url }}"
+                    {% endif %}
+                >
+
+                    <source
+                        src="{{ project.video.url }}"
+                        type="video/mp4"
+                    >
+
+                    Your browser does not support
+                    video playback.
+
+                </video>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             FEATURES
+        ================================================== -->
+
+        <div class="project-features">
+
+            <span class="detail-label">
+                KEY FEATURES
+            </span>
+
+
+            <div class="features-grid">
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-cart3"></i>
+
+                    <h3>
+                        Shopping Cart
+                    </h3>
+
+                    <p>
+                        Users can manage products
+                        before checkout.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-grid"></i>
+
+                    <h3>
+                        Product Categories
+                    </h3>
+
+                    <p>
+                        Products are organized
+                        into easy-to-use categories.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-phone"></i>
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        Designed to work smoothly
+                        across different screen sizes.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-item">
+
+                    <i class="bi bi-database"></i>
+
+                    <h3>
+                        Database Integration
+                    </h3>
+
+                    <p>
+                        Product and application
+                        data are managed efficiently.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             PROJECT LINKS
+        ================================================== -->
+
+        <div class="project-actions">
+
+
+            {% if project.github_url %}
+
+                <a
+                    href="{{ project.github_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-action github"
+                >
+
+                    <i class="bi bi-github"></i>
+
+                    View Source Code
+
+                </a>
+
+            {% endif %}
+
+
+
+            {% if project.live_url %}
+
+                <a
+                    href="{{ project.live_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-action live"
+                >
+
+                    <i class="bi bi-box-arrow-up-right"></i>
+
+                    Live Demo
+
+                </a>
+
+            {% endif %}
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+-->

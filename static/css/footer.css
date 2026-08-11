@@ -1,0 +1,476 @@
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    width: 100%;
+    padding: 75px 0 25px;
+    background: var(--footer-bg, #f8fafc);
+    color: var(--footer-text, #172033);
+    border-top: 1px solid var(--footer-border, rgba(100, 116, 139, 0.15));
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.footer-brand {
+    margin: 0 0 15px;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    color: var(--footer-heading, #111827);
+}
+
+.footer-brand span {
+    color: #6366f1;
+    font-weight: 700;
+}
+
+.footer-description {
+    max-width: 430px;
+    margin: 0;
+    color: var(--footer-muted, #64748b);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 25px;
+}
+
+.footer-social a {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    color: var(--footer-icon, #475569);
+    background: var(--footer-icon-bg, rgba(99, 102, 241, 0.07));
+
+    border: 1px solid var(
+        --footer-border,
+        rgba(100, 116, 139, 0.15)
+    );
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.footer-social a i {
+    font-size: 18px;
+}
+
+.footer-social a:hover {
+    transform: translateY(-4px);
+    color: #ffffff;
+    background: #6366f1;
+    border-color: #6366f1;
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+========================================================= */
+
+.site-footer h6 {
+    position: relative;
+
+    margin: 3px 0 20px;
+
+    color: var(--footer-heading, #111827);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+
+/* Small accent line */
+
+.site-footer h6::after {
+    content: "";
+
+    display: block;
+
+    width: 28px;
+    height: 3px;
+
+    margin-top: 9px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #6366f1,
+        #8b5cf6
+    );
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.footer-links {
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 11px;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+
+    position: relative;
+
+    color: var(--footer-muted, #64748b);
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.footer-links a::before {
+    content: "→";
+
+    margin-right: 0;
+
+    width: 0;
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+        width 0.25s ease,
+        opacity 0.25s ease,
+        margin 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: #6366f1;
+    transform: translateX(3px);
+}
+
+.footer-links a:hover::before {
+    width: 17px;
+    margin-right: 5px;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TECHNOLOGY TAGS
+========================================================= */
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.tech-tags span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border-radius: 9px;
+
+    color: var(--tag-text, #475569);
+    background: var(--tag-bg, rgba(99, 102, 241, 0.06));
+
+    border: 1px solid var(
+        --tag-border,
+        rgba(99, 102, 241, 0.13)
+    );
+
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.tech-tags span:hover {
+    transform: translateY(-2px);
+
+    color: #ffffff;
+
+    background: #6366f1;
+    border-color: #6366f1;
+}
+
+
+/* =========================================================
+   HR
+========================================================= */
+
+.site-footer hr {
+    margin: 50px 0 22px;
+
+    border: 0;
+
+    height: 1px;
+
+    background: var(
+        --footer-border,
+        rgba(100, 116, 139, 0.15)
+    );
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.footer-bottom p {
+    color: var(--footer-muted, #64748b);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.heart {
+    color: #ef4444;
+
+    display: inline-block;
+
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+
+/* =========================================================
+   DARK MODE
+   Works with:
+   <body class="dark">
+   OR
+   <html data-bs-theme="dark">
+========================================================= */
+
+body.dark .site-footer,
+html[data-bs-theme="dark"] .site-footer {
+    --footer-bg: #080b14;
+    --footer-text: #f8fafc;
+    --footer-heading: #f8fafc;
+    --footer-muted: #94a3b8;
+
+    --footer-icon: #cbd5e1;
+    --footer-icon-bg: rgba(99, 102, 241, 0.10);
+
+    --footer-border: rgba(148, 163, 184, 0.14);
+
+    --tag-text: #cbd5e1;
+    --tag-bg: rgba(99, 102, 241, 0.08);
+    --tag-border: rgba(99, 102, 241, 0.18);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .site-footer {
+        padding: 60px 0 22px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .site-footer {
+        padding: 50px 0 20px;
+    }
+
+    .footer-brand {
+        font-size: 25px;
+    }
+
+    .footer-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
+
+    .site-footer h6 {
+        margin-top: 10px;
+        margin-bottom: 17px;
+    }
+
+    .footer-links li {
+        margin-bottom: 9px;
+    }
+
+    .footer-links a {
+        font-size: 13px;
+    }
+
+    .tech-tags {
+        gap: 7px;
+    }
+
+    .tech-tags span {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .site-footer hr {
+        margin: 35px 0 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .site-footer {
+        padding: 42px 0 18px;
+    }
+
+    .footer-brand {
+        font-size: 23px;
+    }
+
+    .footer-description {
+        font-size: 13px;
+    }
+
+    .footer-social {
+        gap: 8px;
+    }
+
+    .footer-social a {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+    .footer-social a i {
+        font-size: 16px;
+    }
+
+    .tech-tags span {
+        padding: 6px 9px;
+        font-size: 10.5px;
+    }
+
+    .footer-bottom p {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .footer-social a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .tech-tags {
+        gap: 6px;
+    }
+
+    .tech-tags span {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+}

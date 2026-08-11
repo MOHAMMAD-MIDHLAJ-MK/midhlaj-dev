@@ -1,0 +1,506 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About | Midhlaj
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<main class="about-page">
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <section class="about-header">
+
+        <span class="section-label">
+            ABOUT ME
+        </span>
+
+        <h1 class="section-title">
+            Get To Know Me
+        </h1>
+
+        <p class="section-description">
+            A little more about my journey,
+            interests and development skills.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ABOUT INTRO
+    ====================================================== -->
+
+    <section class="about-intro">
+
+        <!-- PROFILE IMAGE -->
+
+        <div class="about-image-wrapper">
+
+            <div class="about-image-card">
+
+                <img
+                    src="{% static 'images/profile/profile.png' %}"
+                    alt="Midhlaj - Python Django Developer"
+                >
+
+                <div class="about-image-overlay">
+
+                    <span>
+                        <i class="bi bi-code-slash"></i>
+                        Python Django Developer
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT CONTENT -->
+
+        <div class="about-content">
+
+            <span class="section-label">
+                WHO I AM
+            </span>
+
+            <h2 class="about-title">
+                Building Digital
+                <span>Experiences With Code.</span>
+            </h2>
+
+            <p class="about-text">
+
+                I'm a BCA student and aspiring
+                Python Django Developer with an interest
+                in building modern web applications.
+
+            </p>
+
+            <p class="about-text">
+
+                I enjoy turning ideas into functional,
+                responsive and user-friendly applications
+                using Python, Django and modern frontend
+                technologies.
+
+            </p>
+
+
+            <!-- INFO CARDS -->
+
+            <div class="info-grid">
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <small>
+                            Focus
+                        </small>
+
+                        <strong>
+                            Web Development
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="bi bi-server"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <small>
+                            Backend
+                        </small>
+
+                        <strong>
+                            Python & Django
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <small>
+                            Database
+                        </small>
+
+                        <strong>
+                            MySQL
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="bi bi-window-stack"></i>
+                    </div>
+
+                    <div class="info-content">
+
+                        <small>
+                            Frontend
+                        </small>
+
+                        <strong>
+                            HTML, CSS & JS
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <div class="about-actions">
+
+                <a
+                    href="{% url 'contact' %}"
+                    class="premium-btn"
+                >
+
+                    Let's Work Together
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EDUCATION SECTION
+    ====================================================== -->
+
+    <section class="education-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EDUCATION
+            </span>
+
+            <h2 class="section-title">
+                My Education
+            </h2>
+
+            <p class="section-description">
+                My academic background and learning journey.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+            <!-- BCA -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+
+                    <i class="bi bi-mortarboard-fill"></i>
+
+                </div>
+
+
+                <div class="timeline-card">
+
+                    <span class="timeline-date">
+                        CURRENT
+                    </span>
+
+                    <h3>
+                        Bachelor of Computer Applications
+                    </h3>
+
+                    <h4>
+                        BCA
+                    </h4>
+
+                    <p>
+                        Computer Applications &
+                        Software Development
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PLUS TWO -->
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot">
+
+                    <i class="bi bi-book-fill"></i>
+
+                </div>
+
+
+                <div class="timeline-card">
+
+                    <span class="timeline-date">
+                        COMPLETED
+                    </span>
+
+                    <h3>
+                        Higher Secondary Education
+                    </h3>
+
+                    <h4>
+                        Plus Two
+                    </h4>
+
+                    <p>
+                        Higher Secondary Education
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CERTIFICATION SECTION
+    ====================================================== -->
+
+    <section class="certification-section">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CERTIFICATION
+            </span>
+
+            <h2 class="section-title">
+                My Certifications
+            </h2>
+
+            <p class="section-description">
+                Certifications and professional learning
+                that support my development journey.
+            </p>
+
+        </div>
+
+
+        <!-- CERTIFICATION CARD -->
+
+        <div class="certification-grid">
+
+
+            <article class="certification-card">
+
+                <!-- TOP -->
+
+                <div class="certification-top">
+
+                    <div class="certification-icon">
+
+                        <i class="bi bi-patch-check-fill"></i>
+
+                    </div>
+
+
+                    <span class="certification-status">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        Certified
+
+                    </span>
+
+                </div>
+
+
+                <!-- CONTENT -->
+
+                <div class="certification-content">
+
+                    <span class="certification-year">
+                        2026
+                    </span>
+
+                    <h3>
+                        Python Full Stack Developer
+                    </h3>
+
+                    <p>
+                        Python Full Stack Developer
+                        Certification
+                    </p>
+
+                </div>
+
+
+                <!-- TECHNOLOGIES -->
+
+                <div class="certification-skills">
+
+                    <span>
+                        Python
+                    </span>
+
+                    <span>
+                        Django
+                    </span>
+
+                    <span>
+                        HTML
+                    </span>
+
+                    <span>
+                        CSS
+                    </span>
+
+                    <span>
+                        JavaScript
+                    </span>
+
+                    <span>
+                        MySQL
+                    </span>
+
+                </div>
+
+
+                <!-- FOOTER -->
+
+                <div class="certification-footer">
+
+                    <span>
+                        <i class="bi bi-calendar3"></i>
+                        2026
+                    </span>
+
+                    <span>
+                        <i class="bi bi-award"></i>
+                        Professional Certification
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- ADD MORE CERTIFICATIONS HERE -->
+
+            <article class="certification-card certification-empty">
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                </div>
+
+                <h3>
+                    More Certifications
+                </h3>
+
+                <p>
+                    Future certifications and
+                    professional achievements will
+                    appear here.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+    ====================================================== -->
+
+    <section class="about-cta">
+
+        <div class="cta-content">
+
+            <span class="section-label">
+                LET'S CONNECT
+            </span>
+
+            <h2>
+                Let's Build Something
+                <span>Great Together.</span>
+            </h2>
+
+            <p>
+                Have a project, idea or opportunity?
+                Let's turn it into something meaningful.
+            </p>
+
+            <a
+                href="{% url 'contact' %}"
+                class="premium-btn"
+            >
+
+                Contact Me
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+{% endblock %}

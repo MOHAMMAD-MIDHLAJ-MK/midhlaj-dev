@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==================================================
+         META
+    =================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Midhlaj - Python Full Stack Developer Portfolio"
+    >
+
+    <meta
+        name="author"
+        content="Midhlaj"
+    >
+
+    <title>
+        {% block title %}
+            Midhlaj | Python Full Stack Developer
+        {% endblock %}
+    </title>
+
+
+    <!-- ==================================================
+         GOOGLE FONT
+    =================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================================================
+         BOOTSTRAP
+    =================================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================================================
+         BOOTSTRAP ICONS
+    =================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+
+    <!-- ==================================================
+         MAIN CSS
+    =================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/base.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/theme.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/navbar.css' %}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{% static 'css/responsive.css' %}"
+    >
+    <link
+        rel="stylesheet"
+        href="{% static 'css/footer.css' %}"
+    >
+
+    <!-- PAGE CSS -->
+
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+
+<body>
+
+
+    <!-- ==================================================
+         NAVBAR
+    =================================================== -->
+
+    {% include 'includes/navbar.html' %}
+
+
+
+    <!-- ==================================================
+         MAIN CONTENT
+    =================================================== -->
+
+    <main class="main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    =================================================== -->
+
+    {% include 'includes/footer.html' %}
+
+
+
+    <!-- ==================================================
+         BOOTSTRAP JS
+    =================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <!-- ==================================================
+         THEME JS
+    =================================================== -->
+
+    <script
+        src="{% static 'js/theme.js' %}">
+    </script>
+
+
+
+    <!-- ==================================================
+         NAVBAR JS
+    =================================================== -->
+
+    <script
+        src="{% static 'js/navbar.js' %}">
+    </script>
+
+
+
+    <!-- ==================================================
+         PROJECTS JS
+    =================================================== -->
+
+    <script
+        src="{% static 'js/projects.js' %}">
+    </script>
+
+
+
+    <!-- ==================================================
+         HOME JS
+    =================================================== -->
+
+    <script
+        src="{% static 'js/home.js' %}">
+    </script>
+
+
+
+    <!-- ==================================================
+         MAIN JS
+    =================================================== -->
+
+    <script
+        src="{% static 'js/main.js' %}">
+    </script>
+
+
+
+    <!-- PAGE JS -->
+
+    {% block extra_js %}
+    {% endblock %}
+
+
+</body>
+
+</html>

@@ -1,0 +1,762 @@
+/* =========================================================
+   ACCOUNT PAGE
+   LOGIN / REGISTER
+   ========================================================= */
+
+.account-section {
+    min-height: calc(100vh - 80px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND EFFECT
+   ========================================================= */
+
+.account-section::before,
+.account-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(90px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+}
+
+.account-section::before {
+    top: 5%;
+    left: 10%;
+    background: #d4af37;
+}
+
+.account-section::after {
+    right: 10%;
+    bottom: 5%;
+    background: #6c63ff;
+}
+
+
+/* =========================================================
+   ACCOUNT CARD
+   ========================================================= */
+
+.account-card {
+    width: 100%;
+    max-width: 460px;
+
+    padding: 42px 38px;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    animation: accountCardIn 0.6s ease;
+}
+
+
+@keyframes accountCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.account-icon {
+    width: 62px;
+    height: 62px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.2),
+        rgba(212, 175, 55, 0.06)
+    );
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    color: #d4af37;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 10px 35px rgba(212, 175, 55, 0.12);
+}
+
+
+/* =========================================================
+   LABEL
+   ========================================================= */
+
+.account-label {
+    display: block;
+
+    text-align: center;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #d4af37;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.account-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 34px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    color: #ffffff;
+}
+
+
+.account-subtitle {
+    margin: 10px auto 30px;
+
+    max-width: 350px;
+
+    text-align: center;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-box {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 0 15px;
+
+    min-height: 52px;
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.input-box i {
+    flex-shrink: 0;
+
+    font-size: 17px;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    transition: color 0.25s ease;
+}
+
+
+.input-box input {
+    width: 100%;
+
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-family: inherit;
+}
+
+
+.input-box input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+.input-box:focus-within {
+    border-color: rgba(212, 175, 55, 0.7);
+
+    background: rgba(212, 175, 55, 0.045);
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.08);
+}
+
+
+.input-box:focus-within i {
+    color: #d4af37;
+}
+
+
+/* =========================================================
+   ACCOUNT BUTTON
+   ========================================================= */
+
+.account-btn {
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 8px;
+
+    border: none;
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #111111;
+
+    background: linear-gradient(
+        135deg,
+        #f1d477,
+        #d4af37
+    );
+
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.18);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+
+.account-btn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 16px 35px rgba(212, 175, 55, 0.28);
+}
+
+
+.account-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+.account-messages {
+    margin-bottom: 20px;
+}
+
+
+.message {
+    padding: 11px 14px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.message.success {
+    background: rgba(46, 204, 113, 0.10);
+    color: #72e6a1;
+
+    border-color: rgba(46, 204, 113, 0.25);
+}
+
+
+.message.error {
+    background: rgba(231, 76, 60, 0.10);
+    color: #ff8585;
+
+    border-color: rgba(231, 76, 60, 0.25);
+}
+
+
+.message.warning {
+    background: rgba(241, 196, 15, 0.10);
+    color: #f4d35e;
+
+    border-color: rgba(241, 196, 15, 0.25);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.account-footer {
+    margin-top: 25px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    color: rgba(255, 255, 255, 0.48);
+}
+
+
+.account-footer a {
+    color: #d4af37;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: color 0.2s ease;
+}
+
+
+.account-footer a:hover {
+    color: #f1d477;
+}
+
+
+/* =========================================================
+   USER DROPDOWN
+   ========================================================= */
+
+.user-menu {
+    position: relative;
+}
+
+
+.user-btn {
+    min-height: 42px;
+
+    padding: 8px 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+
+.user-btn:hover {
+    background: rgba(212, 175, 55, 0.10);
+
+    border-color: rgba(212, 175, 55, 0.55);
+}
+
+
+.user-btn > i:first-child {
+    color: #d4af37;
+
+    font-size: 19px;
+}
+
+
+.user-btn > i:last-child {
+    font-size: 10px;
+
+    opacity: 0.6;
+}
+
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+
+.user-dropdown {
+    position: absolute;
+
+    top: calc(100% + 10px);
+
+    right: 0;
+
+    width: 190px;
+
+    padding: 8px;
+
+    border-radius: 15px;
+
+    background: rgba(20, 20, 24, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+
+    z-index: 1000;
+}
+
+
+.user-menu:hover .user-dropdown {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    border-radius: 9px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.2s ease;
+}
+
+
+.user-dropdown a i {
+    width: 18px;
+
+    color: #d4af37;
+}
+
+
+.user-dropdown a:hover {
+    background: rgba(212, 175, 55, 0.10);
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   LOGIN NAV BUTTON
+   ========================================================= */
+
+.login-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 40px;
+
+    padding: 8px 16px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    color: #d4af37;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    background: rgba(212, 175, 55, 0.06);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+
+.login-btn:hover {
+    color: #111111;
+
+    background: #d4af37;
+
+    border-color: #d4af37;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .account-section {
+        min-height: calc(100vh - 70px);
+
+        padding: 45px 16px;
+    }
+
+
+    .account-card {
+        max-width: 430px;
+
+        padding: 35px 28px;
+
+        border-radius: 21px;
+    }
+
+
+    .account-card h1 {
+        font-size: 30px;
+    }
+
+
+    .account-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .account-section {
+        padding: 30px 13px;
+    }
+
+
+    .account-card {
+        padding: 30px 20px;
+
+        border-radius: 19px;
+    }
+
+
+    .account-card h1 {
+        font-size: 27px;
+    }
+
+
+    .account-subtitle {
+        font-size: 13px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .account-label {
+        font-size: 10px;
+
+        letter-spacing: 1.6px;
+    }
+
+
+    .form-group {
+        margin-bottom: 17px;
+    }
+
+
+    .input-box {
+        min-height: 50px;
+
+        padding: 0 13px;
+    }
+
+
+    .input-box input {
+        font-size: 13px;
+    }
+
+
+    .account-btn {
+        min-height: 50px;
+
+        font-size: 13px;
+    }
+
+
+    .account-footer {
+        font-size: 12px;
+
+        margin-top: 21px;
+
+        padding-top: 19px;
+    }
+
+
+    .user-dropdown {
+        right: -5px;
+
+        width: 180px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+    .account-section {
+        padding: 22px 10px;
+    }
+
+
+    .account-card {
+        padding: 26px 16px;
+    }
+
+
+    .account-card h1 {
+        font-size: 25px;
+    }
+
+
+    .account-icon {
+        width: 54px;
+        height: 54px;
+
+        font-size: 23px;
+    }
+
+}
