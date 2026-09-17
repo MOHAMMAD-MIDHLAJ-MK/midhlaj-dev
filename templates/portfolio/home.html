@@ -70,20 +70,7 @@ Home | Midhlaj Dev
                             Download Resume
 
                         </a>
-                        </div>
-                        <div class="hero-buttons">
-                          <a
-                            href="{% url 'resume' %}"
-                            class="view-resume-btn"
-                            
-                        >
 
-                           <i class="bi bi-file-earmark-pdf-fill"></i> 
-
-                            View Resume
-
-                        </a>
-                       
 
                         <a
                             href="{% url 'contact' %}"
@@ -103,26 +90,29 @@ Home | Midhlaj Dev
 
                     <div class="hero-social">
 
-                        <a href="https://github.com/MOHAMMAD-MIDHLAJ-MK" aria-label="GitHub">
-                        <i class="bi bi-github"></i>
+                        <a
+                            href="#"
+                            aria-label="GitHub"
+                        >
+                            <i class="bi bi-github"></i>
                         </a>
-
-                         <a href="https://www.linkedin.com/in/midhlaj-mk-9b5a89426" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                        </a>
-
-                        <a href="https://wa.me/9605734765"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="WhatsApp">
-
-                      <i class="bi bi-whatsapp"></i>
-
-                    </a>
-
 
                         <a
-                            href="mailto:midhlajmk765@gmail.com"
+                            href="#"
+                            aria-label="LinkedIn"
+                        >
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Instagram"
+                        >
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a
+                            href="mailto:yourmail@gmail.com"
                             aria-label="Email"
                         >
                             <i class="bi bi-envelope"></i>
@@ -520,112 +510,87 @@ Home | Midhlaj Dev
     <!-- =====================================================
          RECENT PROJECTS
          ===================================================== -->
-<section class="home-section">
+<!-- =========================
+     RECENT PROJECTS
+========================= -->
+<section class="recent-projects-section">
 
-    <div class="section-top">
+    <div class="section-heading">
+        <h2>Recent Projects</h2>
 
-        <h2>
-            Recent Projects
-        </h2>
-
-        <a
-            href="{% url 'projects' %}"
-            class="view-all"
-        >
+        <a href="{% url 'projects' %}" class="view-all-link">
             View All Projects →
         </a>
-
     </div>
 
 
-    <div class="project-grid">
+    <div class="projects-horizontal">
 
         {% for project in recent_projects %}
 
-            <a
-                href="{% url 'project_detail' project.slug %}"
-                class="project-card"
-            >
+        <a href="{% url 'project_detail' project.slug %}"
+           class="project-card">
+
+            <!-- Project Image -->
+            <div class="project-image">
 
                 {% if project.cover_image %}
-
-                    <img
-                        src="{{ project.cover_image.url }}"
-                        class="project-image"
-                        alt="{{ project.title }}"
-                    >
+                    <img src="{{ project.cover_image.url }}"
+                         alt="{{ project.title }}">
 
                 {% elif project.image %}
-
-                    <img
-                        src="{{ project.image.url }}"
-                        class="project-image"
-                        alt="{{ project.title }}"
-                    >
+                    <img src="{{ project.image.url }}"
+                         alt="{{ project.title }}">
 
                 {% else %}
-
-                    <div class="project-image project-no-image">
-                        <i class="bi bi-folder2-open"></i>
+                    <div class="project-placeholder">
+                        <span>Project</span>
                     </div>
+                {% endif %}
 
+            </div>
+
+
+            <!-- Project Content -->
+            <div class="project-content">
+
+                <span class="project-category">
+                    {{ project.get_category_display }}
+                </span>
+
+                <h3>{{ project.title }}</h3>
+
+                {% if project.description %}
+                    <p>
+                        {{ project.description|truncatewords:15 }}
+                    </p>
                 {% endif %}
 
 
-                <div class="project-info">
+                <!-- Technologies -->
+                {% if project.technology_list %}
+                <div class="project-tech">
 
-                    <div class="project-category">
-                        {{ project.get_category_display }}
-                    </div>
+                    {% for tech in project.technology_list|slice:":3" %}
+                        <span>{{ tech }}</span>
+                    {% endfor %}
 
-                    <h3>
-                        {{ project.title }}
-                    </h3>
-
-                    {% if project.description %}
-
-                        <p>
-                            {{ project.description|truncatewords:15 }}
-                        </p>
-
-                    {% endif %}
-
-
-                    {% if project.technology_list %}
-
-                        <div class="project-tech">
-
-                            {% for tech in project.technology_list|slice:":3" %}
-
-                                <span>
-                                    {{ tech }}
-                                </span>
-
-                            {% endfor %}
-
-                        </div>
-
+                    {% if project.technology_list|length > 3 %}
+                        <span>+{{ project.technology_list|length|add:"-3" }}</span>
                     {% endif %}
 
                 </div>
+                {% endif %}
 
-            </a>
+            </div>
+
+        </a>
 
         {% empty %}
 
-            <div class="projects-empty">
-
-                <i class="bi bi-folder2-open"></i>
-
-                <h3>
-                    No Recent Projects
-                </h3>
-
-                <p>
-                    Recent projects will appear here.
-                </p>
-
-            </div>
+        <div class="no-projects">
+            <p>No recent projects available.</p>
+        </div>
 
         {% endfor %}
 
