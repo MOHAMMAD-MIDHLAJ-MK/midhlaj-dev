@@ -2,187 +2,136 @@
 {% load static %}
 
 {% block title %}
-Edit {{ project.title }} | Midhlaj Dev
+Edit Project | Midhlaj
 {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/edit_project.css' %}">
 {% endblock %}
 
-
 {% block content %}
 
-<div class="edit-project-page">
+<main class="edit-project-page">
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
     <section class="edit-header">
 
-        <div class="edit-header-inner">
+        <div>
+            <span class="edit-badge">
+                PROJECT MANAGEMENT
+            </span>
 
-            <div class="edit-header-icon">
-                <i class="bi bi-pencil-square"></i>
-            </div>
+            <h1>
+                Edit <span>{{ project.title }}</span>
+            </h1>
 
-            <div>
-
-                <span class="edit-label">
-                    PORTFOLIO ADMIN
-                </span>
-
-                <h1>
-                    Edit Project
-                </h1>
-
-                <p>
-                    Update your project information, media and links.
-                </p>
-
-            </div>
-
+            <p>
+                Update your project details, images, videos and technologies.
+            </p>
         </div>
+
+        <a href="{% url 'project_detail' project.slug %}"
+           class="back-btn">
+            ← Back to Project
+        </a>
 
     </section>
 
 
-    <!-- =====================================================
+    <!-- =========================
          FORM
-    ====================================================== -->
+    ========================== -->
 
-    <form
-        method="POST"
-        enctype="multipart/form-data"
-        class="project-form"
-        id="projectForm"
-    >
+    <form method="POST"
+          enctype="multipart/form-data"
+          class="project-form">
 
         {% csrf_token %}
 
-
-        <!-- =================================================
-             ERRORS
-        ================================================== -->
-
-        {% if form.non_field_errors %}
-
-        <div class="error-box">
-
-            <i class="bi bi-exclamation-triangle-fill"></i>
-
-            <div>
-
-                {% for error in form.non_field_errors %}
-
-                    <p>{{ error }}</p>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-        {% endif %}
-
-
-        {% if content_formset.non_form_errors %}
-
-        <div class="error-box">
-
-            <i class="bi bi-exclamation-triangle-fill"></i>
-
-            <div>
-
-                {% for error in content_formset.non_form_errors %}
-
-                    <p>{{ error }}</p>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
-        {% endif %}
-
-
-        <!-- =================================================
-             01 BASIC INFORMATION
-        ================================================== -->
+        <!-- ==================================================
+             PROJECT INFORMATION
+        =================================================== -->
 
         <section class="form-card">
 
             <div class="card-heading">
 
-                <span class="heading-number">
-                    1
-                </span>
+                <div class="heading-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
 
                 <div>
-
-                    <h2>
-                        Basic Information
-                    </h2>
-
-                    <p>
-                        Update your project title and description.
-                    </p>
-
+                    <h2>Project Information</h2>
+                    <p>Basic information about your project.</p>
                 </div>
 
             </div>
 
 
-            <div class="basic-grid">
+            <div class="form-grid">
 
                 <!-- TITLE -->
-
-                <div class="field full">
+                <div class="field-group full-field">
 
                     <label for="{{ form.title.id_for_label }}">
                         Project Title
-                        <b>*</b>
                     </label>
 
                     {{ form.title }}
 
                     {% if form.title.errors %}
-
-                    <div class="field-error">
-                        {{ form.title.errors }}
-                    </div>
-
+                        <div class="field-error">
+                            {{ form.title.errors }}
+                        </div>
                     {% endif %}
 
                 </div>
 
 
                 <!-- CATEGORY -->
-
-                <div class="field">
+                <div class="field-group">
 
                     <label for="{{ form.category.id_for_label }}">
                         Category
-                        <b>*</b>
                     </label>
 
                     {{ form.category }}
 
                     {% if form.category.errors %}
+                        <div class="field-error">
+                            {{ form.category.errors }}
+                        </div>
+                    {% endif %}
 
-                    <div class="field-error">
-                        {{ form.category.errors }}
-                    </div>
+                </div>
 
+
+                <!-- TECHNOLOGIES -->
+                <div class="field-group">
+
+                    <label for="{{ form.technologies.id_for_label }}">
+                        Technologies
+                    </label>
+
+                    {{ form.technologies }}
+
+                    <small>
+                        Select the technologies used in this project.
+                    </small>
+
+                    {% if form.technologies.errors %}
+                        <div class="field-error">
+                            {{ form.technologies.errors }}
+                        </div>
                     {% endif %}
 
                 </div>
 
 
                 <!-- DESCRIPTION -->
-
-                <div class="field full">
+                <div class="field-group full-field">
 
                     <label for="{{ form.description.id_for_label }}">
                         Project Description
@@ -190,16 +139,10 @@ Edit {{ project.title }} | Midhlaj Dev
 
                     {{ form.description }}
 
-                    <div class="counter">
-                        <span id="descriptionCounter">0</span>/1000
-                    </div>
-
                     {% if form.description.errors %}
-
-                    <div class="field-error">
-                        {{ form.description.errors }}
-                    </div>
-
+                        <div class="field-error">
+                            {{ form.description.errors }}
+                        </div>
                     {% endif %}
 
                 </div>
@@ -209,137 +152,110 @@ Edit {{ project.title }} | Midhlaj Dev
         </section>
 
 
-        <!-- =================================================
-             02 COVER IMAGE
-        ================================================== -->
+        <!-- ==================================================
+             COVER IMAGE
+        =================================================== -->
 
         <section class="form-card">
 
             <div class="card-heading">
 
-                <span class="heading-number">
-                    2
-                </span>
+                <div class="heading-icon purple">
+                    <i class="fas fa-image"></i>
+                </div>
 
                 <div>
-
-                    <h2>
-                        Cover Image
-                    </h2>
-
-                    <p>
-                        Main image displayed on the project card.
-                    </p>
-
+                    <h2>Cover Image</h2>
+                    <p>Main image displayed for the project.</p>
                 </div>
 
             </div>
 
 
-            <div class="cover-grid">
+            <div class="cover-layout">
 
-                <!-- COVER PREVIEW -->
+                <div class="cover-upload">
 
-                <div class="cover-upload-box">
-
-                    <div
-                        class="cover-preview"
-                        id="coverPreview"
-                    >
-
-                        {% if project.cover_image %}
-
-                        <img
-                            src="{{ project.cover_image.url }}"
-                            alt="{{ project.title }}"
-                            id="coverPreviewImage"
-                        >
-
-                        {% else %}
-
-                        <div class="upload-placeholder">
-
-                            <i class="bi bi-image"></i>
-
-                            <strong>
-                                Upload Cover Image
-                            </strong>
-
-                            <small>
-                                JPG, PNG or WEBP
-                            </small>
-
-                        </div>
-
-                        {% endif %}
-
-                    </div>
-
-
-                    <label class="upload-btn">
-
-                        <i class="bi bi-cloud-arrow-up"></i>
-
-                        Choose Cover Image
+                    <label class="upload-box">
 
                         {{ form.cover_image }}
 
-                    </label>
+                        <div class="upload-content">
 
-                    <small class="upload-note">
-                        Recommended 1200 × 630px
-                    </small>
+                            <i class="fas fa-cloud-upload-alt"></i>
+
+                            <strong>
+                                Change Cover Image
+                            </strong>
+
+                            <span>
+                                PNG, JPG, WEBP
+                            </span>
+
+                        </div>
+
+                    </label>
 
                 </div>
 
 
-                <!-- COVER DESCRIPTION -->
+                {% if project.cover_image %}
 
-                <div class="field">
+                <div class="current-cover">
 
-                    <label for="{{ form.cover_paragraph.id_for_label }}">
-                        Cover Description
-                    </label>
+                    <span class="preview-label">
+                        Current Cover
+                    </span>
 
-                    {{ form.cover_paragraph }}
+                    <img src="{{ project.cover_image.url }}"
+                         alt="{{ project.title }}">
 
-                    {% if form.cover_paragraph.errors %}
+                </div>
 
+                {% endif %}
+
+            </div>
+
+
+            <div class="field-group">
+
+                <label for="{{ form.cover_paragraph.id_for_label }}">
+                    Cover Description
+                </label>
+
+                {{ form.cover_paragraph }}
+
+                {% if form.cover_paragraph.errors %}
                     <div class="field-error">
                         {{ form.cover_paragraph.errors }}
                     </div>
-
-                    {% endif %}
-
-                </div>
+                {% endif %}
 
             </div>
 
         </section>
 
 
-        <!-- =================================================
-             03 PROJECT MEDIA
-        ================================================== -->
+        <!-- ==================================================
+             PROJECT CONTENT
+        =================================================== -->
 
-        <section class="form-card">
+        <section class="form-card media-card">
 
-            <div class="media-heading-row">
+            <div class="media-header">
 
                 <div class="card-heading no-margin">
 
-                    <span class="heading-number">
-                        3
-                    </span>
+                    <div class="heading-icon blue">
+                        <i class="fas fa-photo-video"></i>
+                    </div>
 
                     <div>
 
-                        <h2>
-                            Project Media
-                        </h2>
+                        <h2>Project Media</h2>
 
                         <p>
-                            Manage images and videos of your project.
+                            Manage project images and videos.
                         </p>
 
                     </div>
@@ -347,28 +263,26 @@ Edit {{ project.title }} | Midhlaj Dev
                 </div>
 
 
+                <!-- ADD BUTTONS -->
+
                 <div class="media-actions">
 
-                    <button
-                        type="button"
-                        class="media-add-btn"
-                        id="addImageBtn"
-                    >
+                    <button type="button"
+                            id="addImageBtn"
+                            class="add-media-btn image-btn">
 
-                        <i class="bi bi-image"></i>
+                        <i class="fas fa-image"></i>
 
                         Add Image
 
                     </button>
 
 
-                    <button
-                        type="button"
-                        class="media-add-btn"
-                        id="addVideoBtn"
-                    >
+                    <button type="button"
+                            id="addVideoBtn"
+                            class="add-media-btn video-btn">
 
-                        <i class="bi bi-camera-video"></i>
+                        <i class="fas fa-video"></i>
 
                         Add Video
 
@@ -379,228 +293,75 @@ Edit {{ project.title }} | Midhlaj Dev
             </div>
 
 
-            <!-- =================================================
-                 EXISTING PROJECT MEDIA
-            ================================================== -->
-
-            <div
-                class="project-media-list"
-                id="projectMediaList"
-            >
-
-
-                <!-- IMAGE 1 -->
-
-                {% if project.image %}
-
-                <div class="media-card">
-
-                    <div class="media-preview">
-
-                        <img
-                            src="{{ project.image.url }}"
-                            alt="Project Image"
-                        >
-
-                    </div>
-
-                    <div class="media-fields">
-
-                        <span class="media-type">
-                            <i class="bi bi-image"></i>
-                            Image
-                        </span>
-
-                        <label>
-                            Replace Image
-                        </label>
-
-                        {{ form.image }}
-
-                        <label>
-                            Description
-                        </label>
-
-                        {{ form.image_paragraph }}
-
-                    </div>
-
-                </div>
-
-                {% endif %}
-
-
-                <!-- IMAGE 2 -->
-
-                {% if project.image_2 %}
-
-                <div class="media-card">
-
-                    <div class="media-preview">
-
-                        <img
-                            src="{{ project.image_2.url }}"
-                            alt="Project Image 2"
-                        >
-
-                    </div>
-
-                    <div class="media-fields">
-
-                        <span class="media-type">
-                            <i class="bi bi-image"></i>
-                            Image 02
-                        </span>
-
-                        <label>
-                            Replace Image
-                        </label>
-
-                        {{ form.image_2 }}
-
-                        <label>
-                            Description
-                        </label>
-
-                        {{ form.image_2_paragraph }}
-
-                    </div>
-
-                </div>
-
-                {% endif %}
-
-
-                <!-- IMAGE 3 -->
-
-                {% if project.image_3 %}
-
-                <div class="media-card">
-
-                    <div class="media-preview">
-
-                        <img
-                            src="{{ project.image_3.url }}"
-                            alt="Project Image 3"
-                        >
-
-                    </div>
-
-                    <div class="media-fields">
-
-                        <span class="media-type">
-                            <i class="bi bi-image"></i>
-                            Image 03
-                        </span>
-
-                        <label>
-                            Replace Image
-                        </label>
-
-                        {{ form.image_3 }}
-
-                        <label>
-                            Description
-                        </label>
-
-                        {{ form.image_3_paragraph }}
-
-                    </div>
-
-                </div>
-
-                {% endif %}
-
-
-                <!-- VIDEO -->
-
-                {% if project.video %}
-
-                <div class="media-card">
-
-                    <div class="media-preview video-preview">
-
-                        <video
-                            src="{{ project.video.url }}"
-                            controls
-                            playsinline
-                        ></video>
-
-                    </div>
-
-                    <div class="media-fields">
-
-                        <span class="media-type video-type">
-                            <i class="bi bi-camera-video"></i>
-                            Video
-                        </span>
-
-                        <label>
-                            Replace Video
-                        </label>
-
-                        {{ form.video }}
-
-                        <label>
-                            Description
-                        </label>
-
-                        {{ form.video_paragraph }}
-
-                    </div>
-
-                </div>
-
-                {% endif %}
-
-            </div>
-
-
-            <!-- =================================================
-                 DYNAMIC CONTENT FORMSET
-            ================================================== -->
+            <!-- ==================================================
+                 FORMSET MANAGEMENT
+            =================================================== -->
 
             {{ content_formset.management_form }}
 
 
-            <div
-                id="contentForms"
-                class="dynamic-content-list"
-            >
+            <!-- ==================================================
+                 EXISTING CONTENT
+            =================================================== -->
+
+            <div id="contentForms"
+                 class="content-forms">
 
                 {% for content_form in content_formset %}
 
-                <div
-                    class="dynamic-content-card"
-                    data-form-index="{{ forloop.counter0 }}"
-                >
+                <div class="content-item">
 
-                    {{ content_form.id }}
+                    <div class="content-top">
 
-                    <div class="dynamic-content-header">
+                        <div class="content-number">
+                            {{ forloop.counter|stringformat:"02d" }}
+                        </div>
 
-                        <strong>
-                            Gallery Item {{ forloop.counter }}
-                        </strong>
+                        <div class="content-title">
 
-                        <button
-                            type="button"
-                            class="remove-content-btn"
-                        >
+                            {% if content_form.instance.content_type == "video" %}
+                                <span class="type-badge video-type">
+                                    <i class="fas fa-video"></i>
+                                    Video
+                                </span>
+                            {% else %}
+                                <span class="type-badge image-type">
+                                    <i class="fas fa-image"></i>
+                                    Image
+                                </span>
+                            {% endif %}
 
-                            <i class="bi bi-trash3"></i>
-
-                        </button>
+                        </div>
 
                     </div>
 
 
-                    <div class="dynamic-grid">
+                    <!-- HIDDEN ID -->
 
-                        <div class="field">
+                    {{ content_form.id }}
+
+
+                    <!-- DELETE CHECKBOX -->
+
+                    <div class="delete-existing">
+
+                        {{ content_form.DELETE }}
+
+                        <label for="{{ content_form.DELETE.id_for_label }}">
+                            Delete this media
+                        </label>
+
+                    </div>
+
+
+                    <div class="media-grid">
+
+                        <!-- TYPE -->
+
+                        <div class="field-group">
 
                             <label>
-                                Content Type
+                                Media Type
                             </label>
 
                             {{ content_form.content_type }}
@@ -608,7 +369,48 @@ Edit {{ project.title }} | Midhlaj Dev
                         </div>
 
 
-                        <div class="field">
+                        <!-- TITLE -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Media Title
+                            </label>
+
+                            {{ content_form.title }}
+
+                        </div>
+
+
+                        <!-- IMAGE -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Replace Image
+                            </label>
+
+                            {{ content_form.image }}
+
+                        </div>
+
+
+                        <!-- VIDEO -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Replace Video
+                            </label>
+
+                            {{ content_form.video }}
+
+                        </div>
+
+
+                        <!-- ORDER -->
+
+                        <div class="field-group">
 
                             <label>
                                 Order
@@ -619,76 +421,98 @@ Edit {{ project.title }} | Midhlaj Dev
                         </div>
 
 
-                        <div class="field full">
+                        <!-- ACTIVE -->
+
+                        <div class="field-group checkbox-field">
+
+                            {{ content_form.is_active }}
 
                             <label>
-                                Title
+                                Active
                             </label>
-
-                            {{ content_form.title }}
 
                         </div>
 
 
-                        <div class="field full">
+                        <!-- PARAGRAPH -->
+
+                        <div class="field-group full-field">
 
                             <label>
-                                Image
-                            </label>
-
-                            {{ content_form.image }}
-
-                        </div>
-
-
-                        <div class="field full">
-
-                            <label>
-                                Video
-                            </label>
-
-                            {{ content_form.video }}
-
-                        </div>
-
-
-                        <div class="field full">
-
-                            <label>
-                                Description
+                                Media Description
                             </label>
 
                             {{ content_form.paragraph }}
 
                         </div>
 
+                    </div>
 
-                        <div class="dynamic-active">
 
-                            {{ content_form.is_active }}
+                    <!-- CURRENT MEDIA PREVIEW -->
 
-                            <span>
-                                Active
-                            </span>
+                    {% if content_form.instance.image %}
 
+                    <div class="existing-preview">
+
+                        <div class="preview-heading">
+                            <i class="fas fa-image"></i>
+                            Current Image
                         </div>
 
-
-                        {% if content_form.DELETE %}
-
-                        <div class="delete-field">
-
-                            {{ content_form.DELETE }}
-
-                            <span>
-                                Delete this item
-                            </span>
-
-                        </div>
-
-                        {% endif %}
+                        <img src="{{ content_form.instance.image.url }}"
+                             alt="{{ content_form.instance.title|default:project.title }}">
 
                     </div>
+
+                    {% endif %}
+
+
+                    {% if content_form.instance.video %}
+
+                    <div class="existing-preview">
+
+                        <div class="preview-heading">
+                            <i class="fas fa-video"></i>
+                            Current Video
+                        </div>
+
+                        <video controls>
+
+                            <source src="{{ content_form.instance.video.url }}">
+
+                            Your browser does not support video playback.
+
+                        </video>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    {% if content_form.errors %}
+
+                    <div class="form-errors">
+
+                        {{ content_form.errors }}
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                {% empty %}
+
+                <div class="empty-media">
+
+                    <i class="fas fa-photo-video"></i>
+
+                    <h3>No project media yet</h3>
+
+                    <p>
+                        Add your first image or video using the buttons above.
+                    </p>
 
                 </div>
 
@@ -697,100 +521,174 @@ Edit {{ project.title }} | Midhlaj Dev
             </div>
 
 
-            <button
-                type="button"
-                class="add-more-media"
-                id="addContentBtn"
-            >
+            <!-- ==================================================
+                 EMPTY FORM TEMPLATE
+            =================================================== -->
 
-                <i class="bi bi-plus-circle"></i>
+            <template id="emptyFormTemplate">
 
-                Add more images or videos
+                <div class="content-item new-content-item">
 
-            </button>
+                    <div class="content-top">
+
+                        <div class="content-number">
+                            00
+                        </div>
+
+                        <div class="content-title">
+
+                            <span class="type-badge image-type">
+                                <i class="fas fa-image"></i>
+                                New Media
+                            </span>
+
+                        </div>
+
+                        <button type="button"
+                                class="delete-new-btn">
+
+                            <i class="fas fa-trash"></i>
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- ID -->
+
+                    {{ content_formset.empty_form.id }}
+
+
+                    <div class="media-grid">
+
+                        <!-- TYPE -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Media Type
+                            </label>
+
+                            {{ content_formset.empty_form.content_type }}
+
+                        </div>
+
+
+                        <!-- TITLE -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Media Title
+                            </label>
+
+                            {{ content_formset.empty_form.title }}
+
+                        </div>
+
+
+                        <!-- IMAGE -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Image
+                            </label>
+
+                            {{ content_formset.empty_form.image }}
+
+                        </div>
+
+
+                        <!-- VIDEO -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Video
+                            </label>
+
+                            {{ content_formset.empty_form.video }}
+
+                        </div>
+
+
+                        <!-- ORDER -->
+
+                        <div class="field-group">
+
+                            <label>
+                                Order
+                            </label>
+
+                            {{ content_formset.empty_form.order }}
+
+                        </div>
+
+
+                        <!-- ACTIVE -->
+
+                        <div class="field-group checkbox-field">
+
+                            {{ content_formset.empty_form.is_active }}
+
+                            <label>
+                                Active
+                            </label>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="field-group full-field">
+
+                            <label>
+                                Media Description
+                            </label>
+
+                            {{ content_formset.empty_form.paragraph }}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </template>
+
 
         </section>
 
 
-        <!-- =================================================
-             04 TECHNOLOGIES
-        ================================================== -->
+        <!-- ==================================================
+             LINKS
+        =================================================== -->
 
         <section class="form-card">
 
             <div class="card-heading">
 
-                <span class="heading-number">
-                    4
-                </span>
+                <div class="heading-icon green">
+                    <i class="fas fa-link"></i>
+                </div>
 
                 <div>
-
-                    <h2>
-                        Technologies Used
-                    </h2>
-
-                    <p>
-                        Separate technologies using commas.
-                    </p>
-
+                    <h2>Project Links</h2>
+                    <p>GitHub repository and live project.</p>
                 </div>
 
             </div>
 
 
-            <div class="technology-box">
+            <div class="form-grid">
 
-                {{ form.technologies }}
-
-            </div>
-
-
-            {% if form.technologies.errors %}
-
-            <div class="field-error">
-                {{ form.technologies.errors }}
-            </div>
-
-            {% endif %}
-
-        </section>
-
-
-        <!-- =================================================
-             05 PROJECT LINKS
-        ================================================== -->
-
-        <section class="form-card">
-
-            <div class="card-heading">
-
-                <span class="heading-number">
-                    5
-                </span>
-
-                <div>
-
-                    <h2>
-                        Project Links
-                    </h2>
-
-                    <p>
-                        Update your GitHub and live project links.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="links-grid">
-
-                <div class="field">
+                <div class="field-group">
 
                     <label>
-                        <i class="bi bi-github"></i>
-                        GitHub Repository
+                        GitHub URL
                     </label>
 
                     {{ form.github_url }}
@@ -798,11 +696,10 @@ Edit {{ project.title }} | Midhlaj Dev
                 </div>
 
 
-                <div class="field">
+                <div class="field-group">
 
                     <label>
-                        <i class="bi bi-globe2"></i>
-                        Live Demo URL
+                        Live Project URL
                     </label>
 
                     {{ form.live_url }}
@@ -814,28 +711,21 @@ Edit {{ project.title }} | Midhlaj Dev
         </section>
 
 
-        <!-- =================================================
-             06 PROJECT SETTINGS
-        ================================================== -->
+        <!-- ==================================================
+             PROJECT SETTINGS
+        =================================================== -->
 
         <section class="form-card">
 
             <div class="card-heading">
 
-                <span class="heading-number">
-                    6
-                </span>
+                <div class="heading-icon orange">
+                    <i class="fas fa-sliders-h"></i>
+                </div>
 
                 <div>
-
-                    <h2>
-                        Project Settings
-                    </h2>
-
-                    <p>
-                        Configure project visibility and status.
-                    </p>
-
+                    <h2>Project Settings</h2>
+                    <p>Control how this project appears on your website.</p>
                 </div>
 
             </div>
@@ -843,72 +733,59 @@ Edit {{ project.title }} | Midhlaj Dev
 
             <div class="settings-grid">
 
-
-                <label class="setting-card">
+                <label class="setting-box">
 
                     {{ form.featured }}
 
-                    <span class="setting-icon">
-                        <i class="bi bi-star-fill"></i>
-                    </span>
-
-                    <span class="setting-content">
+                    <div>
 
                         <strong>
                             Featured Project
                         </strong>
 
-                        <small>
-                            Show this project on homepage.
-                        </small>
+                        <span>
+                            Show this project in the featured section.
+                        </span>
 
-                    </span>
+                    </div>
 
                 </label>
 
 
-                <label class="setting-card">
+                <label class="setting-box">
 
                     {{ form.recent }}
 
-                    <span class="setting-icon">
-                        <i class="bi bi-clock-history"></i>
-                    </span>
-
-                    <span class="setting-content">
+                    <div>
 
                         <strong>
                             Recent Project
                         </strong>
 
-                        <small>
-                            Show in recent projects.
-                        </small>
+                        <span>
+                            Show this project in Recent Projects.
+                        </span>
 
-                    </span>
+                    </div>
 
                 </label>
 
 
-                <label class="setting-card">
+                <label class="setting-box">
 
                     {{ form.is_active }}
 
-                    <span class="setting-icon">
-                        <i class="bi bi-eye-fill"></i>
-                    </span>
-
-                    <span class="setting-content">
+                    <div>
 
                         <strong>
-                            Project Active
+                            Active Project
                         </strong>
 
-                        <small>
-                            Make this project visible.
-                        </small>
+                        <span>
+                            Make this project visible on the website.
+                        </span>
 
-                    </span>
+                    </div>
 
                 </label>
 
@@ -917,32 +794,41 @@ Edit {{ project.title }} | Midhlaj Dev
         </section>
 
 
-        <!-- =================================================
+        <!-- ==================================================
+             FORM ERRORS
+        =================================================== -->
+
+        {% if form.non_field_errors %}
+
+        <div class="form-errors">
+
+            {{ form.non_field_errors }}
+
+        </div>
+
+        {% endif %}
+
+
+        <!-- ==================================================
              ACTIONS
-        ================================================== -->
+        =================================================== -->
 
         <div class="form-actions">
 
-            <a
-                href="{% url 'project_detail' project.slug %}"
-                class="cancel-btn"
-            >
-
-                <i class="bi bi-arrow-left"></i>
+            <a href="{% url 'project_detail' project.slug %}"
+               class="cancel-btn">
 
                 Cancel
 
             </a>
 
 
-            <button
-                type="submit"
-                class="save-btn"
-            >
+            <button type="submit"
+                    class="save-btn">
 
-                <i class="bi bi-save2"></i>
+                <i class="fas fa-save"></i>
 
-                Update Project
+                Save Changes
 
             </button>
 
@@ -950,245 +836,271 @@ Edit {{ project.title }} | Midhlaj Dev
 
     </form>
 
-</div>
-
-{% endblock %}
+</main>
 
 
-{% block extra_js %}
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =====================================================
-       COVER IMAGE PREVIEW
-    ===================================================== */
+    const addImageBtn =
+        document.getElementById("addImageBtn");
 
-    const coverInput =
-        document.getElementById(
-            "{{ form.cover_image.id_for_label }}"
-        );
-
-    const coverPreview =
-        document.getElementById("coverPreview");
-
-
-    if (coverInput && coverPreview) {
-
-        coverInput.addEventListener(
-            "change",
-            function () {
-
-                const file = this.files[0];
-
-                if (!file) {
-                    return;
-                }
-
-                if (!file.type.startsWith("image/")) {
-                    return;
-                }
-
-                const reader = new FileReader();
-
-                reader.onload = function (event) {
-
-                    coverPreview.innerHTML = `
-                        <img
-                            src="${event.target.result}"
-                            alt="Cover Preview"
-                        >
-                    `;
-
-                };
-
-                reader.readAsDataURL(file);
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       DESCRIPTION COUNTER
-    ===================================================== */
-
-    const description =
-        document.getElementById(
-            "{{ form.description.id_for_label }}"
-        );
-
-    const counter =
-        document.getElementById(
-            "descriptionCounter"
-        );
-
-
-    function updateCounter() {
-
-        if (!description || !counter) {
-            return;
-        }
-
-        counter.textContent =
-            description.value.length;
-
-    }
-
-
-    if (description) {
-
-        updateCounter();
-
-        description.addEventListener(
-            "input",
-            updateCounter
-        );
-
-    }
-
-
-    /* =====================================================
-       ADD DYNAMIC CONTENT
-    ===================================================== */
-
-    const addContentBtn =
-        document.getElementById(
-            "addContentBtn"
-        );
+    const addVideoBtn =
+        document.getElementById("addVideoBtn");
 
     const contentForms =
-        document.getElementById(
-            "contentForms"
-        );
+        document.getElementById("contentForms");
 
     const totalForms =
         document.getElementById(
             "id_contents-TOTAL_FORMS"
         );
 
+    const template =
+        document.getElementById(
+            "emptyFormTemplate"
+        );
+
+
+    console.log("Project Media JS Loaded");
+
 
     if (
-        addContentBtn &&
-        contentForms &&
-        totalForms
+        !addImageBtn ||
+        !addVideoBtn ||
+        !contentForms ||
+        !totalForms ||
+        !template
     ) {
 
-        addContentBtn.addEventListener(
-            "click",
-            function () {
+        console.error(
+            "Project content formset elements missing."
+        );
 
-                const formCount =
-                    parseInt(
-                        totalForms.value,
-                        10
-                    );
+        return;
+
+    }
 
 
-                const firstCard =
-                    contentForms.querySelector(
-                        ".dynamic-content-card"
-                    );
+    function addMedia(type) {
+
+        const index =
+            parseInt(totalForms.value);
 
 
-                if (!firstCard) {
-                    return;
+        let html =
+            template.innerHTML.replace(
+                /__prefix__/g,
+                index
+            );
+
+
+        contentForms.insertAdjacentHTML(
+            "beforeend",
+            html
+        );
+
+
+        totalForms.value =
+            index + 1;
+
+
+        const newItem =
+            contentForms.lastElementChild;
+
+
+        /* ==========================
+           TYPE
+        ========================== */
+
+        const typeSelect =
+            newItem.querySelector(
+                'select[name$="-content_type"]'
+            );
+
+
+        if (typeSelect) {
+
+            typeSelect.value = type;
+
+        }
+
+
+        /* ==========================
+           TITLE
+        ========================== */
+
+        const title =
+            newItem.querySelector(
+                'input[name$="-title"]'
+            );
+
+
+        if (title) {
+
+            title.placeholder =
+                type === "image"
+                    ? "Image title"
+                    : "Video title";
+
+        }
+
+
+        /* ==========================
+           FILE INPUTS
+        ========================== */
+
+        const imageInput =
+            newItem.querySelector(
+                'input[type="file"][name$="-image"]'
+            );
+
+
+        const videoInput =
+            newItem.querySelector(
+                'input[type="file"][name$="-video"]'
+            );
+
+
+        if (type === "image") {
+
+            if (imageInput) {
+
+                imageInput.required = true;
+
+            }
+
+            if (videoInput) {
+
+                videoInput.required = false;
+
+            }
+
+        }
+
+
+        if (type === "video") {
+
+            if (imageInput) {
+
+                imageInput.required = false;
+
+            }
+
+            if (videoInput) {
+
+                videoInput.required = true;
+
+            }
+
+        }
+
+
+        /* ==========================
+           BADGE
+        ========================== */
+
+        const badge =
+            newItem.querySelector(
+                ".type-badge"
+            );
+
+
+        if (badge) {
+
+            if (type === "image") {
+
+                badge.className =
+                    "type-badge image-type";
+
+                badge.innerHTML =
+                    '<i class="fas fa-image"></i> Image';
+
+            } else {
+
+                badge.className =
+                    "type-badge video-type";
+
+                badge.innerHTML =
+                    '<i class="fas fa-video"></i> Video';
+
+            }
+
+        }
+
+
+        /* ==========================
+           REMOVE BUTTON
+        ========================== */
+
+        const removeBtn =
+            newItem.querySelector(
+                ".delete-new-btn"
+            );
+
+
+        if (removeBtn) {
+
+            removeBtn.addEventListener(
+                "click",
+                function () {
+
+                    newItem.remove();
+
+                    updateNumbers();
+
                 }
+            );
+
+        }
 
 
-                const newCard =
-                    firstCard.cloneNode(true);
+        updateNumbers();
 
 
-                /* -----------------------------------------
-                   Replace form index
-                ----------------------------------------- */
+        console.log(
+            "Added:",
+            type,
+            "Index:",
+            index
+        );
 
-                newCard.innerHTML =
-                    newCard.innerHTML.replace(
-                        /contents-\d+-/g,
-                        `contents-${formCount}-`
+    }
+
+
+    /* ==========================
+       NUMBER UPDATE
+    ========================== */
+
+    function updateNumbers() {
+
+        const items =
+            contentForms.querySelectorAll(
+                ".content-item"
+            );
+
+
+        items.forEach(
+            function (item, index) {
+
+                const number =
+                    item.querySelector(
+                        ".content-number"
                     );
 
 
-                /* -----------------------------------------
-                   Update title
-                ----------------------------------------- */
+                if (number) {
 
-                newCard.innerHTML =
-                    newCard.innerHTML.replace(
-                        /Gallery Item \d+/g,
-                        `Gallery Item ${formCount + 1}`
-                    );
+                    number.textContent =
+                        String(index + 1)
+                        .padStart(2, "0");
 
-
-                /* -----------------------------------------
-                   Clear fields
-                ----------------------------------------- */
-
-                newCard
-                    .querySelectorAll(
-                        "input, textarea, select"
-                    )
-                    .forEach(
-                        function (field) {
-
-                            if (
-                                field.type === "hidden"
-                            ) {
-
-                                if (
-                                    field.name.endsWith("-id")
-                                ) {
-                                    field.value = "";
-                                }
-
-                                return;
-
-                            }
-
-
-                            if (
-                                field.type === "checkbox"
-                            ) {
-
-                                field.checked = true;
-
-                                return;
-
-                            }
-
-
-                            field.value = "";
-
-                        }
-                    );
-
-
-                /* -----------------------------------------
-                   Remove old preview
-                ----------------------------------------- */
-
-                const oldPreview =
-                    newCard.querySelector(
-                        ".dynamic-image-preview"
-                    );
-
-
-                if (oldPreview) {
-                    oldPreview.innerHTML = "";
                 }
-
-
-                contentForms.appendChild(
-                    newCard
-                );
-
-
-                totalForms.value =
-                    formCount + 1;
 
             }
         );
@@ -1196,155 +1108,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =====================================================
-       REMOVE DYNAMIC CONTENT
-    ===================================================== */
+    /* ==========================
+       BUTTONS
+    ========================== */
 
-    document.addEventListener(
+    addImageBtn.addEventListener(
         "click",
-        function (event) {
+        function () {
 
-            const button =
-                event.target.closest(
-                    ".remove-content-btn"
-                );
-
-
-            if (!button) {
-                return;
-            }
-
-
-            const card =
-                button.closest(
-                    ".dynamic-content-card"
-                );
-
-
-            if (!card) {
-                return;
-            }
-
-
-            const deleteInput =
-                card.querySelector(
-                    'input[name$="-DELETE"]'
-                );
-
-
-            if (deleteInput) {
-
-                deleteInput.checked = true;
-
-                card.style.display = "none";
-
-            } else {
-
-                card.remove();
-
-            }
+            addMedia("image");
 
         }
     );
 
 
-    /* =====================================================
-       MEDIA ADD BUTTONS
-    ===================================================== */
+    addVideoBtn.addEventListener(
+        "click",
+        function () {
 
-    const addImageBtn =
-        document.getElementById(
-            "addImageBtn"
-        );
+            addMedia("video");
 
-    const addVideoBtn =
-        document.getElementById(
-            "addVideoBtn"
-        );
+        }
+    );
 
 
-    if (addImageBtn) {
-
-        addImageBtn.addEventListener(
-            "click",
-            function () {
-
-                addContentBtn.click();
-
-                setTimeout(
-                    function () {
-
-                        const cards =
-                            contentForms.querySelectorAll(
-                                ".dynamic-content-card"
-                            );
-
-                        const lastCard =
-                            cards[cards.length - 1];
-
-                        if (!lastCard) {
-                            return;
-                        }
-
-                        const type =
-                            lastCard.querySelector(
-                                'select[name$="-content_type"]'
-                            );
-
-                        if (type) {
-                            type.value = "image";
-                        }
-
-                    },
-                    50
-                );
-
-            }
-        );
-
-    }
-
-
-    if (addVideoBtn) {
-
-        addVideoBtn.addEventListener(
-            "click",
-            function () {
-
-                addContentBtn.click();
-
-                setTimeout(
-                    function () {
-
-                        const cards =
-                            contentForms.querySelectorAll(
-                                ".dynamic-content-card"
-                            );
-
-                        const lastCard =
-                            cards[cards.length - 1];
-
-                        if (!lastCard) {
-                            return;
-                        }
-
-                        const type =
-                            lastCard.querySelector(
-                                'select[name$="-content_type"]'
-                            );
-
-                        if (type) {
-                            type.value = "video";
-                        }
-
-                    },
-                    50
-                );
-
-            }
-        );
-
-    }
+    updateNumbers();
 
 });
 

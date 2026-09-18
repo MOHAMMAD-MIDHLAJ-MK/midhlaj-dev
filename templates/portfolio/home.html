@@ -505,14 +505,10 @@ Home | Midhlaj Dev
 
     </section>
 
-
-
-    <!-- =====================================================
-         RECENT PROJECTS
-         ===================================================== -->
-<!-- =========================
+<!-- =====================================================
      RECENT PROJECTS
-========================= -->
+===================================================== -->
+
 <section class="recent-projects-section">
 
     <div class="section-heading">
@@ -522,7 +518,6 @@ Home | Midhlaj Dev
             View All Projects →
         </a>
     </div>
-
 
     <div class="projects-horizontal">
 
@@ -537,66 +532,30 @@ Home | Midhlaj Dev
                 {% if project.cover_image %}
                     <img src="{{ project.cover_image.url }}"
                          alt="{{ project.title }}">
-
                 {% elif project.image %}
                     <img src="{{ project.image.url }}"
                          alt="{{ project.title }}">
-
-                {% else %}
-                    <div class="project-placeholder">
-                        <span>Project</span>
-                    </div>
                 {% endif %}
 
             </div>
 
-
-            <!-- Project Content -->
+            <!-- Project Name Only -->
             <div class="project-content">
-
-                <span class="project-category">
-                    {{ project.get_category_display }}
-                </span>
-
                 <h3>{{ project.title }}</h3>
-
-                {% if project.description %}
-                    <p>
-                        {{ project.description|truncatewords:15 }}
-                    </p>
-                {% endif %}
-
-
-                <!-- Technologies -->
-                {% if project.technology_list %}
-                <div class="project-tech">
-
-                    {% for tech in project.technology_list|slice:":3" %}
-                        <span>{{ tech }}</span>
-                    {% endfor %}
-
-                    {% if project.technology_list|length > 3 %}
-                        <span>+{{ project.technology_list|length|add:"-3" }}</span>
-                    {% endif %}
-
-                </div>
-                {% endif %}
-
             </div>
 
         </a>
 
         {% empty %}
 
-        <div class="no-projects">
-            <p>No recent projects available.</p>
-        </div>
+        <p>No recent projects available.</p>
 
         {% endfor %}
 
     </div>
 
 </section>
+
     <!-- =====================================================
          ABOUT PREVIEW
          ===================================================== -->

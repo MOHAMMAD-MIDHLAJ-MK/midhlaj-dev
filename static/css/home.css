@@ -1962,432 +1962,101 @@ body.dark .about-preview {
         transition: none !important;
     }
 }
-
 /* =====================================================
-   RECENT PROJECTS — FINAL RESPONSIVE FIX
-===================================================== */
-
-.home-page .recent-projects-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 60px 0 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-}
-
-.home-page .recent-projects-section .section-heading {
-    width: 100% !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    margin: 0 0 24px !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-}
-
-.home-page .recent-projects-section .section-heading h2 {
-    margin: 0 !important;
-}
-
-
-/* =====================================================
-   DESKTOP — 4 CARDS
+   RECENT PROJECTS
+   IMAGE + NAME ONLY
 ===================================================== */
 
 .home-page .projects-horizontal {
-    width: 100% !important;
-    max-width: 100% !important;
-
-    display: grid !important;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr)) !important;
-
-    gap: 18px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    box-sizing: border-box !important;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
 }
-
-
-/* =====================================================
-   PROJECT CARD RESET
-===================================================== */
 
 .home-page .projects-horizontal .project-card {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: hidden;
 
-    display: block !important;
-
-    margin: 0 !important;
-
-    box-sizing: border-box !important;
-
-    overflow: hidden !important;
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
-
-/* =====================================================
-   PROJECT IMAGE
-===================================================== */
-
 .home-page .projects-horizontal .project-image {
-    width: 100% !important;
-    height: auto !important;
-
-    aspect-ratio: 16 / 10 !important;
-
-    overflow: hidden !important;
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
 }
 
 .home-page .projects-horizontal .project-image img {
-    width: 100% !important;
-    height: 100% !important;
-
-    object-fit: cover !important;
-
-    display: block !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-
-
-/* =====================================================
-   PROJECT CONTENT
-===================================================== */
 
 .home-page .projects-horizontal .project-content {
-    width: 100% !important;
-    box-sizing: border-box !important;
+    padding: 8px 6px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+}
+
+.home-page .projects-horizontal .project-content h3 {
+    margin: 0;
+
+    font-size: 15px;
+    line-height: 1.2;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 
 /* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-    .home-page .projects-horizontal {
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr)) !important;
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE — HORIZONTAL SCROLL
+   MOBILE
 ===================================================== */
 
 @media (max-width: 767px) {
 
-    .home-page .recent-projects-section {
-        width: 100% !important;
-        margin-top: 40px !important;
-        padding: 0 12px !important;
-    }
-
-
-    .home-page .recent-projects-section .section-heading {
-        margin-bottom: 14px !important;
-    }
-
-
     .home-page .projects-horizontal {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
 
-        display: flex !important;
-
-        flex-wrap: nowrap !important;
-
-        width: 100% !important;
-
-        gap: 8px !important;
-
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
-
-        padding: 0 0 8px !important;
-
-        box-sizing: border-box !important;
-
-        scrollbar-width: none !important;
-
-        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
     }
-
 
     .home-page .projects-horizontal::-webkit-scrollbar {
-        display: none !important;
+        display: none;
     }
-
-
-    /* 4 cards visible */
 
     .home-page .projects-horizontal .project-card {
+        flex: 0 0 85px;
+        width: 85px;
+        min-width: 85px;
 
-        flex: 0 0 calc(
-            (100% - 24px) / 4
-        ) !important;
-
-        width: calc(
-            (100% - 24px) / 4
-        ) !important;
-
-        min-width: calc(
-            (100% - 24px) / 4
-        ) !important;
-
-        max-width: calc(
-            (100% - 24px) / 4
-        ) !important;
+        height: auto;
     }
-
 
     .home-page .projects-horizontal .project-image {
-        aspect-ratio: 1 / 1 !important;
+        width: 85px;
+        height: 65px;
     }
-
-}
-/* =====================================================
-   LAPTOP + DESKTOP RESPONSIVE FIX
-===================================================== */
-
-/* 1200px - 1600px laptop/desktop */
-
-@media (min-width: 768px) and (max-width: 1600px) {
-
-    .home-page {
-        width: 100%;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 25px;
-        padding-right: 25px;
-        box-sizing: border-box;
-    }
-
-
-    /* ==============================
-       TECHNOLOGIES
-    ============================== */
-
-    .home-page .tech-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-
-    .home-page .tech-card {
-        width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-
-    /* ==============================
-       WHAT I DO
-    ============================== */
-
-    .home-page .service-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-    }
-
-
-    .home-page .service-card {
-        width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-
-    /* ==============================
-       RECENT PROJECTS
-    ============================== */
-
-    .home-page .recent-projects-section {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        box-sizing: border-box !important;
-    }
-
-
-    .home-page .projects-horizontal {
-
-        width: 100% !important;
-
-        display: grid !important;
-
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr)) !important;
-
-        gap: 18px !important;
-
-        margin: 0 !important;
-        padding: 0 !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    .home-page .projects-horizontal .project-card {
-
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: none !important;
-
-        box-sizing: border-box !important;
-    }
-
-
-    .home-page .projects-horizontal .project-image {
-
-        width: 100% !important;
-
-        aspect-ratio: 16 / 10 !important;
-
-        height: auto !important;
-    }
-
-
-    .home-page .projects-horizontal .project-image img {
-
-        width: 100% !important;
-        height: 100% !important;
-
-        object-fit: cover !important;
-    }
-
-
-    /* ==============================
-       ABOUT PREVIEW
-    ============================== */
-
-    .home-page .about-preview {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-}
-
-
-/* =====================================================
-   SMALL LAPTOP — 768px to 1100px
-===================================================== */
-
-@media (min-width: 768px) and (max-width: 1100px) {
-
-    .home-page {
-        max-width: 100%;
-        padding-left: 22px;
-        padding-right: 22px;
-    }
-
-
-    /* Technologies */
-
-    .home-page .tech-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-
-    /* Services */
-
-    .home-page .service-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
-    }
-
-
-    /* Projects */
-
-    .home-page .projects-horizontal {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr)) !important;
-
-        gap: 16px !important;
-    }
-
 
     .home-page .projects-horizontal .project-content {
-        padding: 14px;
+        padding: 5px 2px;
     }
 
-}
-
-
-/* =====================================================
-   NORMAL LAPTOP — 1101px to 1300px
-===================================================== */
-
-@media (min-width: 1101px) and (max-width: 1300px) {
-
-    .home-page {
-        max-width: 1150px;
-        padding-left: 20px;
-        padding-right: 20px;
+    .home-page .projects-horizontal .project-content h3 {
+        font-size: 10px;
+        line-height: 1.15;
+        text-align: left;
     }
-
-
-    .home-page .tech-grid {
-        grid-template-columns: repeat(8, minmax(0, 1fr));
-        gap: 9px;
-    }
-
-
-    .home-page .service-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-    }
-
-
-    .home-page .projects-horizontal {
-
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr)) !important;
-
-        gap: 15px !important;
-    }
-
-}
-
-
-/* =====================================================
-   LARGE DESKTOP
-===================================================== */
-
-@media (min-width: 1601px) {
-
-    .home-page {
-        width: 100%;
-        max-width: 1350px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 30px;
-        padding-right: 30px;
-        box-sizing: border-box;
-    }
-
-
-    .home-page .projects-horizontal {
-
-        grid-template-columns:
-            repeat(4, minmax(0, 1fr)) !important;
-
-        gap: 22px !important;
-    }
-
 }
