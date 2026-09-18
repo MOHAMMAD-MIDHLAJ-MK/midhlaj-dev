@@ -2060,3 +2060,26 @@ body.dark .about-preview {
         text-align: left;
     }
 }
+/* =====================================================
+   RECENT PROJECTS - MOBILE TITLE
+===================================================== */
+
+@media (max-width: 767px) {
+
+    .home-page .recent-projects-section
+    .projects-horizontal
+    .project-card
+    .project-content
+    h3 {
+        font-size: 11px !important;
+        line-height: 1.25 !important;
+        font-weight: 700 !important;
+        margin: 0 !important;
+
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+}
